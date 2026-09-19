@@ -85,7 +85,11 @@ This living document tracks the development trajectory, implemented features, de
   - **Workouts & HYROX Log ([/dashboard/workouts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/workouts/page.tsx))**: Interactive workout logger, 8-station PB split comparison, weekly mileage tracker, and session feed with discipline badges.
   - **Biometrics & Zones ([/dashboard/profile](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/profile/page.tsx))**: Dynamic 5-Zone Heart Rate calculator (Karvonen HRR formula), VO2 peak cart scores, and graded treadmill blood lactate step-test stage table.
   - **Coach Messages ([/dashboard/messages](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/messages/page.tsx))**: Live coach chat thread with Sunil Menon, Rashmi, and Dr. Physio, including workout analysis tags and instantaneous coach acknowledgment simulation.
-  - **Training Schedule ([/dashboard/schedule](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/schedule/page.tsx))**: Refactored to leverage shared `SessionCard` components.
+- [x] **Simplified Sign In & Registration Experience ([/auth](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/(public)/auth/page.tsx))**:
+  - Replaced the cluttered 12-column dual-sided screen with a sleek, centered single-card modal (inspired by Linear and Vercel).
+  - Streamlined 1-click demo entry buttons right at the top (`Athlete View` & `Coach Admin`).
+  - Minimized credential inputs to `Email + Password` for Sign In, and `Name + Email + Password` for Sign Up.
+  - Fully adaptive contrast: crisp `#ffffff` card surface in light mode, pitch-black `#0a140d` with glowing green halo in dark mode.
 
 ---
 
