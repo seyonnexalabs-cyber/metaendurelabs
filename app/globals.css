@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Baumans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default Pure Light Theme (Light mode default) */
+  --bg-deep: #ffffff;
+  --bg-dark: #f8faf9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f4f6f4;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+
+  --neon-green: #2e7d32;
+  --neon-green-bright: #388e3c;
+  --neon-green-glow: rgba(46, 125, 50, 0.25);
+  --neon-green-dim: rgba(46, 125, 50, 0.08);
+
+  --text-primary: #0a0e0a;
+  --text-secondary: #2d372e;
+  --text-muted: #5c6b5e;
+
+  --border-subtle: #e2e8e3;
+  --border-glow: rgba(46, 125, 50, 0.35);
+
+  --font-display: 'Baumans', cursive, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Complete Dark Theme (100% Pure Dark Mode) */
+html.dark,
+body.theme-dark {
+  --bg-deep: #000000;
+  --bg-dark: #050806;
+  --bg-surface: #0a0f0c;
+  --bg-surface-elevated: #111a13;
+  --bg-card: rgba(10, 15, 12, 0.9);
+  --bg-glass: rgba(8, 12, 9, 0.8);
+
+  --neon-green: #76C043;
+  --neon-green-bright: #8ff346;
+  --neon-green-glow: rgba(118, 192, 67, 0.38);
+  --neon-green-dim: rgba(118, 192, 67, 0.12);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #d1ded2;
+  --text-muted: #839785;
+
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(118, 192, 67, 0.45);
+
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  background-image: none !important;
+}
+
+/* Complete Pure Light Theme (100% Crisp White Light Mode) */
+html.light,
+body.theme-light {
+  --bg-deep: #ffffff;
+  --bg-dark: #f8faf9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f4f6f4;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.96);
+
+  --neon-green: #2e7d32;
+  --neon-green-bright: #388e3c;
+  --neon-green-glow: rgba(46, 125, 50, 0.25);
+  --neon-green-dim: rgba(46, 125, 50, 0.08);
+
+  --text-primary: #0a0e0a;
+  --text-secondary: #2d372e;
+  --text-muted: #5c6b5e;
+
+  --border-subtle: #e2e8e3;
+  --border-glow: rgba(46, 125, 50, 0.35);
+
+  background-color: #ffffff !important;
+  color: #0a0e0a !important;
+  background-image: none !important;
+}
+
+/* Role Specific Theme Tokens */
+:root {
+  --athlete-primary: #76C043;
+  --athlete-bright: #8ff346;
+  --athlete-dim: rgba(118, 192, 67, 0.12);
+  --athlete-glow: rgba(118, 192, 67, 0.35);
+
+  --admin-primary: #2563eb;
+  --admin-bright: #3b82f6;
+  --admin-dim: rgba(37, 99, 235, 0.12);
+  --admin-glow: rgba(37, 99, 235, 0.35);
+}
+
+/* Global Readability: Upgrade tiny text-[9px], text-[10px], text-[11px] to legible sizes */
+.text-\[9px\],
+.text-\[10px\],
+.text-\[11px\] {
+  font-size: 0.8125rem !important; /* 13px */
+  line-height: 1.25rem !important;
+}
+
+.text-xs {
+  font-size: 0.875rem !important; /* 14px */
+  line-height: 1.35rem !important;
+}
+
+/* Dark Mode Typography High-Contrast: Ensure gray and muted fonts are vivid and easy to read */
+body.theme-dark p,
+body.theme-dark .text-slate-400,
+body.theme-dark .text-zinc-400,
+body.theme-dark .text-zinc-500,
+body.theme-dark [class*="text-[#bdcebe]"],
+body.theme-dark [class*="text-[#788e7a]"] {
+  color: #d1ded2 !important; /* Crisp high-contrast silver-sage */
+}
+
+body.theme-dark .text-zinc-300 {
+  color: #f1f5f2 !important;
+}
+
+/* Light Mode Comprehensive Overrides: Solid Charcoal and Rich Slate for zero eye strain */
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light h4,
+body.theme-light h5,
+body.theme-light h6,
+body.theme-light .text-white {
+  color: #050806 !important; /* Deepest rich black */
+}
+
+body.theme-light p,
+body.theme-light .text-slate-400,
+body.theme-light .text-zinc-300,
+body.theme-light .text-zinc-400,
+body.theme-light [class*="text-[#bdcebe]"] {
+  color: #1f2920 !important; /* Crisp dark charcoal for paragraphs */
+  font-weight: 450;
+}
+
+body.theme-light .text-zinc-500,
+body.theme-light [class*="text-[#788e7a]"] {
+  color: #374738 !important; /* Deep legible forest gray */
+  font-weight: 500;
+}
+
+/* Ensure all card containers, panels, and dropdowns turn pure white with subtle shadow in light mode */
+body.theme-light [class*="bg-zinc-900"],
+body.theme-light [class*="bg-zinc-950"],
+body.theme-light [class*="bg-zinc-800"],
+body.theme-light [class*="bg-black"],
+body.theme-light [class*="bg-emerald-950"],
+body.theme-light [class*="from-emerald-950"],
+body.theme-light [class*="bg-[#0"],
+body.theme-light [class*="bg-[#1"] {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+body.theme-light .from-emerald-950\/40 {
+  background-image: none !important;
+  background-color: #ffffff !important;
+}
+
+/* Form inputs in light mode */
+body.theme-light input,
+body.theme-light textarea,
+body.theme-light select {
+  background-color: #ffffff !important;
+  color: #050806 !important;
+  border-color: #cbd5e1 !important;
+  font-size: 0.875rem !important;
+}
+
+body.theme-light input::placeholder,
+body.theme-light textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Subtle borders across cards in light mode */
+body.theme-light [class*="border-zinc-800"],
+body.theme-light [class*="border-zinc-700"],
+body.theme-light [class*="border-white"] {
+  border-color: #e5e7eb !important;
+}
+
+body.theme-light header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #e5e7eb !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.theme-light .glass-card {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Complete Pure Dark Mode Overrides */
+body.theme-dark {
+  background-color: #000000 !important;
+}
+
+body.theme-dark header {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.theme-dark .glass-card {
+  background-color: #080c09 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Form inputs in dark mode */
+body.theme-dark input,
+body.theme-dark textarea,
+body.theme-dark select {
+  background-color: #0d120e !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Global Body Base */
+body {
+  font-family: var(--font-body);
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Global H1 Typography Standard: Baumans */
+h1 {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.02em;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(118, 192, 67, 0.15);
+  transform: translateY(-3px);
+}
