@@ -5,7 +5,8 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { 
   CreditCard, ShieldCheck, Lock, CheckCircle2, 
-  QrCode, Building2, ArrowRight, Zap, RefreshCw, ChevronLeft
+  QrCode, Building2, ArrowRight, Zap, RefreshCw, ChevronLeft,
+  Sparkles, PartyPopper
 } from 'lucide-react';
 
 type GatewayProvider = 'razorpay' | 'stripe';
@@ -61,15 +62,31 @@ function DashboardCheckoutContent() {
       </div>
 
       {paymentSuccess ? (
-        <div className="p-8 sm:p-12 rounded-3xl bg-zinc-900 border border-emerald-500/40 text-center space-y-6 max-w-xl mx-auto animate-in zoom-in-95 duration-300">
-          <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
-            <CheckCircle2 className="w-10 h-10" />
+        <div className="relative p-8 sm:p-12 rounded-3xl bg-zinc-900/90 border border-emerald-500/50 text-center space-y-6 max-w-xl mx-auto animate-in zoom-in-95 duration-300 shadow-[0_0_50px_rgba(16,185,129,0.25)] overflow-hidden">
+          {/* Celebratory Floating Confetti Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-3 left-8 w-2.5 h-2.5 rounded-full bg-yellow-400 animate-ping" />
+            <div className="absolute top-8 right-12 w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="absolute top-16 left-1/4 w-2 h-4 rounded-sm bg-pink-500 rotate-45 animate-bounce" />
+            <div className="absolute top-12 right-1/4 w-2 h-3 rounded-sm bg-cyan-400 -rotate-12 animate-bounce" />
+            <div className="absolute bottom-10 left-10 w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
+            <div className="absolute bottom-12 right-8 w-3 h-2 rounded-sm bg-purple-400 rotate-12 animate-ping" />
+          </div>
+
+          <div className="relative">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-emerald-500 to-green-400 text-black mx-auto flex items-center justify-center shadow-lg shadow-emerald-500/40 animate-bounce">
+              <PartyPopper className="w-10 h-10 text-black" />
+            </div>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 mt-4">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+              Cohort Subscription Active
+            </span>
           </div>
 
           <div className="space-y-2">
-            <h2 className="text-2xl font-black text-white">Payment Confirmed!</h2>
-            <p className="text-xs text-zinc-300">
-              Your subscription has been updated. A tax invoice with GST breakdown has been issued.
+            <h2 className="text-3xl font-black text-white tracking-tight">Payment Confirmed! 🎉</h2>
+            <p className="text-xs text-zinc-300 leading-relaxed">
+              Welcome to the cohort! Your subscription has been activated. A tax invoice with GST breakdown has been issued.
             </p>
           </div>
 

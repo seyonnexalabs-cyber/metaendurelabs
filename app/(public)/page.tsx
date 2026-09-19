@@ -10,7 +10,15 @@ import {
   CheckCircle2, 
   Calendar,
   Layers,
-  Sparkles
+  Sparkles,
+  Shield,
+  TrendingUp,
+  Dumbbell,
+  Compass,
+  Award,
+  HeartPulse,
+  Clock,
+  Gauge
 } from 'lucide-react';
 import { HYROX_STATIONS } from '@/lib/constants';
 
@@ -47,27 +55,48 @@ export default function HomePage() {
                 href="/about"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/15 bg-white/[0.04] hover:bg-white/[0.08] hover:border-[#76C043]/50 transition-all"
               >
+                <Compass className="w-4 h-4 text-[#76C043]" />
                 <span>Explore Philosophy</span>
               </Link>
             </div>
 
             {/* Micro Stats Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-white/10">
-              <div>
-                <div className="font-mono text-2xl md:text-3xl font-bold text-white">10<span className="text-[#76C043]">+</span></div>
-                <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">Years Evolution</div>
+              <div className="flex items-start gap-2.5">
+                <div className="p-2 rounded-lg bg-[#76C043]/10 border border-[#76C043]/20 shrink-0 mt-1">
+                  <Clock className="w-4 h-4 text-[#76C043]" />
+                </div>
+                <div>
+                  <div className="font-mono text-2xl md:text-3xl font-bold text-white">10<span className="text-[#76C043]">+</span></div>
+                  <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">Years Evolution</div>
+                </div>
               </div>
-              <div>
-                <div className="font-mono text-2xl md:text-3xl font-bold text-white">18<span className="text-[#76C043]">kg</span></div>
-                <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">Body Recomp</div>
+              <div className="flex items-start gap-2.5">
+                <div className="p-2 rounded-lg bg-[#76C043]/10 border border-[#76C043]/20 shrink-0 mt-1">
+                  <TrendingUp className="w-4 h-4 text-[#76C043]" />
+                </div>
+                <div>
+                  <div className="font-mono text-2xl md:text-3xl font-bold text-white">18<span className="text-[#76C043]">kg</span></div>
+                  <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">Body Recomp</div>
+                </div>
               </div>
-              <div>
-                <div className="font-mono text-2xl md:text-3xl font-bold text-white">70.3</div>
-                <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">IRONMAN Finisher</div>
+              <div className="flex items-start gap-2.5">
+                <div className="p-2 rounded-lg bg-[#76C043]/10 border border-[#76C043]/20 shrink-0 mt-1">
+                  <Award className="w-4 h-4 text-[#76C043]" />
+                </div>
+                <div>
+                  <div className="font-mono text-2xl md:text-3xl font-bold text-white">70.3</div>
+                  <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">IRONMAN Finisher</div>
+                </div>
               </div>
-              <div>
-                <div className="font-mono text-2xl md:text-3xl font-bold text-white">8<span className="text-[#76C043]">-Station</span></div>
-                <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">HYROX Lab Arena</div>
+              <div className="flex items-start gap-2.5">
+                <div className="p-2 rounded-lg bg-[#76C043]/10 border border-[#76C043]/20 shrink-0 mt-1">
+                  <Dumbbell className="w-4 h-4 text-[#76C043]" />
+                </div>
+                <div>
+                  <div className="font-mono text-2xl md:text-3xl font-bold text-white">8<span className="text-[#76C043]">-Station</span></div>
+                  <div className="text-[11px] text-[#788e7a] font-mono uppercase tracking-wider mt-0.5">HYROX Lab Arena</div>
+                </div>
               </div>
             </div>
           </div>
@@ -116,66 +145,96 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-card p-8 flex flex-col justify-between border-t-2 border-t-[#76C043]/50 group hover:border-[#76C043] transition-all">
+          {/* Pillar 1: ENDURE */}
+          <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-emerald-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-emerald-400/70 hover:shadow-[0_0_35px_rgba(16,185,129,0.25)] transition-all flex flex-col justify-between">
             <div>
-              <div className="w-20 h-20 rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.5)] mb-6 group-hover:scale-105 transition-transform">
-                <img
-                  src="/assets/images/pillar-endure.png"
-                  alt="ENDURE Emblem"
-                  className="w-full h-full object-cover"
-                />
+              {/* Colorful Card Header Banner */}
+              <div className="h-32 bg-gradient-to-br from-emerald-500/25 via-emerald-600/15 to-transparent border-b border-emerald-500/20 p-6 flex items-center justify-between relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
+                <div className="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shadow-inner group-hover:scale-110 transition-transform">
+                  <Shield className="w-8 h-8 text-emerald-400" />
+                </div>
+                <span className="font-mono text-xs font-black tracking-widest text-emerald-300 bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/30">
+                  PILLAR 01
+                </span>
               </div>
-              <h3 className="font-heading text-xl font-bold text-white mb-2">ENDURE.</h3>
-              <div className="text-xs font-mono text-[#76C043] uppercase mb-4 tracking-wider">= Endurance &amp; Resilience</div>
-              <p className="text-xs text-[#bdcebe] leading-relaxed">
-                The foundational phase of resilience, grit, and survival. It represents the capacity to withstand hardships, absorb pressure, maintain discipline, and persist through setbacks without quitting.
-              </p>
+              <div className="p-7 space-y-3">
+                <h3 className="font-heading text-2xl font-black text-white">ENDURE.</h3>
+                <div className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
+                  = Endurance &amp; Resilience
+                </div>
+                <p className="text-xs text-zinc-300 dark:text-[#bdcebe] leading-relaxed">
+                  The foundational phase of resilience, grit, and survival. It represents the capacity to withstand hardships, absorb pressure, maintain discipline, and persist through setbacks without quitting.
+                </p>
+              </div>
             </div>
-            <div className="pt-6 border-t border-white/10 mt-6 flex items-center justify-between text-xs font-mono text-[#788e7a]">
+            <div className="p-6 pt-4 border-t border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-400">
               <span>Phase 01</span>
-              <span className="text-white font-bold">Zero Quitting</span>
+              <span className="text-emerald-400 font-bold flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5" /> Zero Quitting
+              </span>
             </div>
           </div>
 
-          <div className="glass-card p-8 flex flex-col justify-between border-t-2 border-t-[#76C043] group hover:shadow-[0_0_30px_rgba(118,192,67,0.25)] transition-all">
+          {/* Pillar 2: EVOLVE */}
+          <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-b from-cyan-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-cyan-400/70 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)] transition-all flex flex-col justify-between">
             <div>
-              <div className="w-20 h-20 rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.5)] mb-6 group-hover:scale-105 transition-transform">
-                <img
-                  src="/assets/images/pillar-evolve.png"
-                  alt="EVOLVE Emblem"
-                  className="w-full h-full object-cover"
-                />
+              {/* Colorful Card Header Banner */}
+              <div className="h-32 bg-gradient-to-br from-cyan-500/25 via-blue-600/15 to-transparent border-b border-cyan-500/20 p-6 flex items-center justify-between relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
+                <div className="w-16 h-16 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shadow-inner group-hover:scale-110 transition-transform">
+                  <Zap className="w-8 h-8 text-cyan-400" />
+                </div>
+                <span className="font-mono text-xs font-black tracking-widest text-cyan-300 bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-500/30">
+                  PILLAR 02
+                </span>
               </div>
-              <h3 className="font-heading text-xl font-bold text-white mb-2">EVOLVE.</h3>
-              <div className="text-xs font-mono text-[#76C043] uppercase mb-4 tracking-wider">= Mindset + Science</div>
-              <p className="text-xs text-[#bdcebe] leading-relaxed">
-                The intermediate phase of adaptation and intelligent growth. Once you survive initial pressure, you must learn, shift your mindset, update your fueling and training, and transform capabilities.
-              </p>
+              <div className="p-7 space-y-3">
+                <h3 className="font-heading text-2xl font-black text-white">EVOLVE.</h3>
+                <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
+                  = Mindset + Science
+                </div>
+                <p className="text-xs text-zinc-300 dark:text-[#bdcebe] leading-relaxed">
+                  The intermediate phase of adaptation and intelligent growth. Once you survive initial pressure, you must learn, shift your mindset, update your fueling and training, and transform capabilities.
+                </p>
+              </div>
             </div>
-            <div className="pt-6 border-t border-white/10 mt-6 flex items-center justify-between text-xs font-mono text-[#788e7a]">
+            <div className="p-6 pt-4 border-t border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-400">
               <span>Phase 02</span>
-              <span className="text-[#76C043] font-bold">Data Calibration</span>
+              <span className="text-cyan-400 font-bold flex items-center gap-1.5">
+                <Activity className="w-3.5 h-3.5" /> Data Calibration
+              </span>
             </div>
           </div>
 
-          <div className="glass-card p-8 flex flex-col justify-between border-t-2 border-t-[#76C043]/50 group hover:border-[#76C043] transition-all">
+          {/* Pillar 3: EXCEL */}
+          <div className="rounded-3xl border border-amber-500/30 bg-gradient-to-b from-amber-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-amber-400/70 hover:shadow-[0_0_35px_rgba(245,158,11,0.25)] transition-all flex flex-col justify-between">
             <div>
-              <div className="w-20 h-20 rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_25px_rgba(0,0,0,0.5)] mb-6 group-hover:scale-105 transition-transform">
-                <img
-                  src="/assets/images/pillar-excel.png"
-                  alt="EXCEL Emblem"
-                  className="w-full h-full object-cover"
-                />
+              {/* Colorful Card Header Banner */}
+              <div className="h-32 bg-gradient-to-br from-amber-500/25 via-yellow-600/15 to-transparent border-b border-amber-500/20 p-6 flex items-center justify-between relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl pointer-events-none" />
+                <div className="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 shadow-inner group-hover:scale-110 transition-transform">
+                  <Trophy className="w-8 h-8 text-amber-400" />
+                </div>
+                <span className="font-mono text-xs font-black tracking-widest text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30">
+                  PILLAR 03
+                </span>
               </div>
-              <h3 className="font-heading text-xl font-bold text-white mb-2">EXCEL.</h3>
-              <div className="text-xs font-mono text-[#76C043] uppercase mb-4 tracking-wider">= Performance &amp; Mastery</div>
-              <p className="text-xs text-[#bdcebe] leading-relaxed">
-                The ultimate phase of high achievement. By withstanding adversity and systematically adapting, you surpass limitations, outperform competitors, and claim your place on the podium.
-              </p>
+              <div className="p-7 space-y-3">
+                <h3 className="font-heading text-2xl font-black text-white">EXCEL.</h3>
+                <div className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">
+                  = Performance &amp; Mastery
+                </div>
+                <p className="text-xs text-zinc-300 dark:text-[#bdcebe] leading-relaxed">
+                  The ultimate phase of high achievement. By withstanding adversity and systematically adapting, you surpass limitations, outperform competitors, and claim your place on the podium.
+                </p>
+              </div>
             </div>
-            <div className="pt-6 border-t border-white/10 mt-6 flex items-center justify-between text-xs font-mono text-[#788e7a]">
+            <div className="p-6 pt-4 border-t border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-400">
               <span>Phase 03</span>
-              <span className="text-white font-bold">Podium &amp; Longevity</span>
+              <span className="text-amber-400 font-bold flex items-center gap-1.5">
+                <Trophy className="w-3.5 h-3.5" /> Podium &amp; Longevity
+              </span>
             </div>
           </div>
         </div>
@@ -183,44 +242,59 @@ export default function HomePage() {
 
       {/* 3. HYROX SIMULATION ARENA SHOWCASE */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="bg-gradient-to-r from-[#0d1e11] via-[#162f1c] to-[#0d1e11] border border-[#76C043]/30 rounded-3xl p-8 md:p-14 shadow-2xl">
+        <div className="bg-gradient-to-br from-[#76C043]/15 via-white to-emerald-50/60 dark:from-[#09180d] dark:via-[#112a17] dark:to-[#07130a] border-2 border-[#76C043]/40 rounded-3xl p-8 md:p-14 shadow-2xl dark:shadow-[0_10px_50px_rgba(0,0,0,0.85)] transition-colors">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-mono font-bold text-[#76C043] uppercase tracking-widest">
+              <span className="text-xs font-mono font-extrabold text-[#1b5e20] dark:text-[#8ff346] uppercase tracking-widest bg-[#76C043]/15 px-3 py-1 rounded-full border border-[#76C043]/30 inline-block">
                 Dedicated Arena
               </span>
-              <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-white mt-2">
-                HYROX <span className="text-[#76C043]">Simulation Lab</span>
+              <h2 className="font-heading text-3xl md:text-5xl font-black text-zinc-900 dark:text-white mt-3">
+                HYROX <span className="text-[#1b5e20] dark:text-[#8ff346]">Simulation Lab</span>
               </h2>
-              <p className="text-[#bdcebe] text-sm max-w-xl mt-2">
+              <p className="text-zinc-700 dark:text-[#d1ded2] text-sm md:text-base max-w-xl mt-2 font-medium leading-relaxed">
                 Race simulation arena equipped with authentic Concept2 SkiErgs, RowErgs, weighted sled lanes, and broad jump grids.
               </p>
             </div>
             <div className="flex items-center gap-3">
               <Link
                 href="/schedule"
-                className="px-6 py-3 rounded-xl bg-[#76C043] text-[#070e08] font-heading font-bold text-xs shadow-lg hover:bg-[#8ff346] transition-all"
+                className="px-6 py-3 rounded-xl bg-[#76C043] text-black font-heading font-extrabold text-xs shadow-lg shadow-[#76C043]/25 hover:bg-[#8ff346] hover:shadow-[#76C043]/40 hover:-translate-y-0.5 transition-all flex items-center gap-2"
               >
-                Book Simulation Wave
+                <Calendar className="w-4 h-4 text-black" />
+                <span>Book Simulation Wave</span>
               </Link>
               <Link
                 href="/your-sports"
-                className="px-6 py-3 rounded-xl border border-white/20 text-white font-heading font-semibold text-xs hover:bg-white/5 transition-all"
+                className="px-6 py-3 rounded-xl border border-zinc-300 dark:border-white/20 text-zinc-800 dark:text-white bg-white/60 dark:bg-white/5 font-heading font-bold text-xs hover:border-[#76C043]/50 transition-all shadow-sm flex items-center gap-2"
               >
-                View 8 Stations
+                <Gauge className="w-4 h-4 text-[#76C043]" />
+                <span>View 8 Stations</span>
               </Link>
             </div>
           </div>
 
-          {/* 8 Stations Compact Preview Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {HYROX_STATIONS.slice(0, 4).map((st) => (
-              <div key={st.num} className="bg-[#08120b] border border-white/10 rounded-xl p-4">
-                <div className="font-mono text-xs font-bold text-[#76C043] mb-1">{st.num}</div>
-                <div className="font-heading font-bold text-white text-sm mb-1">{st.name}</div>
-                <div className="text-[11px] text-[#788e7a] line-clamp-2">{st.focus}</div>
-              </div>
-            ))}
+          {/* 8 Stations Full Preview Grid */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between text-xs font-mono">
+              <span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                <Flame className="w-3.5 h-3.5 text-[#76C043]" />
+                The Complete 8-Station Sequence (Interspersed with 1,000m Runs)
+              </span>
+              <span className="text-[#1b5e20] dark:text-[#8ff346] font-bold">Total: 8km Run + 8 Stations</span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+              {HYROX_STATIONS.map((st) => (
+                <div key={st.num} className="bg-white/90 dark:bg-[#0b180e] border border-zinc-200 dark:border-white/10 rounded-2xl p-3.5 shadow-sm hover:border-[#76C043]/50 hover:shadow-md transition-all group">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="font-mono text-xs font-black text-[#1b5e20] dark:text-[#8ff346]">{st.num}</span>
+                    <Activity className="w-3 h-3 text-[#76C043] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="font-heading font-bold text-zinc-900 dark:text-white text-xs truncate mb-1">{st.name}</div>
+                  <div className="text-[10px] text-zinc-500 dark:text-[#788e7a] font-mono leading-tight">{st.distance}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -229,30 +303,45 @@ export default function HomePage() {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link href="/your-sports" className="glass-card p-6 flex items-center justify-between group">
-            <div>
-              <div className="text-xs font-mono text-[#76C043] uppercase">Explore Disciplines</div>
-              <div className="font-heading font-bold text-white text-base group-hover:text-[#76C043] transition-colors">
-                Your Sports Tabbed Arena
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-2xl bg-[#76C043]/10 border border-[#76C043]/20 group-hover:bg-[#76C043]/20 transition-colors">
+                <Compass className="w-5 h-5 text-[#76C043]" />
+              </div>
+              <div>
+                <div className="text-xs font-mono text-[#76C043] uppercase">Explore Disciplines</div>
+                <div className="font-heading font-bold text-white text-base group-hover:text-[#76C043] transition-colors">
+                  Your Sports Tabbed Arena
+                </div>
               </div>
             </div>
             <ArrowRight className="w-5 h-5 text-[#76C043] group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link href="/we-offer" className="glass-card p-6 flex items-center justify-between group">
-            <div>
-              <div className="text-xs font-mono text-[#76C043] uppercase">Coaching Tracks</div>
-              <div className="font-heading font-bold text-white text-base group-hover:text-[#76C043] transition-colors">
-                We Offer (6 Pillars)
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-2xl bg-[#76C043]/10 border border-[#76C043]/20 group-hover:bg-[#76C043]/20 transition-colors">
+                <Layers className="w-5 h-5 text-[#76C043]" />
+              </div>
+              <div>
+                <div className="text-xs font-mono text-[#76C043] uppercase">Coaching Tracks</div>
+                <div className="font-heading font-bold text-white text-base group-hover:text-[#76C043] transition-colors">
+                  We Offer (6 Pillars)
+                </div>
               </div>
             </div>
             <ArrowRight className="w-5 h-5 text-[#76C043] group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link href="/team" className="glass-card p-6 flex items-center justify-between group">
-            <div>
-              <div className="text-xs font-mono text-[#76C043] uppercase">Coaches &amp; Clinics</div>
-              <div className="font-heading font-bold text-white text-base group-hover:text-[#76C043] transition-colors">
-                Team &amp; Ecosystem
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-2xl bg-[#76C043]/10 border border-[#76C043]/20 group-hover:bg-[#76C043]/20 transition-colors">
+                <Sparkles className="w-5 h-5 text-[#76C043]" />
+              </div>
+              <div>
+                <div className="text-xs font-mono text-[#76C043] uppercase">Coaches &amp; Clinics</div>
+                <div className="font-heading font-bold text-white text-base group-hover:text-[#76C043] transition-colors">
+                  Team &amp; Ecosystem
+                </div>
               </div>
             </div>
             <ArrowRight className="w-5 h-5 text-[#76C043] group-hover:translate-x-1 transition-transform" />

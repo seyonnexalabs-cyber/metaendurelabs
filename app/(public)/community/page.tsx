@@ -97,48 +97,63 @@ export default function CommunityPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {upcomingEvents.map((evt) => (
-              <div
-                key={evt.id}
-                className="rounded-3xl bg-zinc-900/60 border border-zinc-800 p-6 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-zinc-900/90 transition-all group"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase">
-                      {evt.category}
-                    </span>
-                    <span className="text-[10px] text-zinc-500 font-mono">{evt.spots}</span>
-                  </div>
+            {upcomingEvents.map((evt, idx) => {
+              const themes = [
+                { border: 'border-emerald-500/30', header: 'from-emerald-500/25 via-emerald-600/10 to-transparent', iconColor: 'text-emerald-400', icon: Trophy },
+                { border: 'border-amber-500/30', header: 'from-amber-500/25 via-yellow-600/10 to-transparent', iconColor: 'text-amber-400', icon: Flame },
+                { border: 'border-cyan-500/30', header: 'from-cyan-500/25 via-blue-600/10 to-transparent', iconColor: 'text-cyan-400', icon: Calendar },
+              ];
+              const t = themes[idx % themes.length];
+              const Icon = t.icon;
 
+              return (
+                <div
+                  key={evt.id}
+                  className={`rounded-3xl bg-zinc-900/70 border ${t.border} overflow-hidden flex flex-col justify-between hover:bg-zinc-900/95 transition-all shadow-xl group`}
+                >
                   <div>
-                    <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">
-                      {evt.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-xs text-zinc-400 mt-2 font-mono">
-                      <span>{evt.date}</span> • <span>{evt.time}</span>
+                    {/* Colorful Card Header Banner */}
+                    <div className={`h-20 bg-gradient-to-r ${t.header} border-b border-white/10 p-4 px-5 flex items-center justify-between`}>
+                      <div className="w-10 h-10 rounded-xl bg-black/40 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon className={`w-5 h-5 ${t.iconColor}`} />
+                      </div>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-black/50 text-white border border-white/15 uppercase">
+                        {evt.category}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-xs text-emerald-400/80 mt-1">
-                      <MapPin className="w-3.5 h-3.5 shrink-0" />
-                      <span>{evt.location}</span>
+
+                    <div className="p-6 space-y-4">
+                      <div>
+                        <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">
+                          {evt.title}
+                        </h3>
+                        <div className="flex items-center gap-2 text-xs text-zinc-400 mt-2 font-mono">
+                          <span>{evt.date}</span> • <span>{evt.time}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-400/80 mt-1">
+                          <MapPin className="w-3.5 h-3.5 shrink-0" />
+                          <span>{evt.location}</span>
+                        </div>
+                      </div>
+
+                      <p className="text-xs text-zinc-300 leading-relaxed">
+                        {evt.description}
+                      </p>
                     </div>
                   </div>
 
-                  <p className="text-xs text-zinc-300 leading-relaxed">
-                    {evt.description}
-                  </p>
+                  <div className="p-6 pt-4 border-t border-zinc-800">
+                    <Link
+                      href="/schedule"
+                      className="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-emerald-500 hover:text-black text-white font-bold text-xs flex items-center justify-center gap-2 transition-all"
+                    >
+                      <span>RSVP for Free</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </div>
-
-                <div className="pt-6 mt-6 border-t border-zinc-800">
-                  <Link
-                    href="/schedule"
-                    className="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-emerald-500 hover:text-black text-white font-bold text-xs flex items-center justify-center gap-2 transition-all"
-                  >
-                    <span>RSVP for Free</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

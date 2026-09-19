@@ -96,13 +96,6 @@ export const AthleteSidebar: React.FC = () => {
             <span>Sign Out</span>
           </div>
         </Link>
-        <Link
-          href="/admin"
-          className="flex items-center justify-between text-xs text-[#788e7a] hover:text-[#76C043] transition-all py-1.5 px-2 border border-white/5 rounded-lg bg-white/[0.02]"
-        >
-          <span>Coach Admin Mode</span>
-          <span className="font-mono text-[9px] bg-[#76C043]/20 text-[#76C043] px-1.5 py-0.5 rounded">PRO</span>
-        </Link>
       </div>
     </aside>
   );

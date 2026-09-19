@@ -14,6 +14,9 @@ export default function WeOfferPage() {
       icon: Activity,
       title: 'Endurance Coaching & Periodization',
       badge: 'Individualized',
+      color: 'text-emerald-400',
+      headerGradient: 'from-emerald-500/25 via-emerald-600/10 to-transparent',
+      borderColor: 'border-emerald-500/30',
       description: 'Structured, scientifically periodized training for Marathoners, Half-Marathoners, and Multi-Sport Athletes. Every week is mapped based on physiological adaptations and current fatigue markers.',
       features: [
         'Customized weekly TrainingPeaks workout programming',
@@ -28,6 +31,9 @@ export default function WeOfferPage() {
       icon: Dumbbell,
       title: 'HYROX Race Simulation & Strength',
       badge: 'Official Arena',
+      color: 'text-amber-400',
+      headerGradient: 'from-amber-500/25 via-yellow-600/10 to-transparent',
+      borderColor: 'border-amber-500/30',
       description: 'The definitive HYROX conditioning system. Master compromised running, sled push/pull mechanics, and burpee broad jumps with laser timing and official competition weights.',
       features: [
         'Full 8-station indoor simulation arena access',
@@ -42,6 +48,9 @@ export default function WeOfferPage() {
       icon: HeartPulse,
       title: 'Sports Physiotherapy & Injury Prevention',
       badge: 'Clinical Partner',
+      color: 'text-rose-400',
+      headerGradient: 'from-rose-500/25 via-red-600/10 to-transparent',
+      borderColor: 'border-rose-500/30',
       description: 'Powered by Dr Physio Sports Clinic. Rapid recovery protocols, dry needling, joint articulation, and biomechanical injury profiling to keep you competing uninterrupted.',
       features: [
         'Gait & movement pattern screenings',
@@ -56,6 +65,9 @@ export default function WeOfferPage() {
       icon: Zap,
       title: 'Metabolic & Lactate Threshold Testing',
       badge: 'Precision Lab',
+      color: 'text-cyan-400',
+      headerGradient: 'from-cyan-500/25 via-blue-600/10 to-transparent',
+      borderColor: 'border-cyan-500/30',
       description: 'Lab-grade metabolic cart assessments and blood lactate finger-stick testing to uncover your true anaerobic turnpoint, FatMax oxidation rate, and VO2 ceiling.',
       features: [
         'Multi-stage graded treadmill lactate profile',
@@ -70,6 +82,9 @@ export default function WeOfferPage() {
       icon: Utensils,
       title: 'Performance Nutrition & Hydration',
       badge: 'Endurance Fueling',
+      color: 'text-orange-400',
+      headerGradient: 'from-orange-500/25 via-amber-600/10 to-transparent',
+      borderColor: 'border-orange-500/30',
       description: 'Sweat sodium analysis and precision gut-training for endurance racing. Eliminate GI distress, cramping, and low blood glucose crashes on long days.',
       features: [
         'Sweat electrolyte & sodium loss testing',
@@ -84,6 +99,9 @@ export default function WeOfferPage() {
       icon: Brain,
       title: 'Sports Psychology & Mental Resilience',
       badge: 'Mindset',
+      color: 'text-purple-400',
+      headerGradient: 'from-purple-500/25 via-violet-600/10 to-transparent',
+      borderColor: 'border-purple-500/30',
       description: 'Endurance racing is 90% psychological when physical reserves dwindle. Develop self-talk strategies, acute pain tolerance, and visualization drills for peak race execution.',
       features: [
         'Cognitive reframing under intense fatigue',
@@ -119,48 +137,49 @@ export default function WeOfferPage() {
             return (
               <div 
                 key={srv.id}
-                className="group relative rounded-3xl bg-zinc-900/60 border border-zinc-800 p-8 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-zinc-900/90 transition-all duration-300 shadow-xl hover:shadow-emerald-500/10"
+                className={`group relative rounded-3xl bg-zinc-900/70 border ${srv.borderColor} overflow-hidden flex flex-col justify-between hover:bg-zinc-900/95 transition-all duration-300 shadow-xl`}
               >
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
+                <div>
+                  {/* Colorful Card Header Banner */}
+                  <div className={`h-24 bg-gradient-to-r ${srv.headerGradient} border-b border-white/10 p-5 flex items-center justify-between`}>
+                    <div className="w-12 h-12 rounded-2xl bg-black/40 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                      <Icon className={`w-6 h-6 ${srv.color}`} />
                     </div>
-                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/50 text-white border border-white/15">
                       {srv.badge}
                     </span>
                   </div>
 
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
-                      {srv.title}
-                    </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
-                      {srv.description}
-                    </p>
-                  </div>
+                  <div className="p-7 space-y-5">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                        {srv.title}
+                      </h3>
+                      <p className="text-xs text-zinc-400 leading-relaxed">
+                        {srv.description}
+                      </p>
+                    </div>
 
-                  <div className="space-y-2.5 pt-2 border-t border-zinc-800/80">
-                    <div className="text-[11px] font-mono text-zinc-500 uppercase">Key Inclusions</div>
-                    {srv.features.map((feat, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-zinc-300">
-                        <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
+                    <div className="space-y-2.5 pt-2 border-t border-zinc-800/80">
+                      <div className="text-[11px] font-mono text-zinc-500 uppercase">Key Inclusions</div>
+                      {srv.features.map((feat, i) => (
+                        <div key={i} className="flex items-start gap-2 text-xs text-zinc-300">
+                          <Check className={`w-3.5 h-3.5 ${srv.color} shrink-0 mt-0.5`} />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-zinc-800 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] uppercase text-zinc-500 font-mono">Investment</span>
-                    <div className="text-sm font-bold text-white">{srv.price}</div>
-                  </div>
+                <div className="p-7 pt-4 border-t border-zinc-800/80 flex items-center justify-between mt-4">
+                  <span className="font-mono text-xs font-bold text-white">{srv.price}</span>
                   <Link
-                    href="/schedule"
-                    className="p-2.5 rounded-xl bg-zinc-800 hover:bg-emerald-500 hover:text-black text-zinc-300 transition-all"
+                    href={`/dashboard/checkout?plan=${srv.id}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 group-hover:translate-x-0.5 transition-all"
                   >
-                    <ArrowUpRight className="w-4 h-4" />
+                    <span>Enroll Track</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

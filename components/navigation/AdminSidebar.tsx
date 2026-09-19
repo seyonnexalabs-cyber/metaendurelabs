@@ -10,7 +10,6 @@ import {
   BadgeIndianRupee, 
   Trophy, 
   Radio, 
-  ArrowLeft,
   Activity,
   LogOut
 } from 'lucide-react';
@@ -74,13 +73,6 @@ export const AdminSidebar: React.FC = () => {
 
       {/* Footer controls */}
       <div className="pt-4 border-t border-zinc-200 dark:border-white/10 flex flex-col gap-2">
-        <Link
-          href="/dashboard"
-          className="flex items-center justify-between text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-white transition-all py-1.5 px-2 font-mono"
-        >
-          <span>Switch to Athlete View</span>
-          <ArrowLeft className="w-3.5 h-3.5" />
-        </Link>
         <Link
           href="/auth"
           className="flex items-center justify-center gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-400 transition-all py-1.5 px-2 rounded-lg hover:bg-red-500/10 font-medium"

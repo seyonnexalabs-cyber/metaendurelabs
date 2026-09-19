@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   Users, Award, Stethoscope, HeartPulse, ShieldCheck, 
-  ExternalLink, Calendar, Mail, CheckCircle2, Building2
+  ExternalLink, Calendar, Mail, CheckCircle2, Building2, Flame
 } from 'lucide-react';
 import { COACHES, PARTNERS } from '@/lib/constants';
 
@@ -108,7 +108,10 @@ export default function TeamPage() {
                     </p>
 
                     <div className="space-y-2 pt-2">
-                      <div className="text-[10px] font-mono text-zinc-500 uppercase">Specialties</div>
+                      <div className="text-[10px] font-mono text-zinc-500 uppercase flex items-center gap-1">
+                        <Flame className="w-3 h-3 text-[#76C043]" />
+                        <span>Specialties &amp; Focus</span>
+                      </div>
                       <div className="flex flex-wrap gap-1.5">
                         {coach.specialties?.map((spec, i) => (
                           <span
@@ -123,7 +126,10 @@ export default function TeamPage() {
                   </div>
 
                   <div className="pt-6 mt-6 border-t border-zinc-800 flex items-center justify-between">
-                    <span className="text-[11px] font-mono text-zinc-400">{coach.experience}</span>
+                    <span className="text-[11px] font-mono text-zinc-400 flex items-center gap-1.5">
+                      <Award className="w-3.5 h-3.5 text-[#76C043]" />
+                      {coach.experience}
+                    </span>
                     <Link
                       href={`/schedule?coach=${coach.id}`}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-black font-bold text-xs transition-all"
@@ -203,17 +209,17 @@ export default function TeamPage() {
         )}
 
         {/* Join Ecosystem CTA */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-zinc-950 to-zinc-900 border border-zinc-800 text-center space-y-4">
-          <h2 className="text-2xl font-black text-white">Are You a Sports Medicine Clinician or Brand?</h2>
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto">
+        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#76C043]/10 via-white to-emerald-50/50 dark:from-[#08140c] dark:via-[#0c1c11] dark:to-[#08140c] border border-[#76C043]/30 shadow-xl text-center space-y-4 transition-colors">
+          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900 dark:text-white">Are You a Sports Medicine Clinician or Brand?</h2>
+          <p className="text-zinc-600 dark:text-[#bdcebe] text-xs sm:text-sm max-w-xl mx-auto font-medium leading-relaxed">
             MetaEndure Labs is continuously evaluating clinical alliances, lab testing facilities, and sports tech innovators to enhance athlete care.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs inline-flex items-center gap-2"
+              className="px-6 py-3 rounded-xl bg-[#76C043] hover:bg-[#8ff346] text-black font-extrabold text-xs inline-flex items-center gap-2 shadow-lg shadow-[#76C043]/25 hover:shadow-[#76C043]/40 hover:-translate-y-0.5 transition-all"
             >
-              <Mail className="w-3.5 h-3.5" />
+              <Mail className="w-4 h-4" />
               Inquire About Partnership
             </Link>
           </div>

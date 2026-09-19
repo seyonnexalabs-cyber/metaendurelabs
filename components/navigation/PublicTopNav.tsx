@@ -59,7 +59,7 @@ export const PublicTopNav: React.FC = () => {
                 META<span className="text-[#2e7d32] dark:text-[#76C043]">ENDURE</span>
               </span>
               <span className="font-mono text-[9px] text-zinc-500 dark:text-[#788e7a] tracking-[0.2em] uppercase">
-                Performance Labs
+                -Labs-
               </span>
             </div>
           </Link>
@@ -95,20 +95,12 @@ export const PublicTopNav: React.FC = () => {
               {theme === 'light' ? <Moon className="w-4 h-4 text-zinc-800" /> : <Sun className="w-4 h-4 text-[#76C043]" />}
             </button>
 
-            {/* Sign In / Portal Link */}
+            {/* Single Unified Sign In / Join Action Button */}
             <Link
               href="/auth"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-heading font-bold border border-[#76C043]/60 text-[#2e7d32] dark:text-[#76C043] hover:bg-[#76C043]/10 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-heading font-bold text-[#070e08] bg-gradient-to-r from-[#76C043] to-[#8ff346] shadow-[0_4px_20px_rgba(118,192,67,0.35)] hover:shadow-[0_6px_25px_rgba(118,192,67,0.55)] transition-all hover:-translate-y-0.5"
             >
-              Sign In
-            </Link>
-
-            {/* Main CTA */}
-            <Link
-              href="/schedule"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-heading font-bold text-[#070e08] bg-gradient-to-r from-[#76C043] to-[#8ff346] shadow-[0_4px_20px_rgba(118,192,67,0.35)] hover:shadow-[0_6px_25px_rgba(118,192,67,0.55)] transition-all hover:-translate-y-0.5"
-            >
-              <span>Join Lab</span>
+              <span>Join / Sign In</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
 
@@ -161,14 +153,7 @@ export const PublicTopNav: React.FC = () => {
                 onClick={() => setMobileOpen(false)}
                 className="text-lg font-heading font-semibold text-[#76C043] py-2 border-b border-white/[0.06]"
               >
-                Sign In / Athlete Portal &rarr;
-              </Link>
-              <Link
-                href="/admin"
-                onClick={() => setMobileOpen(false)}
-                className="text-sm font-heading font-semibold text-[#788e7a] py-2"
-              >
-                Superadmin Dashboard &rarr;
+                Join / Sign In &rarr;
               </Link>
             </nav>
           </div>

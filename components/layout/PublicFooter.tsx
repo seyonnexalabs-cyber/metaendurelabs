@@ -44,9 +44,8 @@ export const PublicFooter: React.FC = () => {
           </h4>
           <ul className="space-y-2 text-xs">
             <li><Link href="/schedule" className="text-[#76C043] font-semibold hover:underline">Training Scheduler</Link></li>
-            <li><Link href="/dashboard" className="hover:text-white transition-colors">Athlete Dashboard (User)</Link></li>
-            <li><Link href="/admin" className="hover:text-white transition-colors">Coach Superadmin Portal</Link></li>
-            <li><Link href="/checkout" className="hover:text-white transition-colors">Payment Gateway (Razorpay/Stripe)</Link></li>
+            <li><Link href="/dashboard" className="hover:text-white transition-colors">Athlete Performance Portal</Link></li>
+            <li><Link href="/auth" className="hover:text-white transition-colors">Cohort Sign In</Link></li>
           </ul>
         </div>
 

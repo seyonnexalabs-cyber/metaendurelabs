@@ -1,16 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { 
   Lock, Mail, User, Phone, ShieldCheck, ArrowRight, 
   Activity, CheckCircle2, Flame, Trophy, Eye, EyeOff
 } from 'lucide-react';
 
-export default function AuthPage() {
+function AuthContent() {
   const router = useRouter();
-  const [mode, setMode] = useState<'signin' | 'signup'>('signin');
+  const searchParams = useSearchParams();
+  const initialMode = searchParams.get('mode') === 'signup' ? 'signup' : 'signin';
+  const [mode, setMode] = useState<'signin' | 'signup'>(initialMode);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [role, setRole] = useState<'athlete' | 'coach' | 'admin'>('athlete');
   const [loading, setLoading] = useState<boolean>(false);
@@ -332,5 +334,13 @@ export default function AuthPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-zinc-500 font-mono text-xs">Loading authentication...</div>}>
+      <AuthContent />
+    </Suspense>
   );
 }

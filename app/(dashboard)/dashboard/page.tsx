@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { 
   Activity, Flame, Heart, Zap, Calendar, TrendingUp, 
-  ArrowUpRight, Clock, Award, CheckCircle2, ChevronRight 
+  ArrowUpRight, Clock, Award, CheckCircle2, ChevronRight,
+  Dumbbell, Gauge, Sparkles, Stethoscope, Target, Trophy, ShieldCheck
 } from 'lucide-react';
 import { MOCK_ATHLETE, HYROX_STATIONS } from '@/lib/constants';
 
@@ -137,37 +138,52 @@ export default function AthleteDashboardPage() {
 
           <div className="space-y-3">
             {/* Workout 1 */}
-            <div className="p-4 rounded-2xl bg-zinc-900/70 border border-zinc-800 flex items-center justify-between hover:border-zinc-700 transition-all">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">TOMORROW 06:00 AM</span>
-                  <span className="text-xs font-bold text-white">Aerobic Zone 2 Foundation Run</span>
+            <div className="p-4 rounded-2xl bg-zinc-900/70 border border-zinc-800 flex items-center justify-between hover:border-zinc-700 transition-all group">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
+                  <Activity className="w-5 h-5" />
                 </div>
-                <p className="text-xs text-zinc-400">14km steady pace @ 5:15 - 5:25 min/km • HR cap &lt; 142 bpm</p>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">TOMORROW 06:00 AM</span>
+                    <span className="text-xs font-bold text-white">Aerobic Zone 2 Foundation Run</span>
+                  </div>
+                  <p className="text-xs text-zinc-400">14km steady pace @ 5:15 - 5:25 min/km • HR cap &lt; 142 bpm</p>
+                </div>
               </div>
               <span className="text-xs font-mono text-zinc-400 px-3 py-1 rounded-lg bg-zinc-800">Assigned</span>
             </div>
 
             {/* Workout 2 */}
-            <div className="p-4 rounded-2xl bg-zinc-900/70 border border-zinc-800 flex items-center justify-between hover:border-zinc-700 transition-all">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">WED 06:30 PM</span>
-                  <span className="text-xs font-bold text-white">HYROX Sled & Compromised Intervals</span>
+            <div className="p-4 rounded-2xl bg-zinc-900/70 border border-zinc-800 flex items-center justify-between hover:border-zinc-700 transition-all group">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 group-hover:scale-105 transition-transform">
+                  <Dumbbell className="w-5 h-5" />
                 </div>
-                <p className="text-xs text-zinc-400">Arena Session with Coach Rashmi • 4 x (500m Run + 50m Sled Push 152kg)</p>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">WED 06:30 PM</span>
+                    <span className="text-xs font-bold text-white">HYROX Sled & Compromised Intervals</span>
+                  </div>
+                  <p className="text-xs text-zinc-400">Arena Session with Coach Rashmi • 4 x (500m Run + 50m Sled Push 152kg)</p>
+                </div>
               </div>
               <span className="text-xs font-mono text-emerald-400 px-3 py-1 rounded-lg bg-emerald-500/10">Lab Wave</span>
             </div>
 
             {/* Workout 3 */}
-            <div className="p-4 rounded-2xl bg-zinc-900/70 border border-zinc-800 flex items-center justify-between hover:border-zinc-700 transition-all">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">FRI 07:00 AM</span>
-                  <span className="text-xs font-bold text-white">Dr Physio Movement & Joint Mobility</span>
+            <div className="p-4 rounded-2xl bg-zinc-900/70 border border-zinc-800 flex items-center justify-between hover:border-zinc-700 transition-all group">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0 group-hover:scale-105 transition-transform">
+                  <Stethoscope className="w-5 h-5" />
                 </div>
-                <p className="text-xs text-zinc-400">Hip articulation, hamstring eccentric loading & foam roller flush</p>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">FRI 07:00 AM</span>
+                    <span className="text-xs font-bold text-white">Dr Physio Movement & Joint Mobility</span>
+                  </div>
+                  <p className="text-xs text-zinc-400">Hip articulation, hamstring eccentric loading & foam roller flush</p>
+                </div>
               </div>
               <span className="text-xs font-mono text-zinc-400 px-3 py-1 rounded-lg bg-zinc-800">Clinical</span>
             </div>
