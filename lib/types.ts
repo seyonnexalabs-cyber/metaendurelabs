@@ -61,4 +61,5 @@ export interface HyroxStation {
   distance?: string;
   description?: string;
   focus?: string;
+  iconName?: string;
 }

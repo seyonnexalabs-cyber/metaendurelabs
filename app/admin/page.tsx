@@ -7,6 +7,7 @@ import {
   ArrowUpRight, TrendingUp, ShieldAlert, CheckCircle2, Search
 } from 'lucide-react';
 import { COACHES } from '@/lib/constants';
+import { MetricCard } from '@/components/shared/MetricCard';
 
 export default function AdminDashboardPage() {
   const [activeAthletes] = useState([
@@ -47,66 +48,42 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* 4 Core Financial & Operational KPI Cards */}
+      {/* 4 Core Financial & Operational KPI Cards via Reusable MetricCard */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Total Active Athletes */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">ENROLLED ATHLETES</span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-              <Users className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">128</span>
-            <span className="text-xs text-emerald-400 font-bold">+14 this month</span>
-          </div>
-          <div className="text-[11px] text-zinc-500 font-mono">Capacity: 150 Cap Max</div>
-        </div>
-
-        {/* Monthly Recurring Revenue (MRR) */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">RECURRING REVENUE (MRR)</span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-              <DollarSign className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">₹9,60,000</span>
-            <span className="text-xs text-emerald-400 font-bold">+18.4% MoM</span>
-          </div>
-          <div className="text-[11px] text-zinc-500 font-mono">Gateways: Razorpay & Stripe</div>
-        </div>
-
-        {/* Arena Wave Occupancy */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">HYROX ARENA OCCUPANCY</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-              <Flame className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">92.5%</span>
-            <span className="text-xs text-zinc-400">Peak 6-8 AM</span>
-          </div>
-          <div className="text-[11px] text-emerald-400 font-mono">38 Waves Run This Week</div>
-        </div>
-
-        {/* Metabolic Lab Tests */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">LAB LACTATE TESTS</span>
-            <div className="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-              <Activity className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">24</span>
-            <span className="text-xs text-zinc-400">Graded tests</span>
-          </div>
-          <div className="text-[11px] text-zinc-500 font-mono">Next: 4 slots scheduled tomorrow</div>
-        </div>
+        <MetricCard
+          label="Enrolled Athletes"
+          value="128"
+          unit="/ 150 Cap"
+          subtext="Capacity: 85% full"
+          icon={Users}
+          variant="blue"
+          trend={{ value: '+14 this month', isPositive: true }}
+        />
+        <MetricCard
+          label="Recurring Revenue (MRR)"
+          value="₹9.60L"
+          unit="INR"
+          subtext="Gateways: Razorpay & Stripe"
+          icon={DollarSign}
+          variant="emerald"
+          trend={{ value: '+18.4% MoM', isPositive: true }}
+        />
+        <MetricCard
+          label="HYROX Arena Occupancy"
+          value="92.5%"
+          subtext="38 Waves completed this week"
+          icon={Flame}
+          variant="amber"
+          trend={{ value: 'Peak 6-8 AM', isPositive: true }}
+        />
+        <MetricCard
+          label="Lab Lactate Tests"
+          value="24"
+          unit="Graded"
+          subtext="Next: 4 slots scheduled tomorrow"
+          icon={Activity}
+          variant="rose"
+        />
       </div>
 
       {/* Athlete Roster Table */}

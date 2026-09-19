@@ -19,7 +19,11 @@ import {
   Sparkles,
   HeartPulse,
   UserCheck,
-  BarChart2
+  BarChart2,
+  Brain,
+  Microscope,
+  Layers,
+  Users
 } from 'lucide-react';
 
 export default function AboutPage() {
@@ -161,55 +165,97 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Pillar 01 */}
-          <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-emerald-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-emerald-400/70 hover:shadow-[0_0_35px_rgba(16,185,129,0.25)] transition-all">
-            <div className="h-28 bg-gradient-to-br from-emerald-500/25 via-emerald-600/15 to-transparent border-b border-emerald-500/20 p-5 flex items-center justify-between">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shadow-inner group-hover:scale-110 transition-transform">
-                <Shield className="w-7 h-7 text-emerald-400" />
+          {/* Pillar 01: ENDURE (Endurance & Resilience) */}
+          <div className="rounded-3xl border-2 border-emerald-500/30 bg-white dark:bg-gradient-to-b dark:from-emerald-950/40 dark:via-zinc-950/80 dark:to-black overflow-hidden shadow-xl dark:shadow-2xl group hover:border-emerald-500 hover:shadow-[0_10px_35px_rgba(16,185,129,0.2)] transition-all">
+            <div className="h-28 bg-gradient-to-br from-emerald-500/20 via-emerald-600/10 to-emerald-500/5 dark:from-emerald-500/25 dark:via-emerald-600/15 dark:to-transparent border-b border-emerald-500/20 p-5 flex items-center justify-between">
+              <div className="flex items-center -space-x-2.5">
+                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-sm group-hover:scale-110 group-hover:-translate-x-0.5 transition-transform z-10" title="Endurance (Shield)">
+                  <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100/90 dark:bg-emerald-600/30 border border-emerald-400/50 flex items-center justify-center text-emerald-700 dark:text-emerald-300 shadow-sm group-hover:scale-110 group-hover:translate-x-0.5 transition-transform z-20" title="Resilience (HeartPulse)">
+                  <HeartPulse className="w-6 h-6 text-emerald-700 dark:text-emerald-300" />
+                </div>
               </div>
-              <span className="font-mono text-xs font-black tracking-widest text-emerald-300 bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/30">
+              <span className="font-mono text-xs font-black tracking-widest text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 dark:bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/30">
                 PILLAR 01
               </span>
             </div>
             <div className="p-6 space-y-3">
-              <h3 className="font-heading text-lg font-bold text-white">ENDURE. = Endurance</h3>
-              <p className="text-xs text-[#bdcebe] leading-relaxed">
+              <h3 className="font-heading text-lg font-bold text-zinc-900 dark:text-white">ENDURE.</h3>
+              <div className="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5 flex-wrap">
+                <span className="inline-flex items-center gap-1 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <Shield className="w-3 h-3" /> Endurance
+                </span>
+                <span>+</span>
+                <span className="inline-flex items-center gap-1 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <HeartPulse className="w-3 h-3" /> Resilience
+                </span>
+              </div>
+              <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
                 The foundational phase of resilience, grit, and survival. Capacity to withstand hardships, absorb physical and mental pressure, and maintain discipline without quitting.
               </p>
             </div>
           </div>
 
-          {/* Pillar 02 */}
-          <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-b from-cyan-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-cyan-400/70 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)] transition-all">
-            <div className="h-28 bg-gradient-to-br from-cyan-500/25 via-blue-600/15 to-transparent border-b border-cyan-500/20 p-5 flex items-center justify-between">
-              <div className="w-14 h-14 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shadow-inner group-hover:scale-110 transition-transform">
-                <Zap className="w-7 h-7 text-cyan-400" />
+          {/* Pillar 02: EVOLVE (Mindset + Science) */}
+          <div className="rounded-3xl border-2 border-cyan-500/30 bg-white dark:bg-gradient-to-b dark:from-cyan-950/40 dark:via-zinc-950/80 dark:to-black overflow-hidden shadow-xl dark:shadow-2xl group hover:border-cyan-500 hover:shadow-[0_10px_35px_rgba(6,182,212,0.2)] transition-all">
+            <div className="h-28 bg-gradient-to-br from-cyan-500/20 via-blue-600/10 to-cyan-500/5 dark:from-cyan-500/25 dark:via-blue-600/15 dark:to-transparent border-b border-cyan-500/20 p-5 flex items-center justify-between">
+              <div className="flex items-center -space-x-2.5">
+                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shadow-sm group-hover:scale-110 group-hover:-translate-x-0.5 transition-transform z-10" title="Mindset (Brain)">
+                  <Brain className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-cyan-100/90 dark:bg-cyan-600/30 border border-cyan-400/50 flex items-center justify-center text-cyan-700 dark:text-cyan-300 shadow-sm group-hover:scale-110 group-hover:translate-x-0.5 transition-transform z-20" title="Science (Zap / Physiology)">
+                  <Zap className="w-6 h-6 text-cyan-700 dark:text-cyan-300" />
+                </div>
               </div>
-              <span className="font-mono text-xs font-black tracking-widest text-cyan-300 bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-500/30">
+              <span className="font-mono text-xs font-black tracking-widest text-cyan-700 dark:text-cyan-300 bg-cyan-500/15 dark:bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-500/30">
                 PILLAR 02
               </span>
             </div>
             <div className="p-6 space-y-3">
-              <h3 className="font-heading text-lg font-bold text-white">EVOLVE. = Mindset + Science</h3>
-              <p className="text-xs text-[#bdcebe] leading-relaxed">
+              <h3 className="font-heading text-lg font-bold text-zinc-900 dark:text-white">EVOLVE.</h3>
+              <div className="text-[11px] font-mono font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider flex items-center gap-1.5 flex-wrap">
+                <span className="inline-flex items-center gap-1 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                  <Brain className="w-3 h-3" /> Mindset
+                </span>
+                <span>+</span>
+                <span className="inline-flex items-center gap-1 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                  <Zap className="w-3 h-3" /> Science
+                </span>
+              </div>
+              <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
                 The intermediate phase of adaptation. Once you survive initial pressure, you must learn, shift your mindset, update training methodologies, and evolve capabilities.
               </p>
             </div>
           </div>
 
-          {/* Pillar 03 */}
-          <div className="rounded-3xl border border-amber-500/30 bg-gradient-to-b from-amber-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-amber-400/70 hover:shadow-[0_0_35px_rgba(245,158,11,0.25)] transition-all">
-            <div className="h-28 bg-gradient-to-br from-amber-500/25 via-yellow-600/15 to-transparent border-b border-amber-500/20 p-5 flex items-center justify-between">
-              <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 shadow-inner group-hover:scale-110 transition-transform">
-                <Trophy className="w-7 h-7 text-amber-400" />
+          {/* Pillar 03: EXCEL (Performance & Mastery) */}
+          <div className="rounded-3xl border-2 border-amber-500/30 bg-white dark:bg-gradient-to-b dark:from-amber-950/40 dark:via-zinc-950/80 dark:to-black overflow-hidden shadow-xl dark:shadow-2xl group hover:border-amber-500 hover:shadow-[0_10px_35px_rgba(245,158,11,0.2)] transition-all">
+            <div className="h-28 bg-gradient-to-br from-amber-500/20 via-yellow-600/10 to-amber-500/5 dark:from-amber-500/25 dark:via-yellow-600/15 dark:to-transparent border-b border-amber-500/20 p-5 flex items-center justify-between">
+              <div className="flex items-center -space-x-2.5">
+                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-sm group-hover:scale-110 group-hover:-translate-x-0.5 transition-transform z-10" title="Performance (Flame)">
+                  <Flame className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-100/90 dark:bg-amber-600/30 border border-amber-400/50 flex items-center justify-center text-amber-700 dark:text-amber-300 shadow-md group-hover:scale-110 group-hover:translate-x-0.5 transition-transform z-20" title="Mastery (Trophy)">
+                  <Trophy className="w-6 h-6 text-amber-700 dark:text-amber-300" />
+                </div>
               </div>
-              <span className="font-mono text-xs font-black tracking-widest text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30">
+              <span className="font-mono text-xs font-black tracking-widest text-amber-700 dark:text-amber-300 bg-amber-500/15 dark:bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30">
                 PILLAR 03
               </span>
             </div>
             <div className="p-6 space-y-3">
-              <h3 className="font-heading text-lg font-bold text-white">EXCEL. = Performance</h3>
-              <p className="text-xs text-[#bdcebe] leading-relaxed">
+              <h3 className="font-heading text-lg font-bold text-zinc-900 dark:text-white">EXCEL.</h3>
+              <div className="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1.5 flex-wrap">
+                <span className="inline-flex items-center gap-1 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                  <Flame className="w-3 h-3" /> Performance
+                </span>
+                <span>+</span>
+                <span className="inline-flex items-center gap-1 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                  <Trophy className="w-3 h-3" /> Mastery
+                </span>
+              </div>
+              <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
                 The ultimate phase of high performance and achievement. Surpass limitations, outperform peers, and achieve absolute competitive mastery.
               </p>
             </div>
@@ -266,10 +312,10 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {[
             { num: '01', title: 'Real Experience', desc: 'Built from a decade-long authentic transformation journey, from 84kg novice to 70.3 finisher.', icon: Award },
-            { num: '02', title: 'Science-Backed', desc: 'Training decisions driven by physiological metrics, lactate testing, and data—not guesswork.', icon: Activity },
-            { num: '03', title: 'Holistic System', desc: 'Fitness, nutrition, mindset, recovery, and daily habits seamlessly integrated into one blueprint.', icon: HeartPulse },
+            { num: '02', title: 'Science-Backed', desc: 'Training decisions driven by physiological metrics, lactate testing, and data—not guesswork.', icon: Microscope },
+            { num: '03', title: 'Holistic System', desc: 'Fitness, nutrition, mindset, recovery, and daily habits seamlessly integrated into one blueprint.', icon: Layers },
             { num: '04', title: 'Sustainable Results', desc: 'Focus on compounding long-term performance and metabolic longevity rather than fleeting motivation.', icon: TrendingUp },
-            { num: '05', title: 'Accountability', desc: 'High-touch support systems and performance community designed to keep individuals progressing.', icon: UserCheck }
+            { num: '05', title: 'Accountability', desc: 'High-touch support systems and performance community designed to keep individuals progressing.', icon: Users }
           ].map((d) => {
             const Icon = d.icon;
             return (

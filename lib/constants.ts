@@ -106,7 +106,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '1000m SkiErg', 
     distance: '1,000m', 
     description: 'Tests upper body pulling power and hip hinge. Men Pro: Damper 6-8, Women/Open: Damper 5-6.',
-    focus: 'Lats, core, and posterior chain pacing to prevent heart spike before run 2' 
+    focus: 'Lats, core, and posterior chain pacing to prevent heart spike before run 2',
+    iconName: 'Wind'
   },
   { 
     station: 2, 
@@ -114,7 +115,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '50m Sled Push', 
     distance: '4 x 12.5m', 
     description: 'Men Pro: 202kg incl. sled | Open Men/Pro Women: 152kg | Open Women: 102kg.',
-    focus: 'Leg drive angle, quad endurance, and metabolic resistance under heavy load' 
+    focus: 'Leg drive angle, quad endurance, and metabolic resistance under heavy load',
+    iconName: 'Weight'
   },
   { 
     station: 3, 
@@ -122,7 +124,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '50m Sled Pull', 
     distance: '4 x 12.5m', 
     description: 'Men Pro: 153kg | Open Men/Pro Women: 103kg | Open Women: 78kg.',
-    focus: 'Foot bracing, rope cadence, grip management, and forearm fatigue control' 
+    focus: 'Foot bracing, rope cadence, grip management, and forearm fatigue control',
+    iconName: 'Anchor'
   },
   { 
     station: 4, 
@@ -130,7 +133,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '80m Burpee Broad Jumps', 
     distance: '80 meters', 
     description: 'Chest to deck touch required every repetition with two-foot takeoff on broad jump.',
-    focus: 'Chest-to-deck rhythm, hip pop, jump distance efficiency, breath control' 
+    focus: 'Chest-to-deck rhythm, hip pop, jump distance efficiency, breath control',
+    iconName: 'MoveUpRight'
   },
   { 
     station: 5, 
@@ -138,7 +142,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '1000m Rowing', 
     distance: '1,000m', 
     description: 'Concept2 RowErg with damper setting strictly regulated to competition standard.',
-    focus: 'Stroke rate 28-32 SPM, damper calibration, aerobic power preservation' 
+    focus: 'Stroke rate 28-32 SPM, damper calibration, aerobic power preservation',
+    iconName: 'Waves'
   },
   { 
     station: 6, 
@@ -146,7 +151,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '200m Farmers Carry', 
     distance: '200 meters', 
     description: 'Men Pro: 2 x 32kg kettlebells | Open Men/Pro Women: 2 x 24kg | Open Women: 2 x 16kg.',
-    focus: 'Kettlebell trap stabilization, ribcage expansion, rhythmic brisk gait' 
+    focus: 'Kettlebell trap stabilization, ribcage expansion, rhythmic brisk gait',
+    iconName: 'Dumbbell'
   },
   { 
     station: 7, 
@@ -154,7 +160,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '100m Sandbag Lunges', 
     distance: '100 meters', 
     description: 'Men Pro: 30kg sandbag | Open Men/Pro Women: 20kg | Open Women: 10kg.',
-    focus: 'Shoulder rack stability, knee angle control, glute endurance under burn' 
+    focus: 'Shoulder rack stability, knee angle control, glute endurance under burn',
+    iconName: 'Footprints'
   },
   { 
     station: 8, 
@@ -162,7 +169,8 @@ export const HYROX_STATIONS: HyroxStation[] = [
     name: '100 Wall Balls', 
     distance: '100 reps', 
     description: 'Men Pro: 9kg to 10ft | Open Men/Pro Women: 6kg to 10ft/9ft | Open Women: 4kg to 9ft.',
-    focus: 'Squat depth rhythm, target accuracy, shoulder endurance to the finish line' 
+    focus: 'Squat depth rhythm, target accuracy, shoulder endurance to the finish line',
+    iconName: 'Target'
   }
 ];
 

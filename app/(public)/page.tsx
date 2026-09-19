@@ -18,9 +18,30 @@ import {
   Award,
   HeartPulse,
   Clock,
-  Gauge
+  Gauge,
+  Brain,
+  Wind,
+  Weight,
+  Anchor,
+  MoveUpRight,
+  Waves,
+  Footprints
 } from 'lucide-react';
 import { HYROX_STATIONS } from '@/lib/constants';
+
+function getStationIcon(iconName?: string) {
+  switch (iconName) {
+    case 'Wind': return Wind;
+    case 'Weight': return Weight;
+    case 'Anchor': return Anchor;
+    case 'MoveUpRight': return MoveUpRight;
+    case 'Waves': return Waves;
+    case 'Dumbbell': return Dumbbell;
+    case 'Footprints': return Footprints;
+    case 'Target': return Target;
+    default: return Activity;
+  }
+}
 
 export default function HomePage() {
   return (
@@ -145,94 +166,127 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Pillar 1: ENDURE */}
-          <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-b from-emerald-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-emerald-400/70 hover:shadow-[0_0_35px_rgba(16,185,129,0.25)] transition-all flex flex-col justify-between">
+          {/* Pillar 1: ENDURE (Endurance & Resilience) */}
+          <div className="rounded-3xl border-2 border-emerald-500/30 bg-white dark:bg-gradient-to-b dark:from-emerald-950/40 dark:via-zinc-950/80 dark:to-black overflow-hidden shadow-xl dark:shadow-2xl group hover:border-emerald-500 hover:shadow-[0_10px_35px_rgba(16,185,129,0.2)] transition-all flex flex-col justify-between">
             <div>
               {/* Colorful Card Header Banner */}
-              <div className="h-32 bg-gradient-to-br from-emerald-500/25 via-emerald-600/15 to-transparent border-b border-emerald-500/20 p-6 flex items-center justify-between relative overflow-hidden">
+              <div className="h-32 bg-gradient-to-br from-emerald-500/20 via-emerald-600/10 to-emerald-500/5 dark:from-emerald-500/25 dark:via-emerald-600/15 dark:to-transparent border-b border-emerald-500/20 p-6 flex items-center justify-between relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
-                <div className="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shadow-inner group-hover:scale-110 transition-transform">
-                  <Shield className="w-8 h-8 text-emerald-400" />
+                <div className="flex items-center -space-x-3">
+                  <div className="w-14 h-14 rounded-2xl bg-white dark:bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-md group-hover:scale-110 group-hover:-translate-x-1 transition-transform z-10" title="Endurance (Shield)">
+                    <Shield className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-100/90 dark:bg-emerald-600/30 border border-emerald-400/50 flex items-center justify-center text-emerald-700 dark:text-emerald-300 shadow-md group-hover:scale-110 group-hover:translate-x-1 transition-transform z-20" title="Resilience (HeartPulse)">
+                    <HeartPulse className="w-7 h-7 text-emerald-700 dark:text-emerald-300" />
+                  </div>
                 </div>
-                <span className="font-mono text-xs font-black tracking-widest text-emerald-300 bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/30">
+                <span className="font-mono text-xs font-black tracking-widest text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 dark:bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/30">
                   PILLAR 01
                 </span>
               </div>
               <div className="p-7 space-y-3">
-                <h3 className="font-heading text-2xl font-black text-white">ENDURE.</h3>
-                <div className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
-                  = Endurance &amp; Resilience
+                <h3 className="font-heading text-2xl font-black text-zinc-900 dark:text-white">ENDURE.</h3>
+                <div className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5 flex-wrap">
+                  <span className="inline-flex items-center gap-1 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    <Shield className="w-3 h-3" /> Endurance
+                  </span>
+                  <span>+</span>
+                  <span className="inline-flex items-center gap-1 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    <HeartPulse className="w-3 h-3" /> Resilience
+                  </span>
                 </div>
-                <p className="text-xs text-zinc-300 dark:text-[#bdcebe] leading-relaxed">
+                <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
                   The foundational phase of resilience, grit, and survival. It represents the capacity to withstand hardships, absorb pressure, maintain discipline, and persist through setbacks without quitting.
                 </p>
               </div>
             </div>
-            <div className="p-6 pt-4 border-t border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-400">
+            <div className="p-6 pt-4 border-t border-zinc-200 dark:border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
               <span>Phase 01</span>
-              <span className="text-emerald-400 font-bold flex items-center gap-1.5">
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5">
                 <Shield className="w-3.5 h-3.5" /> Zero Quitting
               </span>
             </div>
           </div>
 
-          {/* Pillar 2: EVOLVE */}
-          <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-b from-cyan-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-cyan-400/70 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)] transition-all flex flex-col justify-between">
+          {/* Pillar 2: EVOLVE (Mindset + Science) */}
+          <div className="rounded-3xl border-2 border-cyan-500/30 bg-white dark:bg-gradient-to-b dark:from-cyan-950/40 dark:via-zinc-950/80 dark:to-black overflow-hidden shadow-xl dark:shadow-2xl group hover:border-cyan-500 hover:shadow-[0_10px_35px_rgba(6,182,212,0.2)] transition-all flex flex-col justify-between">
             <div>
               {/* Colorful Card Header Banner */}
-              <div className="h-32 bg-gradient-to-br from-cyan-500/25 via-blue-600/15 to-transparent border-b border-cyan-500/20 p-6 flex items-center justify-between relative overflow-hidden">
+              <div className="h-32 bg-gradient-to-br from-cyan-500/20 via-blue-600/10 to-cyan-500/5 dark:from-cyan-500/25 dark:via-blue-600/15 dark:to-transparent border-b border-cyan-500/20 p-6 flex items-center justify-between relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
-                <div className="w-16 h-16 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shadow-inner group-hover:scale-110 transition-transform">
-                  <Zap className="w-8 h-8 text-cyan-400" />
+                <div className="flex items-center -space-x-3">
+                  <div className="w-14 h-14 rounded-2xl bg-white dark:bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shadow-md group-hover:scale-110 group-hover:-translate-x-1 transition-transform z-10" title="Mindset (Brain)">
+                    <Brain className="w-7 h-7 text-cyan-600 dark:text-cyan-400" />
+                  </div>
+                  <div className="w-14 h-14 rounded-2xl bg-cyan-100/90 dark:bg-cyan-600/30 border border-cyan-400/50 flex items-center justify-center text-cyan-700 dark:text-cyan-300 shadow-md group-hover:scale-110 group-hover:translate-x-1 transition-transform z-20" title="Science (Zap / Physiology)">
+                    <Zap className="w-7 h-7 text-cyan-700 dark:text-cyan-300" />
+                  </div>
                 </div>
-                <span className="font-mono text-xs font-black tracking-widest text-cyan-300 bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-500/30">
+                <span className="font-mono text-xs font-black tracking-widest text-cyan-700 dark:text-cyan-300 bg-cyan-500/15 dark:bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-500/30">
                   PILLAR 02
                 </span>
               </div>
               <div className="p-7 space-y-3">
-                <h3 className="font-heading text-2xl font-black text-white">EVOLVE.</h3>
-                <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
-                  = Mindset + Science
+                <h3 className="font-heading text-2xl font-black text-zinc-900 dark:text-white">EVOLVE.</h3>
+                <div className="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider flex items-center gap-1.5 flex-wrap">
+                  <span className="inline-flex items-center gap-1 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                    <Brain className="w-3 h-3" /> Mindset
+                  </span>
+                  <span>+</span>
+                  <span className="inline-flex items-center gap-1 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                    <Zap className="w-3 h-3" /> Science
+                  </span>
                 </div>
-                <p className="text-xs text-zinc-300 dark:text-[#bdcebe] leading-relaxed">
+                <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
                   The intermediate phase of adaptation and intelligent growth. Once you survive initial pressure, you must learn, shift your mindset, update your fueling and training, and transform capabilities.
                 </p>
               </div>
             </div>
-            <div className="p-6 pt-4 border-t border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-400">
+            <div className="p-6 pt-4 border-t border-zinc-200 dark:border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
               <span>Phase 02</span>
-              <span className="text-cyan-400 font-bold flex items-center gap-1.5">
+              <span className="text-cyan-600 dark:text-cyan-400 font-bold flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5" /> Data Calibration
               </span>
             </div>
           </div>
 
-          {/* Pillar 3: EXCEL */}
-          <div className="rounded-3xl border border-amber-500/30 bg-gradient-to-b from-amber-950/40 via-zinc-950/80 to-black overflow-hidden shadow-2xl group hover:border-amber-400/70 hover:shadow-[0_0_35px_rgba(245,158,11,0.25)] transition-all flex flex-col justify-between">
+          {/* Pillar 3: EXCEL (Performance & Mastery) */}
+          <div className="rounded-3xl border-2 border-amber-500/30 bg-white dark:bg-gradient-to-b dark:from-amber-950/40 dark:via-zinc-950/80 dark:to-black overflow-hidden shadow-xl dark:shadow-2xl group hover:border-amber-500 hover:shadow-[0_10px_35px_rgba(245,158,11,0.2)] transition-all flex flex-col justify-between">
             <div>
               {/* Colorful Card Header Banner */}
-              <div className="h-32 bg-gradient-to-br from-amber-500/25 via-yellow-600/15 to-transparent border-b border-amber-500/20 p-6 flex items-center justify-between relative overflow-hidden">
+              <div className="h-32 bg-gradient-to-br from-amber-500/20 via-yellow-600/10 to-amber-500/5 dark:from-amber-500/25 dark:via-yellow-600/15 dark:to-transparent border-b border-amber-500/20 p-6 flex items-center justify-between relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl pointer-events-none" />
-                <div className="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 shadow-inner group-hover:scale-110 transition-transform">
-                  <Trophy className="w-8 h-8 text-amber-400" />
+                <div className="flex items-center -space-x-3">
+                  <div className="w-14 h-14 rounded-2xl bg-white dark:bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-md group-hover:scale-110 group-hover:-translate-x-1 transition-transform z-10" title="Performance (Flame)">
+                    <Flame className="w-7 h-7 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <div className="w-14 h-14 rounded-2xl bg-amber-100/90 dark:bg-amber-600/30 border border-amber-400/50 flex items-center justify-center text-amber-700 dark:text-amber-300 shadow-md group-hover:scale-110 group-hover:translate-x-1 transition-transform z-20" title="Mastery (Trophy)">
+                    <Trophy className="w-7 h-7 text-amber-700 dark:text-amber-300" />
+                  </div>
                 </div>
-                <span className="font-mono text-xs font-black tracking-widest text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30">
+                <span className="font-mono text-xs font-black tracking-widest text-amber-700 dark:text-amber-300 bg-amber-500/15 dark:bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30">
                   PILLAR 03
                 </span>
               </div>
               <div className="p-7 space-y-3">
-                <h3 className="font-heading text-2xl font-black text-white">EXCEL.</h3>
-                <div className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">
-                  = Performance &amp; Mastery
+                <h3 className="font-heading text-2xl font-black text-zinc-900 dark:text-white">EXCEL.</h3>
+                <div className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1.5 flex-wrap">
+                  <span className="inline-flex items-center gap-1 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    <Flame className="w-3 h-3" /> Performance
+                  </span>
+                  <span>+</span>
+                  <span className="inline-flex items-center gap-1 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    <Trophy className="w-3 h-3" /> Mastery
+                  </span>
                 </div>
-                <p className="text-xs text-zinc-300 dark:text-[#bdcebe] leading-relaxed">
+                <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
                   The ultimate phase of high achievement. By withstanding adversity and systematically adapting, you surpass limitations, outperform competitors, and claim your place on the podium.
                 </p>
               </div>
             </div>
-            <div className="p-6 pt-4 border-t border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-400">
+            <div className="p-6 pt-4 border-t border-zinc-200 dark:border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
               <span>Phase 03</span>
-              <span className="text-amber-400 font-bold flex items-center gap-1.5">
+              <span className="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1.5">
                 <Trophy className="w-3.5 h-3.5" /> Podium &amp; Longevity
               </span>
             </div>
@@ -284,16 +338,19 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-              {HYROX_STATIONS.map((st) => (
-                <div key={st.num} className="bg-white/90 dark:bg-[#0b180e] border border-zinc-200 dark:border-white/10 rounded-2xl p-3.5 shadow-sm hover:border-[#76C043]/50 hover:shadow-md transition-all group">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="font-mono text-xs font-black text-[#1b5e20] dark:text-[#8ff346]">{st.num}</span>
-                    <Activity className="w-3 h-3 text-[#76C043] group-hover:scale-110 transition-transform" />
+              {HYROX_STATIONS.map((st) => {
+                const StationIcon = getStationIcon(st.iconName);
+                return (
+                  <div key={st.num} className="bg-white/90 dark:bg-[#0b180e] border border-zinc-200 dark:border-white/10 rounded-2xl p-3.5 shadow-sm hover:border-[#76C043]/50 hover:shadow-md transition-all group">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="font-mono text-xs font-black text-[#1b5e20] dark:text-[#8ff346]">{st.num}</span>
+                      <StationIcon className="w-3.5 h-3.5 text-[#76C043] group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div className="font-heading font-bold text-zinc-900 dark:text-white text-xs truncate mb-1">{st.name}</div>
+                    <div className="text-[10px] text-zinc-500 dark:text-[#788e7a] font-mono leading-tight">{st.distance}</div>
                   </div>
-                  <div className="font-heading font-bold text-zinc-900 dark:text-white text-xs truncate mb-1">{st.name}</div>
-                  <div className="text-[10px] text-zinc-500 dark:text-[#788e7a] font-mono leading-tight">{st.distance}</div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

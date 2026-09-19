@@ -8,6 +8,8 @@ import {
 } from 'lucide-react';
 import { MOCK_ATHLETE, HYROX_STATIONS } from '@/lib/constants';
 
+import { MetricCard } from '@/components/shared/MetricCard';
+
 export default function AthleteDashboardPage() {
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
@@ -38,7 +40,7 @@ export default function AthleteDashboardPage() {
         <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
           <Link
             href="/dashboard/schedule"
-            className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-1.5"
+            className="px-5 py-2.5 rounded-xl bg-[#76C043] hover:bg-[#8ff346] text-black font-extrabold text-xs shadow-lg shadow-[#76C043]/20 hover:shadow-[#76C043]/40 transition-all flex items-center justify-center gap-1.5"
           >
             <Calendar className="w-4 h-4" />
             Book Training Wave
@@ -53,73 +55,41 @@ export default function AthleteDashboardPage() {
         </div>
       </div>
 
-      {/* 4 Core Physiological KPI Cards */}
+      {/* 4 Core Physiological KPI Cards via Reusable MetricCard */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* VO2 Max */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 transition-all space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">VO2 PEAK</span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-              <Zap className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">{MOCK_ATHLETE.vo2Max}</span>
-            <span className="text-xs text-zinc-400">mL/kg/min</span>
-          </div>
-          <div className="text-[11px] text-emerald-400 font-medium">Top 5% for Age Category (M35)</div>
-        </div>
-
-        {/* Resting HR & HRV */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 transition-all space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">RESTING HR / HRV</span>
-            <div className="w-8 h-8 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
-              <Heart className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">{MOCK_ATHLETE.restingHR}</span>
-            <span className="text-xs text-zinc-400">bpm</span>
-            <span className="text-xs text-emerald-400 font-mono">HRV: {MOCK_ATHLETE.hrv}ms</span>
-          </div>
-          <div className="text-[11px] text-zinc-400 font-medium">Readiness: Optimal (Green State)</div>
-        </div>
-
-        {/* Lactate Threshold Pace */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 transition-all space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">LACTATE TURNPOINT (LT2)</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-              <Flame className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">{MOCK_ATHLETE.lactateThresholdPace}</span>
-            <span className="text-xs text-zinc-400">/km</span>
-          </div>
-          <div className="text-[11px] text-emerald-400 font-medium">+12s pace shift since July benchmark</div>
-        </div>
-
-        {/* Weekly Mileage Progress */}
-        <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 transition-all space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-400 font-mono">WEEKLY RUN VOLUME</span>
-            <div className="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
-              <TrendingUp className="w-4 h-4" />
-            </div>
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white">{MOCK_ATHLETE.weeklyDistanceKm}</span>
-            <span className="text-xs text-zinc-400">/ {MOCK_ATHLETE.targetWeeklyDistanceKm} km</span>
-          </div>
-          <div className="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
-            <div 
-              className="bg-emerald-500 h-full rounded-full transition-all" 
-              style={{ width: `${(MOCK_ATHLETE.weeklyDistanceKm / MOCK_ATHLETE.targetWeeklyDistanceKm) * 100}%` }}
-            />
-          </div>
-        </div>
+        <MetricCard
+          label="VO2 Peak"
+          value={MOCK_ATHLETE.vo2Max}
+          unit="mL/kg/min"
+          subtext="Top 5% for Age Category (M35)"
+          icon={Zap}
+          variant="emerald"
+        />
+        <MetricCard
+          label="Resting HR / HRV"
+          value={MOCK_ATHLETE.restingHR}
+          unit="bpm"
+          subtext={`HRV: ${MOCK_ATHLETE.hrv}ms • Optimal Readiness`}
+          icon={Heart}
+          variant="rose"
+        />
+        <MetricCard
+          label="Lactate Turnpoint (LT2)"
+          value={MOCK_ATHLETE.lactateThresholdPace}
+          unit="/km"
+          subtext="+12s pace shift since July test"
+          icon={Flame}
+          variant="amber"
+          trend={{ value: 'Improving', isPositive: true }}
+        />
+        <MetricCard
+          label="Weekly Volume"
+          value={MOCK_ATHLETE.weeklyDistanceKm}
+          unit={`/ ${MOCK_ATHLETE.targetWeeklyDistanceKm} km`}
+          subtext="77% of target completed"
+          icon={TrendingUp}
+          variant="blue"
+        />
       </div>
 
       {/* Main Grid: Upcoming Scheduled Workouts & HYROX Personal Bests */}

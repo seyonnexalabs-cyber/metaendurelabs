@@ -5,9 +5,24 @@ import Link from 'next/link';
 import { 
   Activity, Award, ChevronRight, Zap, Target, Flame, 
   Timer, Compass, ArrowUpRight, CheckCircle2, Trophy, BarChart3,
-  Footprints, HeartPulse, Apple, Hourglass, ShieldCheck, Dumbbell, Sparkles
+  Footprints, HeartPulse, Apple, Hourglass, ShieldCheck, Dumbbell, Sparkles,
+  Wind, Weight, Anchor, MoveUpRight, Waves, Bike, Gauge, Crown, Rocket
 } from 'lucide-react';
 import { HYROX_STATIONS } from '@/lib/constants';
+
+function getStationIcon(iconName?: string) {
+  switch (iconName) {
+    case 'Wind': return Wind;
+    case 'Weight': return Weight;
+    case 'Anchor': return Anchor;
+    case 'MoveUpRight': return MoveUpRight;
+    case 'Waves': return Waves;
+    case 'Dumbbell': return Dumbbell;
+    case 'Footprints': return Footprints;
+    case 'Target': return Target;
+    default: return Activity;
+  }
+}
 
 type SportTab = 'marathon' | 'triathlon' | 'hyrox';
 
@@ -191,7 +206,7 @@ export default function YourSportsPage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-lg bg-[#76C043]/15 text-[#1b5e20] dark:text-[#8ff346] flex items-center justify-center">
-                          <Zap className="w-4 h-4" />
+                          <Rocket className="w-4 h-4" />
                         </div>
                         <h3 className="font-bold text-lg text-zinc-900 dark:text-white">Sprint &amp; Olympic</h3>
                       </div>
@@ -203,7 +218,7 @@ export default function YourSportsPage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-lg bg-[#76C043]/15 text-[#1b5e20] dark:text-[#8ff346] flex items-center justify-center">
-                          <Flame className="w-4 h-4" />
+                          <Bike className="w-4 h-4" />
                         </div>
                         <h3 className="font-bold text-lg text-zinc-900 dark:text-white">IRONMAN 70.3 (Half)</h3>
                       </div>
@@ -215,7 +230,7 @@ export default function YourSportsPage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-lg bg-[#76C043]/15 text-[#1b5e20] dark:text-[#8ff346] flex items-center justify-center">
-                          <Trophy className="w-4 h-4" />
+                          <Crown className="w-4 h-4" />
                         </div>
                         <h3 className="font-bold text-lg text-zinc-900 dark:text-white">Full IRONMAN 140.6</h3>
                       </div>
@@ -302,49 +317,63 @@ export default function YourSportsPage() {
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-                {HYROX_STATIONS.map((st, idx) => (
-                  <button
-                    key={st.station}
-                    onClick={() => setSelectedStation(idx)}
-                    className={`p-3 rounded-xl border text-left transition-all ${
-                      selectedStation === idx
-                        ? 'border-[#76C043] bg-[#76C043]/15 text-zinc-900 dark:text-white shadow-lg shadow-[#76C043]/20 font-bold'
-                        : 'border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c180e] text-zinc-600 dark:text-zinc-400 hover:border-[#76C043]/40 hover:text-black dark:hover:text-white'
-                    }`}
-                  >
-                    <div className="text-xs font-mono text-[#1b5e20] dark:text-[#8ff346] font-bold mb-1">STATION #{st.station}</div>
-                    <div className="text-xs font-bold truncate">{st.name}</div>
-                    <div className="text-[10px] text-zinc-500 mt-1">{st.distance}</div>
-                  </button>
-                ))}
+                {HYROX_STATIONS.map((st, idx) => {
+                  const StationIcon = getStationIcon(st.iconName);
+                  return (
+                    <button
+                      key={st.station}
+                      onClick={() => setSelectedStation(idx)}
+                      className={`p-3 rounded-xl border text-left transition-all ${
+                        selectedStation === idx
+                          ? 'border-[#76C043] bg-[#76C043]/15 text-zinc-900 dark:text-white shadow-lg shadow-[#76C043]/20 font-bold'
+                          : 'border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c180e] text-zinc-600 dark:text-zinc-400 hover:border-[#76C043]/40 hover:text-black dark:hover:text-white'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-mono text-[#1b5e20] dark:text-[#8ff346] font-bold">#{st.station}</span>
+                        <StationIcon className={`w-3.5 h-3.5 ${selectedStation === idx ? 'text-[#1b5e20] dark:text-[#8ff346]' : 'text-zinc-400'}`} />
+                      </div>
+                      <div className="text-xs font-bold truncate">{st.name}</div>
+                      <div className="text-[10px] text-zinc-500 mt-1">{st.distance}</div>
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Station Detail Card */}
-              {HYROX_STATIONS[selectedStation] && (
-                <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#08120b] border-2 border-[#76C043]/30 shadow-lg grid md:grid-cols-3 gap-6 items-center">
-                  <div className="space-y-2">
-                    <div className="text-xs font-mono text-[#1b5e20] dark:text-[#8ff346] font-bold">STATION {HYROX_STATIONS[selectedStation].station} / 8</div>
-                    <h4 className="text-2xl font-black text-zinc-900 dark:text-white">{HYROX_STATIONS[selectedStation].name}</h4>
-                    <p className="text-sm font-bold text-[#1b5e20] dark:text-[#8ff346]">{HYROX_STATIONS[selectedStation].distance}</p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="text-xs text-zinc-500 dark:text-zinc-400 font-mono font-bold">SPECIFICATIONS & WEIGHTS</div>
-                    <p className="text-sm text-zinc-700 dark:text-zinc-200 leading-relaxed font-medium">{HYROX_STATIONS[selectedStation].description}</p>
-                  </div>
-                  <div className="flex flex-col gap-3 justify-center">
-                    <div className="p-3 rounded-xl bg-zinc-50 dark:bg-[#0d1c10] border border-zinc-200 dark:border-[#76C043]/20 text-center">
-                      <span className="text-xs text-zinc-500 dark:text-zinc-400">Preceded & Followed by</span>
-                      <div className="text-sm font-bold text-zinc-900 dark:text-white mt-0.5">1,000m Compromised Run</div>
+              {HYROX_STATIONS[selectedStation] && (() => {
+                const CurrentStationIcon = getStationIcon(HYROX_STATIONS[selectedStation].iconName);
+                return (
+                  <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#08120b] border-2 border-[#76C043]/30 shadow-lg grid md:grid-cols-3 gap-6 items-center">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-lg bg-[#76C043]/15 text-[#1b5e20] dark:text-[#8ff346] flex items-center justify-center">
+                          <CurrentStationIcon className="w-4 h-4" />
+                        </div>
+                        <span className="text-xs font-mono text-[#1b5e20] dark:text-[#8ff346] font-bold">STATION {HYROX_STATIONS[selectedStation].station} / 8</span>
+                      </div>
+                      <h4 className="text-2xl font-black text-zinc-900 dark:text-white">{HYROX_STATIONS[selectedStation].name}</h4>
+                      <p className="text-sm font-bold text-[#1b5e20] dark:text-[#8ff346]">{HYROX_STATIONS[selectedStation].distance}</p>
                     </div>
-                    <Link
-                      href="/schedule"
-                      className="w-full py-2.5 rounded-xl bg-[#76C043] hover:bg-[#8ff346] text-black font-extrabold text-xs text-center shadow-md hover:shadow-[#76C043]/30 transition-all"
-                    >
-                      Book HYROX Wave Test
-                    </Link>
+                    <div className="space-y-2">
+                      <div className="text-xs text-zinc-500 dark:text-zinc-400 font-mono font-bold">SPECIFICATIONS & WEIGHTS</div>
+                      <p className="text-sm text-zinc-700 dark:text-zinc-200 leading-relaxed font-medium">{HYROX_STATIONS[selectedStation].description}</p>
+                    </div>
+                    <div className="flex flex-col gap-3 justify-center">
+                      <div className="p-3 rounded-xl bg-zinc-50 dark:bg-[#0d1c10] border border-zinc-200 dark:border-[#76C043]/20 text-center">
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">Preceded & Followed by</span>
+                        <div className="text-sm font-bold text-zinc-900 dark:text-white mt-0.5">1,000m Compromised Run</div>
+                      </div>
+                      <Link
+                        href="/schedule"
+                        className="w-full py-2.5 rounded-xl bg-[#76C043] hover:bg-[#8ff346] text-black font-extrabold text-xs text-center shadow-md hover:shadow-[#76C043]/30 transition-all"
+                      >
+                        Book HYROX Wave Test
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
             </div>
           </div>
         )}

@@ -77,6 +77,16 @@ This living document tracks the development trajectory, implemented features, de
   - Pinned Tailwind CSS to stable v3 LTS (`3.4.19`) with full PostCSS compatibility (avoiding Tailwind v4 breaking changes).
   - Verified 100% build pass: `npm run build` compiled all 17 static routes with 0 errors.
 
+- [x] **Flattened Architecture & Clean Folder Taxonomy**:
+  - Eliminated redundant route group nesting `(dashboard)/dashboard` and `(admin)/admin`.
+  - Directory is now cleanly flattened to `app/dashboard` and `app/admin`.
+  - Moved shared dashboard cards to `components/shared/` (`MetricCard.tsx`, `HyroxStationBadge.tsx`, `SessionCard.tsx`).
+- [x] **Complete Athlete Dashboard Suite**:
+  - **Workouts & HYROX Log ([/dashboard/workouts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/workouts/page.tsx))**: Interactive workout logger, 8-station PB split comparison, weekly mileage tracker, and session feed with discipline badges.
+  - **Biometrics & Zones ([/dashboard/profile](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/profile/page.tsx))**: Dynamic 5-Zone Heart Rate calculator (Karvonen HRR formula), VO2 peak cart scores, and graded treadmill blood lactate step-test stage table.
+  - **Coach Messages ([/dashboard/messages](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/messages/page.tsx))**: Live coach chat thread with Sunil Menon, Rashmi, and Dr. Physio, including workout analysis tags and instantaneous coach acknowledgment simulation.
+  - **Training Schedule ([/dashboard/schedule](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/schedule/page.tsx))**: Refactored to leverage shared `SessionCard` components.
+
 ---
 
 ## 🟡 Active / Upcoming Initiatives
@@ -85,3 +95,4 @@ This living document tracks the development trajectory, implemented features, de
 - [ ] **Image Asset Rework**: Revisit transparent extraction of logo crests and apparel photos with custom vector or clean alpha mattes as noted by user.
 - [ ] **Live TrainingPeaks & Garmin Webhooks**: Connect athlete telemetry and sync actual workout files (.FIT / Strava).
 - [ ] **Payment Gateway Verification**: Wire Razorpay / Stripe test webhooks in `/dashboard/checkout`.
+
