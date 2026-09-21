@@ -58,7 +58,7 @@ export default function AboutPage() {
 
         {/* Quick Nav Anchors */}
         <div className="flex items-center justify-center gap-2 flex-wrap pt-2">
-          {['founder', 'philosophy', 'vision-mission', 'pillars', 'system', 'different'].map((item) => (
+          {['founder', 'philosophy', 'vision-mission', 'brand-meaning', 'framework', 'pillars', 'system', 'different'].map((item) => (
             <a
               key={item}
               href={`#${item}`}
@@ -153,11 +153,162 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. THE 3 CORE PILLARS (Slide 8) */}
+      {/* Brand Meaning & Logo Architecture */}
+      <section id="brand-meaning" className="glass-card p-8 md:p-12 space-y-8 scroll-mt-24">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-mono font-bold text-[#76C043] uppercase tracking-widest bg-[#76C043]/10 px-3 py-1 rounded-full border border-[#76C043]/20">
+            Brand Architecture
+          </span>
+          <h2 className="font-heading text-3xl font-extrabold text-white">
+            Brand Meaning &bull; <span className="text-[#76C043]">Going Beyond Endurance</span>
+          </h2>
+          <p className="text-xs md:text-sm text-[#bdcebe] leading-relaxed">
+            METAENDURE is a deliberate synthesis of two core ideas designed to redefine human limits.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="p-6 rounded-2xl bg-[#08120b] border border-white/10 space-y-2">
+            <div className="flex items-center gap-2 text-white font-heading font-bold text-lg">
+              <span className="w-7 h-7 rounded-lg bg-white/10 text-white flex items-center justify-center font-mono text-xs border border-white/20">M</span>
+              <span>Meta</span>
+            </div>
+            <p className="text-xs text-[#bdcebe] leading-relaxed">
+              Beyond, higher level, transformation, self-improvement, future-focused.
+            </p>
+            <div className="text-[11px] font-mono text-[#788e7a] pt-1">
+              White segment: clarity, discipline, mindset, performance.
+            </div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-[#08120b] border border-[#76C043]/30 space-y-2">
+            <div className="flex items-center gap-2 text-[#76C043] font-heading font-bold text-lg">
+              <span className="w-7 h-7 rounded-lg bg-[#76C043]/15 text-[#76C043] flex items-center justify-center font-mono text-xs border border-[#76C043]/30">E</span>
+              <span>Endure</span>
+            </div>
+            <p className="text-xs text-[#bdcebe] leading-relaxed">
+              Persistence, resilience, stamina, the ability to keep going despite difficulty.
+            </p>
+            <div className="text-[11px] font-mono text-[#788e7a] pt-1">
+              Green segment: energy, endurance, growth, evolution.
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center pt-2">
+          <p className="text-xs font-mono text-zinc-400 dark:text-[#d1ded2]">
+            The connected shape suggests forward movement and progression, fitting the idea of <strong className="text-[#76C043]">"Outlast Your Yesterday."</strong>
+          </p>
+        </div>
+      </section>
+
+      {/* EMSP Performance Framework */}
+      <section id="framework" className="space-y-8 scroll-mt-24">
+        <div className="text-center max-w-xl mx-auto">
+          <span className="text-xs font-mono font-bold text-[#76C043] uppercase tracking-widest bg-[#76C043]/10 px-3 py-1 rounded-full border border-[#76C043]/20">
+            Performance Matrix
+          </span>
+          <h2 className="font-heading text-3xl font-extrabold text-white mt-2">
+            The EMSP Framework
+          </h2>
+          <p className="text-xs text-[#bdcebe] mt-1">
+            The operational performance matrix driving every training program at MetaEndure Labs.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* E = Endurance */}
+          <div className="glass-card p-6 space-y-4 border-t-2 border-t-emerald-500">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-2xl font-black text-emerald-400">E</span>
+              <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Foundation</span>
+            </div>
+            <div>
+              <h3 className="font-heading text-lg font-bold text-white">Endurance</h3>
+              <p className="text-xs text-zinc-400 mt-1">The ability to keep going when others stop.</p>
+            </div>
+            <ul className="space-y-1.5 text-xs text-[#bdcebe]">
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Physical stamina</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Recovery</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Consistency</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Long-term discipline</li>
+            </ul>
+            <div className="p-3 rounded-xl bg-[#08120b] border border-white/5 text-[11px] font-heading font-semibold text-emerald-300 italic">
+              "Endurance is not about speed. It's about staying in the game."
+            </div>
+          </div>
+
+          {/* M = Mindset */}
+          <div className="glass-card p-6 space-y-4 border-t-2 border-t-cyan-500">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-2xl font-black text-cyan-400">M</span>
+              <span className="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-wider bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">Engine</span>
+            </div>
+            <div>
+              <h3 className="font-heading text-lg font-bold text-white">Mindset</h3>
+              <p className="text-xs text-zinc-400 mt-1">The engine behind endurance.</p>
+            </div>
+            <ul className="space-y-1.5 text-xs text-[#bdcebe]">
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Mental resilience</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Focus</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Self-belief</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Grit</li>
+            </ul>
+            <div className="p-3 rounded-xl bg-[#08120b] border border-white/5 text-[11px] font-heading font-semibold text-cyan-300 italic">
+              "The body follows where the mind leads."
+            </div>
+          </div>
+
+          {/* S = Science */}
+          <div className="glass-card p-6 space-y-4 border-t-2 border-t-blue-500">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-2xl font-black text-blue-400">S</span>
+              <span className="text-[10px] font-mono font-bold text-blue-400 uppercase tracking-wider bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">Differentiator</span>
+            </div>
+            <div>
+              <h3 className="font-heading text-lg font-bold text-white">Science</h3>
+              <p className="text-xs text-zinc-400 mt-1">The differentiator.</p>
+            </div>
+            <ul className="space-y-1.5 text-xs text-[#bdcebe]">
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Data-driven training</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Sports science</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Biometrics</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Performance testing</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Evidence-based coaching</li>
+            </ul>
+            <div className="p-3 rounded-xl bg-[#08120b] border border-white/5 text-[11px] font-heading font-semibold text-blue-300 italic">
+              "We don't guess. We measure."
+            </div>
+          </div>
+
+          {/* P = Performance */}
+          <div className="glass-card p-6 space-y-4 border-t-2 border-t-amber-500">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-2xl font-black text-amber-400">P</span>
+              <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Outcome</span>
+            </div>
+            <div>
+              <h3 className="font-heading text-lg font-bold text-white">Performance</h3>
+              <p className="text-xs text-zinc-400 mt-1">The outcome.</p>
+            </div>
+            <ul className="space-y-1.5 text-xs text-[#bdcebe]">
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Faster</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Stronger</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Healthier</li>
+              <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>More resilient</li>
+            </ul>
+            <div className="p-3 rounded-xl bg-[#08120b] border border-white/5 text-[11px] font-heading font-semibold text-amber-300 italic">
+              "Performance is the result of endurance, mindset, and science working together."
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The 3 Core Pillars */}
       <section id="pillars" className="space-y-8 scroll-mt-24">
         <div className="text-center">
-          <span className="text-xs font-mono font-bold text-[#76C043] uppercase tracking-widest">
-            Slide 8 Blueprint
+          <span className="text-xs font-mono font-bold text-[#76C043] uppercase tracking-widest bg-[#76C043]/10 px-3 py-1 rounded-full border border-[#76C043]/20">
+            Core Philosophy
           </span>
           <h2 className="font-heading text-3xl font-extrabold text-white mt-2">
             The Three Main Pillars
@@ -192,7 +343,7 @@ export default function AboutPage() {
                 </span>
               </div>
               <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
-                The foundational phase of resilience, grit, and survival. Capacity to withstand hardships, absorb physical and mental pressure, and maintain discipline without quitting.
+                The foundational phase of resilience, grit, and survival. It represents the capacity to withstand hardships, absorb pressure, maintain discipline, and persist through setbacks or unfavourable conditions without quitting.
               </p>
             </div>
           </div>
@@ -224,7 +375,7 @@ export default function AboutPage() {
                 </span>
               </div>
               <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
-                The intermediate phase of adaptation. Once you survive initial pressure, you must learn, shift your mindset, update training methodologies, and evolve capabilities.
+                The intermediate phase of adaptation and growth. Once you survive the initial pressure, you must learn, shift your mindset, update your strategies, and transform your capabilities to align with a changing environment rather than remaining stagnant.
               </p>
             </div>
           </div>
@@ -256,7 +407,7 @@ export default function AboutPage() {
                 </span>
               </div>
               <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
-                The ultimate phase of high performance and achievement. Surpass limitations, outperform peers, and achieve absolute competitive mastery.
+                The ultimate phase of high performance and achievement. By successfully withstanding adversity (enduring) and adapting to new demands (evolving), you ultimately surpass previous limitations, outperform peers, and achieve mastery or market leadership.
               </p>
             </div>
           </div>

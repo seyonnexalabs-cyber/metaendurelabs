@@ -196,7 +196,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
-                  The foundational phase of resilience, grit, and survival. It represents the capacity to withstand hardships, absorb pressure, maintain discipline, and persist through setbacks without quitting.
+                  The foundational phase of resilience, grit, and survival. It represents the capacity to withstand hardships, absorb pressure, maintain discipline, and persist through setbacks or unfavourable conditions without quitting.
                 </p>
               </div>
             </div>
@@ -238,14 +238,14 @@ export default function HomePage() {
                   </span>
                 </div>
                 <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
-                  The intermediate phase of adaptation and intelligent growth. Once you survive initial pressure, you must learn, shift your mindset, update your fueling and training, and transform capabilities.
+                  The intermediate phase of adaptation and growth. Once you survive the initial pressure, you must learn, shift your mindset, update your strategies, and transform your capabilities to align with a changing environment rather than remaining stagnant.
                 </p>
               </div>
             </div>
             <div className="p-6 pt-4 border-t border-zinc-200 dark:border-white/10 mx-6 mb-2 flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
               <span>Phase 02</span>
               <span className="text-cyan-600 dark:text-cyan-400 font-bold flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5" /> Data Calibration
+                <Activity className="w-3.5 h-3.5" /> Strategy &amp; Adaptation
               </span>
             </div>
           </div>
@@ -280,7 +280,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <p className="text-xs text-zinc-700 dark:text-[#d1ded2] leading-relaxed font-medium">
-                  The ultimate phase of high achievement. By withstanding adversity and systematically adapting, you surpass limitations, outperform competitors, and claim your place on the podium.
+                  The ultimate phase of high performance and achievement. By successfully withstanding adversity (enduring) and adapting to new demands (evolving), you ultimately surpass previous limitations, outperform peers, and achieve mastery or market leadership.
                 </p>
               </div>
             </div>

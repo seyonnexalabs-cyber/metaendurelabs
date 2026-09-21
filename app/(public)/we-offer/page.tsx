@@ -187,6 +187,87 @@ export default function WeOfferPage() {
           })}
         </div>
 
+        {/* WHO WE SERVE */}
+        <div className="space-y-8 pt-8">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs uppercase font-mono tracking-widest text-[#76C043] font-bold bg-[#76C043]/10 px-3 py-1 rounded-full border border-[#76C043]/20">
+              Athlete Cohorts
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-white">Who We Serve</h2>
+            <p className="text-zinc-400 text-sm">
+              MetaEndure Labs helps anyone committed to becoming a better version of themselves.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Endurance Athletes */}
+            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800 space-y-4 hover:border-emerald-500/40 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <Activity className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">Endurance Athletes</h3>
+                <p className="text-xs text-zinc-400 mt-1">Pursuing peak performance &amp; PR breakthroughs.</p>
+              </div>
+              <ul className="space-y-1.5 text-xs text-zinc-300">
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />Runners (5K to Marathon)</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />Cyclists</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />Triathletes (70.3 &amp; 140.6)</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />Ultra-distance athletes</li>
+              </ul>
+            </div>
+
+            {/* Working Professionals */}
+            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800 space-y-4 hover:border-cyan-500/40 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                <Clock className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">Working Professionals</h3>
+                <p className="text-xs text-zinc-400 mt-1">Calibrating energy, stamina, and career endurance.</p>
+              </div>
+              <ul className="space-y-1.5 text-xs text-zinc-300">
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />Busy individuals seeking sustainable fitness</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />Leaders wanting increased resilience and energy</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />Professionals managing stress and performance</li>
+              </ul>
+            </div>
+
+            {/* Transformation Seekers */}
+            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800 space-y-4 hover:border-amber-500/40 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                <HeartPulse className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">Transformation Seekers</h3>
+                <p className="text-xs text-zinc-400 mt-1">Systematic body recomp and lasting habits.</p>
+              </div>
+              <ul className="space-y-1.5 text-xs text-zinc-300">
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />Weight loss journeys</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />Lifestyle optimization</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />Habit-building and consistency development</li>
+              </ul>
+            </div>
+
+            {/* High Performers */}
+            <div className="p-6 rounded-3xl bg-zinc-900/60 border border-zinc-800 space-y-4 hover:border-purple-500/40 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                <Users className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">High Performers</h3>
+                <p className="text-xs text-zinc-400 mt-1">Mastery across sport, discipline, and execution.</p>
+              </div>
+              <ul className="space-y-1.5 text-xs text-zinc-300">
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-purple-400 shrink-0" />Entrepreneurs</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-purple-400 shrink-0" />Executives</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-purple-400 shrink-0" />Competitive athletes</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-purple-400 shrink-0" />Individuals pursuing excellence</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Memberships & Pricing Plans */}
         <div className="space-y-8 pt-8">
           <div className="text-center space-y-3">

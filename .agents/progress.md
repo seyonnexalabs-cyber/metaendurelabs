@@ -90,6 +90,24 @@ This living document tracks the development trajectory, implemented features, de
   - Streamlined 1-click demo entry buttons right at the top (`Athlete View` & `Coach Admin`).
   - Minimized credential inputs to `Email + Password` for Sign In, and `Name + Email + Password` for Sign Up.
   - Fully adaptive contrast: crisp `#ffffff` card surface in light mode, pitch-black `#0a140d` with glowing green halo in dark mode.
+- [x] **Deduplication & Document Fidelity Alignment (`extracted_doc.txt`)**:
+  - Reconciled redundant pillar phrasing across `HomePage` and `AboutPage` to strictly match the authentic definitions in [extracted_doc.txt](file:///d:/seyon_nexa_labs/projects/metaendurelabs/extracted_doc.txt) (Slide 8: Endure, Evolve, Excel).
+  - Integrated dedicated **Brand Meaning & Logo Architecture** (Slide 7) and **EMSP Performance Framework** (Slide 9: Endurance, Mindset, Science, Performance) directly into `app/(public)/about/page.tsx`.
+  - Added dedicated **Who We Serve** audience segment (Slide 10: Endurance Athletes, Working Professionals, Transformation Seekers, High Performers) into `app/(public)/we-offer/page.tsx`.
+  - Ensured all brand messages (*"We don't guess. We measure"*, *"The body follows where the mind leads"*, *"Endurance is not about speed. It's about staying in the game"*) are verbatim representations.
+
+- [x] **Comprehensive Course Scheduling Module ([/schedule](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/(public)/schedule/page.tsx) & [/dashboard/schedule](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/schedule/page.tsx))**:
+  - Implemented dual-mode scheduling switcher: **Single Session / Lab Test** vs. **Schedule a Multi-Week Course**.
+  - Built official multi-week training cohorts matching [extracted_doc.txt](file:///d:/seyon_nexa_labs/projects/metaendurelabs/extracted_doc.txt) (Slide 16):
+    - **12-Week Beginner HYROX Foundation Program** (Aerobic base, Erg ergonomics, compromised running, pacing calibration).
+    - **16-Week Intermediate HYROX Performance Program** (Roxzone transition speed, heavy sled overload, Pro weights).
+    - **16-Week Sub-3h & Ultra Endurance Mastery Course** (Step tests, video gait, 60-90g/hr fueling, peak 34km LSR block).
+    - **16-Week IRONMAN 70.3 Multi-Sport Blueprint** (Bilateral swim, FTP aero bike, brick transitions, sodium calibration).
+  - Integrated 4-step progressive milestone curriculum badges for every course.
+  - Added upcoming cohort kickoff dates, weekly training volume cadences, mentor coach selection, and dynamic reservation summary.
+  - Linked directly to checkout route with course ID and tuition query parameters (`?course=...&amount=...`).
+  - Added **Enrolled Multi-Week Courses** tracking card to Athlete Dashboard Schedule with active milestone stages.
+  - Verified 100% build pass: `npm run build` compiled all 20 static routes with 0 errors.
 
 ---
 
@@ -99,4 +117,5 @@ This living document tracks the development trajectory, implemented features, de
 - [ ] **Image Asset Rework**: Revisit transparent extraction of logo crests and apparel photos with custom vector or clean alpha mattes as noted by user.
 - [ ] **Live TrainingPeaks & Garmin Webhooks**: Connect athlete telemetry and sync actual workout files (.FIT / Strava).
 - [ ] **Payment Gateway Verification**: Wire Razorpay / Stripe test webhooks in `/dashboard/checkout`.
+
 
