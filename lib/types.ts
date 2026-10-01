@@ -1,3 +1,7 @@
+/* ==========================================================================
+   CORE APPLICATION DOMAIN TYPES
+   ========================================================================== */
+
 export interface Coach {
   id: string;
   name: string;
@@ -23,25 +27,16 @@ export interface Partner {
 export interface TrainingSession {
   id: string;
   title: string;
-  sport: 'Running' | 'Triathlon' | 'HYROX' | 'Nutrition' | 'Rehab' | string;
-  coach: string;
   date: string;
   time: string;
-  durationMinutes: number;
+  coach: string;
+  type: 'lab' | 'hyrox' | 'physio' | 'virtual' | 'run';
   location: string;
-  type: '1-on-1' | 'Cohort Wave' | 'Simulation Pass' | string;
-  fee: number;
-  status: 'confirmed' | 'pending' | 'completed';
-}
-
-export interface AthleteBiometrics {
-  restingHr: number;
-  maxHr: number;
-  vo2max: number;
-  target10kPace: string;
-  targetHmPace: string;
-  currentWeightKg: number;
-  weightLostKg: number;
+  status: 'confirmed' | 'rescheduled' | 'completed' | 'in-progress';
+  capacity?: {
+    current: number;
+    max: number;
+  };
 }
 
 export interface PricingTier {
@@ -62,4 +57,24 @@ export interface HyroxStation {
   description?: string;
   focus?: string;
   iconName?: string;
+}
+
+export interface WaveSlot {
+  id: string;
+  time: string;
+  maxCapacity: number;
+  bookedCount: number;
+  coachId?: string;
+  category: 'hyrox' | 'lab' | 'consult' | 'physio' | 'run';
+  status: 'available' | 'filling-fast' | 'waitlist';
+}
+
+export interface CourseCohort {
+  id: string;
+  courseId: string;
+  startDate: string;
+  title: string;
+  maxCapacity: number;
+  enrolledCount: number;
+  schedule: string;
 }

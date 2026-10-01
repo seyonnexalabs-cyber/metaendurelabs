@@ -1,0 +1,38 @@
+from pptx import Presentation
+
+def extract_text_from_pptx(pptx_path):
+    # Load the PowerPoint presentation
+    prs = Presentation(pptx_path)
+    text_content = []
+    
+    # Iterate through each slide
+    for slide_num, slide in enumerate(prs.slides, start=1):
+        text_content.append(f"--- Slide {slide_num} ---")
+        
+        # Iterate through all shapes on the slide
+        for shape in slide.shapes:
+            # Check if the shape contains text
+            if shape.has_text_frame:
+                for paragraph in shape.text_frame.paragraphs:
+                    # Strip whitespace and only add non-empty lines
+                    text = paragraph.text.strip()
+                    if text:
+                        text_content.append(text)
+                        
+    return "\n".join(text_content)
+
+if __name__ == "__main__":
+    # Replace with the path to your PPTX file
+    pptx_file = "d:\seyon_nexa_labs\projects\metaendurelabs\docs\METAENDURELABS.pptx" 
+    
+    try:
+        raw_text = extract_text_from_pptx(pptx_file)
+        print(raw_text)
+        
+        # Optional: Save the raw text to a file
+        with open("extracted_text.txt", "w", encoding="utf-8") as f:
+            f.write(raw_text)
+        print("\n[Success] Text extracted and saved to 'extracted_text.txt'")
+        
+    except FileNotFoundError:
+        print(f"Error: The file '{pptx_file}' was not found. Please check the path.")

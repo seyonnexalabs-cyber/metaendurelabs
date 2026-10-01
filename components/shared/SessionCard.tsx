@@ -1,20 +1,9 @@
 import React from 'react';
 import { Calendar, Clock, MapPin, User, CheckCircle2, AlertCircle } from 'lucide-react';
 
-export interface TrainingSessionItem {
-  id: string;
-  title: string;
-  date: string;
-  time: string;
-  coach: string;
-  type: 'lab' | 'hyrox' | 'physio' | 'virtual' | 'run';
-  location: string;
-  status: 'confirmed' | 'rescheduled' | 'completed' | 'in-progress';
-  capacity?: {
-    current: number;
-    max: number;
-  };
-}
+import { TrainingSession } from '@/lib/types';
+
+export type TrainingSessionItem = TrainingSession;
 
 interface SessionCardProps {
   session: TrainingSessionItem;

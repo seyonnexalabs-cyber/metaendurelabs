@@ -7,6 +7,8 @@ import {
   Clock, FileText, ArrowUpRight, Receipt
 } from 'lucide-react';
 
+import { INITIAL_BILLING_INVOICES } from '@/lib/constants';
+
 interface Invoice {
   id: string;
   number: string;
@@ -18,35 +20,7 @@ interface Invoice {
 }
 
 export default function AthleteBillingPage() {
-  const [invoices] = useState<Invoice[]>([
-    {
-      id: 'inv-1',
-      number: 'MEL-INV-2026-089',
-      date: 'Sept 1, 2026',
-      plan: 'Pro Endurance Coaching (Monthly)',
-      amount: '₹7,500',
-      gateway: 'razorpay',
-      status: 'paid'
-    },
-    {
-      id: 'inv-2',
-      number: 'MEL-INV-2026-042',
-      date: 'Aug 1, 2026',
-      plan: 'Pro Endurance Coaching (Monthly)',
-      amount: '₹7,500',
-      gateway: 'razorpay',
-      status: 'paid'
-    },
-    {
-      id: 'inv-3',
-      number: 'MEL-INV-2026-011',
-      date: 'July 15, 2026',
-      plan: 'Metabolic Graded Lactate Cart Test',
-      amount: '₹5,000',
-      gateway: 'razorpay',
-      status: 'paid'
-    }
-  ]);
+  const [invoices] = useState<Invoice[]>(INITIAL_BILLING_INVOICES);
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto">

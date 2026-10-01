@@ -5,7 +5,7 @@ import {
   UserCheck, Activity, Heart, Flame, Shield, TrendingUp, 
   Microscope, Zap, Clock, Award, CheckCircle2, ChevronRight, Gauge 
 } from 'lucide-react';
-import { MOCK_ATHLETE } from '@/lib/constants';
+import { MOCK_ATHLETE, HR_ZONE_DEFINITIONS } from '@/lib/constants';
 import { MetricCard } from '@/components/shared/MetricCard';
 
 interface HeartRateZone {
@@ -30,53 +30,15 @@ export default function BiometricsAndZonesPage() {
     return `${low} – ${high} bpm`;
   };
 
-  const hrZones: HeartRateZone[] = [
-    {
-      zone: 'Zone 1',
-      name: 'Active Recovery',
-      rangeBpm: calculateZoneRange(0.50, 0.60),
-      pctMaxHr: '50% – 60% HRR',
-      physiologicalRole: 'Capillary growth, lactic flushing, tissue remodeling without metabolic fatigue.',
-      fuelSource: 'Pure Free Fatty Acids (95%+)',
-      color: 'border-blue-500/40 text-blue-500 bg-blue-500/10'
-    },
-    {
-      zone: 'Zone 2',
-      name: 'Aerobic Base (FatMax)',
-      rangeBpm: calculateZoneRange(0.60, 0.70),
-      pctMaxHr: '60% – 70% HRR',
-      physiologicalRole: 'Mitochondrial density, cardiac stroke volume, glycogen-sparing endurance foundation.',
-      fuelSource: 'Optimal Fat Oxidation (FatMax)',
-      color: 'border-[#76C043]/40 text-[#1b5e20] dark:text-[#8ff346] bg-[#76C043]/10'
-    },
-    {
-      zone: 'Zone 3',
-      name: 'Tempo / Aerobic Power',
-      rangeBpm: calculateZoneRange(0.70, 0.80),
-      pctMaxHr: '70% – 80% HRR',
-      physiologicalRole: 'Sustained marathon race pace, neuromuscular rhythm, and aerobic efficiency.',
-      fuelSource: 'Balanced 50/50 Fat & Glycogen',
-      color: 'border-amber-500/40 text-amber-600 dark:text-amber-400 bg-amber-500/10'
-    },
-    {
-      zone: 'Zone 4',
-      name: 'Lactate Threshold (LT2)',
-      rangeBpm: calculateZoneRange(0.80, 0.90),
-      pctMaxHr: '80% – 90% HRR',
-      physiologicalRole: 'Maximum steady state where lactate clearance matches production. 1-hour race ceiling.',
-      fuelSource: 'Predominantly Muscle Glycogen (85%+)',
-      color: 'border-orange-500/40 text-orange-600 dark:text-orange-400 bg-orange-500/10'
-    },
-    {
-      zone: 'Zone 5',
-      name: 'VO2 Max & Anaerobic Capacity',
-      rangeBpm: calculateZoneRange(0.90, 1.00),
-      pctMaxHr: '90% – 100% HRR',
-      physiologicalRole: 'Maximum oxygen uptake, stroke output limit, short 3-5 minute interval intervals.',
-      fuelSource: 'Anaerobic Glycolysis (100%)',
-      color: 'border-rose-500/40 text-rose-600 dark:text-rose-400 bg-rose-500/10'
-    }
-  ];
+  const hrZones: HeartRateZone[] = HR_ZONE_DEFINITIONS.map((def) => ({
+    zone: def.zone,
+    name: def.name,
+    rangeBpm: calculateZoneRange(def.minPct, def.maxPct),
+    pctMaxHr: def.pctMaxHr,
+    physiologicalRole: def.physiologicalRole,
+    fuelSource: def.fuelSource,
+    color: def.color,
+  }));
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto">

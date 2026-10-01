@@ -30,9 +30,10 @@ export const PublicTopNav: React.FC = () => {
     { label: 'About', href: '/about' },
     { label: 'Your Sports', href: '/your-sports' },
     { label: 'We Offer', href: '/we-offer' },
-    { label: 'Team & Partners', href: '/team' },
-    { label: 'Community', href: '/community' },
     { label: 'Schedule', href: '/schedule' },
+    { label: 'Team', href: '/team' },
+    { label: 'Community', href: '/community' },
+    { label: 'Contact Us', href: '/contact' },
   ];
 
   return (
@@ -40,14 +41,14 @@ export const PublicTopNav: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b backdrop-blur-xl ${
           scrolled
-            ? 'h-16 bg-[#08120a]/95 dark:bg-[#08120a]/95 border-[#76C043]/30 shadow-[0_4px_30px_rgba(0,0,0,0.6)]'
-            : 'h-[72px] bg-[#0c1a10]/85 dark:bg-[#0c1a10]/85 border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
+            ? 'h-16 bg-white/95 dark:bg-[#060a07]/95 border-emerald-500/20 dark:border-[#76C043]/30 shadow-sm dark:shadow-[0_4px_30px_rgba(0,0,0,0.6)]'
+            : 'h-[72px] bg-white/90 dark:bg-[#0a110c]/85 border-zinc-200 dark:border-white/10 shadow-sm dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
         }`}
       >
         <div className="w-full max-w-[1520px] mx-auto h-full px-4 sm:px-6 lg:px-10 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="w-9 h-9 rounded-lg overflow-hidden border border-[#76C043]/40 p-0.5 bg-gradient-to-br from-white/10 to-[#76C043]/30">
+            <div className="w-9 h-9 rounded-lg overflow-hidden border border-emerald-500/30 dark:border-[#76C043]/40 p-0.5 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-white/10 dark:to-[#76C043]/30">
               <img
                 src="/assets/images/metaendure-crest.png"
                 alt="METAENDURE Crest"
@@ -118,7 +119,7 @@ export const PublicTopNav: React.FC = () => {
 
       {/* Mobile Navigation Drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden bg-black/80 backdrop-blur-md flex flex-col justify-between p-6">
+        <div className="fixed inset-0 z-50 lg:hidden bg-white/95 dark:bg-black/90 backdrop-blur-md flex flex-col justify-between p-6">
           <div>
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
@@ -127,11 +128,11 @@ export const PublicTopNav: React.FC = () => {
                   alt="METAENDURE Crest"
                   className="w-8 h-8 rounded-md"
                 />
-                <span className="font-heading font-bold text-white text-base">METAENDURE LABS</span>
+                <span className="font-heading font-bold text-zinc-900 dark:text-white text-base">METAENDURE LABS</span>
               </div>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="p-2 text-white border border-white/10 rounded-full"
+                className="p-2 text-zinc-700 dark:text-white border border-zinc-200 dark:border-white/10 rounded-full"
               >
                 <X className="w-5 h-5" />
               </button>

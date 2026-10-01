@@ -42,8 +42,29 @@ MetaEndure Labs is a specialized high-performance sports platform covering:
 
 ---
 
-## 🛠️ Code Conventions
-- Use Next.js 14 App Router conventions (`app/**/page.tsx`, `layout.tsx`).
-- Favor modular React functional components in `components/`.
-- Ensure all interactive elements include accessible labels and unique identifiers.
+## 🛠️ Code Conventions & Architectural Rules
+
+### 1. Next.js 14 App Router & Server Components
+- **Public Routes as Server Components**: All marketing routes (`app/(public)/**/page.tsx`) must remain **Server Components** that export static `Metadata` (OpenGraph, Twitter cards, meta descriptions) for optimal SEO and instant initial page load.
+- **Client Islands**: Only leaf components requiring interactive React state, hooks, or browser event listeners (e.g., booking selectors, filters, modals) should declare `'use client'`.
+- Interactive components should be placed in domain folders (e.g., `components/schedule/ScheduleClient.tsx`) or `components/shared/`.
+
+### 2. Single Source of Truth for Data (`lib/constants.ts`)
+- **Single Constants File**: All shared data, pricing, coaches, partners, disciplines, and navigation items belong in [lib/constants.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/constants.ts). Do not create fragmented sub-constants files unless explicitly structured.
+- **Lean Domain Types (`lib/types.ts`)**: Keep [lib/types.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/types.ts) focused strictly on core reusable domain entities (`Coach`, `Partner`, `TrainingSession`, `PricingTier`, `HyroxStation`). Avoid duplicating single-use presentation types.
+- **Slide References**: Never show internal `Slide #` labels to end-users on public page UI badges. Keep slide references documented as comments inside [lib/constants.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/constants.ts) and component section headers for developer traceability.
+
+### 3. Motion & Animation Standards (100% Free-Tier GSAP)
+- **Engine**: Use `gsap`, `ScrollTrigger`, and `@gsap/react` (`useGSAP`).
+- **Free-Tier Strictness**: Only use standard, non-commercial GSAP core features. Never import paid Club GreenSock plugins (such as `SplitText`, `MorphSVG`, or `InertiaPlugin`).
+- **Reusable Wrappers**:
+  - Use [ScrollReveal.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/shared/ScrollReveal.tsx) for viewport scroll reveals (`fade-up`, `fade-down`, `fade-left`, `fade-right`, `zoom-in`, `fade-in`).
+  - Use [ScrollProgressBar.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/shared/ScrollProgressBar.tsx) for page-level laser reading progress.
+  - Use [AnimatedCounter.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/shared/AnimatedCounter.tsx) for kinetic number count-ups on hero metrics and stats.
+- Keep animations crisp, lightweight, and hardware-accelerated (`transform`, `opacity`) with clean lifecycle teardowns via `useGSAP`.
+
+### 4. Accessibility & Build Health
+- Ensure all interactive elements include accessible labels and unique descriptive IDs.
 - Do not use Tailwind ad-hoc colors when brand variables exist in `app/globals.css`.
+- Always verify zero-error builds (`npx next build`) after making architectural changes.
+

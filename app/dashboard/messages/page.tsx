@@ -5,7 +5,7 @@ import {
   MessageSquare, Send, User, CheckCircle2, 
   Paperclip, Clock, Calendar, Sparkles, AlertCircle, PhoneCall 
 } from 'lucide-react';
-import { COACHES } from '@/lib/constants';
+import { COACHES, INITIAL_COACH_MESSAGES } from '@/lib/constants';
 
 interface Message {
   id: string;
@@ -20,31 +20,7 @@ export default function CoachMessagesPage() {
   const [selectedCoach, setSelectedCoach] = useState<string>(COACHES[0].id);
   const [inputText, setInputText] = useState<string>('');
 
-  const [conversation, setConversation] = useState<Message[]>([
-    {
-      id: 'm-1',
-      sender: 'coach',
-      senderName: 'Sunil Menon',
-      text: 'Vijay, reviewed your 21km aerobic long run from Sunday. Your cardiac drift was under 3.8% across the entire 100 minutes—that indicates solid mitochondrial efficiency. Keep your hydration electrolytes at 750mg sodium/liter for this week.',
-      timestamp: 'Yesterday at 04:30 PM',
-      category: 'feedback'
-    },
-    {
-      id: 'm-2',
-      sender: 'athlete',
-      senderName: 'Vijay Raghavan',
-      text: 'Thanks Coach! Legs felt noticeably fresher post-run than 3 weeks ago. For Wednesday’s 5x 1km compromised intervals with Coach Rashmi, should I hold 4:20/km or push to 4:15/km?',
-      timestamp: 'Yesterday at 06:15 PM'
-    },
-    {
-      id: 'm-3',
-      sender: 'coach',
-      senderName: 'Sunil Menon',
-      text: 'Hold 4:20/km strictly on the first 3 reps. The focus is rapid lactate buffering post-sled push, not burning matches early. If rep 4 feels controlled at 165 bpm, you can open up rep 5 to 4:12/km.',
-      timestamp: 'Today at 07:10 AM',
-      category: 'plan-change'
-    }
-  ]);
+  const [conversation, setConversation] = useState<Message[]>(INITIAL_COACH_MESSAGES);
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();

@@ -107,9 +107,61 @@ This living document tracks the development trajectory, implemented features, de
   - Added upcoming cohort kickoff dates, weekly training volume cadences, mentor coach selection, and dynamic reservation summary.
   - Linked directly to checkout route with course ID and tuition query parameters (`?course=...&amount=...`).
   - Added **Enrolled Multi-Week Courses** tracking card to Athlete Dashboard Schedule with active milestone stages.
-  - Verified 100% build pass: `npm run build` compiled all 20 static routes with 0 errors.
+- [x] **Consolidated Constants & Streamlined Types (`lib/constants.ts` & `lib/types.ts`)**:
+  - Eliminated redundant `lib/constants/` directory and merged all brand, coaches, partners, disciplines, differentiators, and schedule data into a single source of truth at [lib/constants.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/constants.ts).
+  - Preserved internal Slide numbers (Slides 1–23) as developer reference comments at the top of each data structure in `lib/constants.ts`.
+  - Pruned [lib/types.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/types.ts) down to core domain models (`Coach`, `Partner`, `TrainingSession`, `PricingTier`, `HyroxStation`), eliminating redundant single-use presentation types.
+
+- [x] **Full Server Component Architecture & Metadata SEO**:
+  - Converted all public marketing routes (`/`, `/about`, `/we-offer`, `/your-sports`, `/team`, `/community`, `/contact`, `/schedule`) into Server Components.
+  - Exported static Next.js `Metadata` objects (OpenGraph, Twitter cards, meta descriptions) on every public route.
+  - Cleanly isolated interactive state to client islands (e.g., [ScheduleClient.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/schedule/ScheduleClient.tsx)).
+
+- [x] **100% Free-Tier GSAP & ScrollTrigger Kinetic Engine**:
+  - Integrated `gsap` and `@gsap/react` using official free-tier APIs without paid Club plugins.
+  - Refactored [ScrollReveal.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/shared/ScrollReveal.tsx) to power smooth viewport reveals with `ScrollTrigger` (`fade-up`, `fade-down`, `fade-left`, `fade-right`, `zoom-in`, and `fade-in`).
+  - Implemented [ScrollProgressBar.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/shared/ScrollProgressBar.tsx) for real-time reading progress indicators.
+  - Implemented [AnimatedCounter.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/shared/AnimatedCounter.tsx) with GSAP tweening for kinetic stat counting on Hero and About pages.
+
+- [x] **Public Slide Badge Decoupling**:
+  - Scrubbed internal slide references (e.g., `Slide 9 Framework`, `Slide 12 Performance System`, `Slide 10 Audiences`, etc.) from all customer-facing badges across every public page.
+  - Replaced with brand-forward, professional labels (`Performance Architecture`, `Key Differentiators`, `Audience Focus`, `Program Offerings`, `Athletic Disciplines`, `Master Coaching Panel`, `Community & Culture`, `Admissions & Consultation`).
+  - Maintained slide annotations inside `lib/constants.ts` and component section comments for developer traceability.
+
+- [x] **Schedule Availability Engine & Single Data Source**:
+  - Defined centralized `SCHEDULE_WAVE_SLOTS` and `SCHEDULE_COURSE_COHORTS` in [lib/constants.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/constants.ts) with `WaveSlot` and `CourseCohort` types in [lib/types.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/types.ts).
+  - **Public Schedule Page ([/schedule](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/(public)/schedule/page.tsx))**: Upgraded to display real-time wave slot availability cards (`Available`, `Filling Fast`, `Waitlist Only`), spot counters, and cohort capacity progress bars.
+  - **Athlete Schedule Dashboard ([/dashboard/schedule](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/dashboard/schedule/page.tsx))**:
+    - Added **7-Day Week Calendar Grid vs. List View switcher**.
+    - Added **Discipline Filter Chips** (All, HYROX Waves, Lactate/Lab, Physio/Recovery).
+    - Added **Quick Wave Booking Modal** with service type selection, coach selection, and live slot capacity.
+    - Added **Digital Boarding Pass & QR Check-In Modal** replacing raw browser alerts.
+
+- [x] **Zero Hardcoded Page Values & Constants/Types Pruning**:
+  - Eliminated all hardcoded arrays, initial mock states, and local seed objects from all page components (`your-sports`, `community`, `profile`, `schedule`, `workouts`, `messages`, `billing`, etc.).
+  - Centralized all single-source-of-truth data in [lib/constants.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/constants.ts):
+    - `DETAILED_SPORTS_DISCIPLINES`, `YOUR_SPORTS_HYROX_LABS`, `COMMUNITY_EVENTS_INITIATIVES`.
+    - `HR_ZONE_DEFINITIONS`, `INITIAL_ATHLETE_SESSIONS`, `INITIAL_WORKOUT_LOGS`, `INITIAL_COACH_MESSAGES`, `INITIAL_BILLING_INVOICES`.
+    - `SCHEDULE_COURSE_PROGRAMS`, `SCHEDULE_SESSION_TYPES`.
+  - Pruned dead/redundant arrays in `lib/constants.ts`: removed duplicate `SPORTS_DISCIPLINES`, unused `HYROX_LABS`, redundant `PERFORMANCE_STEPS`, and unused `COMMUNITY_INITIATIVES`.
+  - Unified duplicate `TrainingSessionItem` into core domain interface `TrainingSession` in [lib/types.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/types.ts).
+  - Maintained 100% build pass: `npx next build` generates 20/20 static and dynamic routes with 0 lint, type, or runtime errors.
+
+- [x] **Public Schedule Linkage & Navigation Unification**:
+  - Embedded `/schedule` across all primary public touchpoints:
+    - [components/navigation/PublicTopNav.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/navigation/PublicTopNav.tsx): Desktop header pill & mobile dropdown drawer.
+    - [components/layout/PublicFooter.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/components/layout/PublicFooter.tsx): Footer navigation list under "Schedule & Waves".
+    - [app/(public)/we-offer/page.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/(public)/we-offer/page.tsx): Bottom marketing wave schedule CTA banner.
+    - [app/(public)/page.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/(public)/page.tsx): Primary hero CTA.
+
+- [x] **Authentic Founder Journey & IRONMAN 70.3 Multi-Sport Metrics**:
+  - [app/(public)/about/page.tsx](file:///d:/seyon_nexa_labs/projects/metaendurelabs/app/(public)/about/page.tsx):
+    - Configured kinetic counter card to display `70.3 mi` with official multi-sport split: `1.2 mi Swim + 56 mi Bike + 13.1 mi Run`.
+    - Aligned starting point weight counter accurately to `84 kg` (`18+ kg` reduced) matching authentic presentation records.
+    - Synced milestone achievements with [lib/constants.ts](file:///d:/seyon_nexa_labs/projects/metaendurelabs/lib/constants.ts) (`FOUNDER_ATHLETIC_MILESTONES`).
 
 ---
+
 
 ## 🟡 Active / Upcoming Initiatives
 
@@ -117,5 +169,6 @@ This living document tracks the development trajectory, implemented features, de
 - [ ] **Image Asset Rework**: Revisit transparent extraction of logo crests and apparel photos with custom vector or clean alpha mattes as noted by user.
 - [ ] **Live TrainingPeaks & Garmin Webhooks**: Connect athlete telemetry and sync actual workout files (.FIT / Strava).
 - [ ] **Payment Gateway Verification**: Wire Razorpay / Stripe test webhooks in `/dashboard/checkout`.
+
 
 

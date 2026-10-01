@@ -1,235 +1,149 @@
-'use client';
-
-import { useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
+import type { Metadata } from 'next';
 import { 
-  Users, Trophy, Calendar, Sparkles, MapPin, 
-  ArrowRight, ShoppingBag, CheckCircle2, Flame
+  Users, 
+  Trophy, 
+  CheckCircle2, 
+  ShoppingBag,
+  ArrowRight,
+  Flame,
+  Calendar,
+  Award,
+  Zap,
+  Mountain,
+  Tag,
+  Sparkles
 } from 'lucide-react';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { COMMUNITY_EVENTS_INITIATIVES } from '@/lib/constants';
+
+export const metadata: Metadata = {
+  title: 'Community & Culture | MetaEndure Labs',
+  description: 'Join the MetaEndure community: simulation race days, team competitions, and official athlete training camps.',
+  openGraph: {
+    title: 'Community & Culture | MetaEndure Labs',
+    description: 'Join our community of endurance and HYROX athletes.',
+    url: 'https://www.metaendurelabs.com/community',
+  },
+};
 
 export default function CommunityPage() {
-  const [selectedSize, setSelectedSize] = useState<string>('M');
-
-  const upcomingEvents = [
-    {
-      id: 'event-1',
-      title: 'Marina Beach 30K Long Steady Run (LSR)',
-      date: 'Sunday, Oct 4, 2026',
-      time: '05:00 AM',
-      location: 'Light House, Marina, Chennai',
-      category: 'Marathon Prep',
-      spots: '45 Athletes Registered',
-      description: 'Fully supported long run with mobile hydration, electrolyte stations, and pace pacers for 4:45, 5:15, 5:45, and 6:15 min/km.'
-    },
-    {
-      id: 'event-2',
-      title: 'HYROX Compromised Running Simulation Day',
-      date: 'Saturday, Oct 17, 2026',
-      time: '06:30 AM',
-      location: 'MetaEndure Arena, Chennai',
-      category: 'HYROX Test',
-      spots: 'Limited to 24 Waves',
-      description: 'Full official race simulation with chip timing, Sled push/pull, Burpee broad jumps, and wall-balls.'
-    },
-    {
-      id: 'event-3',
-      title: 'East Coast Road (ECR) 100K Century Cycling Ride',
-      date: 'Sunday, Nov 1, 2026',
-      time: '05:15 AM',
-      location: 'Akkarai to Mahabalipuram & Back',
-      category: 'Triathlon / Iron Prep',
-      spots: '30 Slots Available',
-      description: 'Aero drafting mechanics, rolling support vehicle with spare tubes, CO2, and high-carb nutrition replenishment.'
-    }
-  ];
-
-  const officialApparel = [
-    {
-      id: 'apparel-1',
-      name: 'MetaEndure Pro Aero Singlet',
-      tag: 'Heat Dissipation Mesh',
-      price: '₹2,199',
-      features: ['Ultra-breathable micro-mesh', 'Zero-chafe flatlock seams', 'Reflective 3M logos']
-    },
-    {
-      id: 'apparel-2',
-      name: 'Stealth Bio-Green HYROX Short',
-      tag: 'Competition Grade',
-      price: '₹2,699',
-      features: ['4-way stretch ripstop', 'Internal compression liner', 'Laser-cut sweat ventilation']
-    },
-    {
-      id: 'apparel-3',
-      name: 'MetaEndure Technical Race Trucker Cap',
-      tag: 'Sweatband Tech',
-      price: '₹1,299',
-      features: ['Absorbent moisture brow', 'Lightweight EVA soft visor', 'Sublimated emerald crest']
-    }
-  ];
+  const communityInitiatives = COMMUNITY_EVENTS_INITIATIVES;
 
   return (
-    <div className="min-h-screen pt-28 pb-20 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto space-y-16">
-        {/* Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-            <Users className="w-3.5 h-3.5" />
-            Athlete Community & Gear
+    <div className="space-y-12 sm:space-y-16 md:space-y-20 py-4 sm:py-8 px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto">
+      {/* 1. COMMUNITY & COMPETITION (Slide 18.6) */}
+      <section className="space-y-6 sm:space-y-8">
+        <ScrollReveal animation="fade-down">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5">
+              <Users className="w-3.5 h-3.5 text-emerald-500" />
+              Community &amp; Culture
+            </span>
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-wider">
+              COMMUNITY &amp; COMPETITION
+            </h1>
+            <p className="text-xs sm:text-sm font-mono text-zinc-500 dark:text-[#788e7a]">www.metaendurelabs.com</p>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-            THE ENDURANCE <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-500">TRIBE</span>
-          </h1>
-          <p className="text-slate-400 text-base sm:text-lg">
-            Join weekend supported long runs, inter-cohort HYROX battles, race debriefs, and wear official team gear crafted for extreme tropical humidity.
-          </p>
-        </div>
+        </ScrollReveal>
 
-        {/* Section 1: Upcoming Supported Events */}
-        <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
-            <div>
-              <h2 className="text-2xl font-black text-white flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-emerald-400" />
-                Upcoming Cohort Events & Long Runs
+        <ScrollReveal animation="fade-up">
+          <div className="p-5 sm:p-8 md:p-12 rounded-3xl bg-white dark:bg-[#080c09] border border-zinc-200 dark:border-white/10 space-y-6 shadow-sm">
+            <div className="max-w-2xl space-y-2">
+              <h2 className="text-2xl font-heading font-extrabold text-zinc-900 dark:text-white">
+                Build a strong HYROX community through:
               </h2>
-              <p className="text-xs text-zinc-400">Supported by our coaches, pacing crew, and medical crew</p>
+              <p className="text-xs text-zinc-600 dark:text-[#bdcebe]">
+                Fostering connection, healthy rivalry, and collective resilience across athletes.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+              {communityInitiatives.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="p-4 rounded-2xl bg-slate-50 dark:bg-[#0a160d] border border-zinc-200 dark:border-white/10 flex items-center gap-3.5 shadow-sm hover:-translate-y-1 transition-transform">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center border shrink-0 ${item.color}`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs font-mono font-bold text-zinc-800 dark:text-zinc-200">{item.name}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
+        </ScrollReveal>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {upcomingEvents.map((evt, idx) => {
-              const themes = [
-                { border: 'border-emerald-500/30', header: 'from-emerald-500/25 via-emerald-600/10 to-transparent', iconColor: 'text-emerald-400', icon: Trophy },
-                { border: 'border-amber-500/30', header: 'from-amber-500/25 via-yellow-600/10 to-transparent', iconColor: 'text-amber-400', icon: Flame },
-                { border: 'border-cyan-500/30', header: 'from-cyan-500/25 via-blue-600/10 to-transparent', iconColor: 'text-cyan-400', icon: Calendar },
-              ];
-              const t = themes[idx % themes.length];
-              const Icon = t.icon;
-
-              return (
-                <div
-                  key={evt.id}
-                  className={`rounded-3xl bg-zinc-900/70 border ${t.border} overflow-hidden flex flex-col justify-between hover:bg-zinc-900/95 transition-all shadow-xl group`}
-                >
-                  <div>
-                    {/* Colorful Card Header Banner */}
-                    <div className={`h-20 bg-gradient-to-r ${t.header} border-b border-white/10 p-4 px-5 flex items-center justify-between`}>
-                      <div className="w-10 h-10 rounded-xl bg-black/40 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Icon className={`w-5 h-5 ${t.iconColor}`} />
-                      </div>
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-black/50 text-white border border-white/15 uppercase">
-                        {evt.category}
-                      </span>
-                    </div>
-
-                    <div className="p-6 space-y-4">
-                      <div>
-                        <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">
-                          {evt.title}
-                        </h3>
-                        <div className="flex items-center gap-2 text-xs text-zinc-400 mt-2 font-mono">
-                          <span>{evt.date}</span> • <span>{evt.time}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-400/80 mt-1">
-                          <MapPin className="w-3.5 h-3.5 shrink-0" />
-                          <span>{evt.location}</span>
-                        </div>
-                      </div>
-
-                      <p className="text-xs text-zinc-300 leading-relaxed">
-                        {evt.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-6 pt-4 border-t border-zinc-800">
-                    <Link
-                      href="/schedule"
-                      className="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-emerald-500 hover:text-black text-white font-bold text-xs flex items-center justify-center gap-2 transition-all"
-                    >
-                      <span>RSVP for Free</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+      {/* 2. OFFICIAL ATHLETE APPAREL (Slide 19) */}
+      <section className="space-y-6 sm:space-y-8">
+        <ScrollReveal animation="fade-up">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5">
+              <Tag className="w-3.5 h-3.5 text-cyan-500" />
+              Official Lab Kit
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white uppercase tracking-wider">
+              OFFICIAL ATHLETE APPAREL
+            </h2>
+            <p className="text-sm font-mono text-zinc-500 dark:text-[#788e7a]">www.metaendurelabs.com</p>
           </div>
-        </div>
+        </ScrollReveal>
 
-        {/* Section 2: Official Technical Apparel */}
-        <div className="space-y-6 pt-6">
-          <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
-            <div>
-              <h2 className="text-2xl font-black text-white flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5 text-emerald-400" />
-                Official Technical Race Apparel
-              </h2>
-              <p className="text-xs text-zinc-400">Tested in Chennai tropical humidity to eliminate chafing and maximize cooling</p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {officialApparel.map((item) => (
-              <div
-                key={item.id}
-                className="rounded-3xl bg-zinc-900/60 border border-zinc-800 p-6 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-zinc-900/90 transition-all group"
-              >
-                <div className="space-y-4">
-                  <div className="aspect-video rounded-2xl bg-zinc-950 border border-zinc-800 flex items-center justify-center p-4 relative overflow-hidden">
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xl">
-                      MEL
-                    </div>
-                    <span className="absolute top-3 right-3 text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
-                      {item.tag}
-                    </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
+          {/* T-Shirt Mockup Visual */}
+          <ScrollReveal animation="zoom-in" delay={100}>
+            <div className="p-8 rounded-3xl bg-white dark:bg-[#080c09] border border-zinc-200 dark:border-white/10 text-center space-y-4 shadow-sm flex flex-col items-center">
+              <div className="w-64 h-64 rounded-2xl bg-zinc-900 border-2 border-emerald-500/40 p-6 flex flex-col items-center justify-center text-white relative shadow-2xl">
+                <span className="text-[10px] font-mono tracking-widest text-[#76C043] uppercase">Front Chest</span>
+                <div className="text-3xl font-display tracking-widest mt-2">M/E</div>
+                <div className="text-[10px] font-mono tracking-widest text-zinc-400 mt-1 uppercase">METAENDURE LABS</div>
+                <div className="mt-8 pt-4 border-t border-white/10 w-full text-center">
+                  <div className="text-[11px] font-mono font-bold text-[#76C043] tracking-widest uppercase">
+                    OUTLAST YOUR YESTERDAY
                   </div>
-
-                  <div>
-                    <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">
-                      {item.name}
-                    </h3>
-                    <div className="text-emerald-400 font-bold text-sm mt-1">{item.price}</div>
-                  </div>
-
-                  <div className="space-y-1.5 pt-1">
-                    {item.features.map((feat, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-zinc-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-zinc-800 flex items-center justify-between">
-                  <div className="flex gap-1.5">
-                    {['S', 'M', 'L', 'XL'].map((size) => (
-                      <button
-                        key={size}
-                        onClick={() => setSelectedSize(size)}
-                        className={`w-7 h-7 rounded-lg text-xs font-mono font-bold transition-all ${
-                          selectedSize === size
-                            ? 'bg-emerald-500 text-black'
-                            : 'bg-zinc-800 text-zinc-400 hover:text-white'
-                        }`}
-                      >
-                        {size}
-                      </button>
-                    ))}
-                  </div>
-                  <Link
-                    href={`/dashboard/checkout?item=${item.id}&price=${item.price}`}
-                    className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs transition-all"
-                  >
-                    Order Now
-                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="text-xs font-mono text-zinc-500 dark:text-[#788e7a]">Technical Dry-Fit Athlete Edition</div>
+            </div>
+          </ScrollReveal>
+
+          {/* Details */}
+          <ScrollReveal animation="fade-left" delay={200}>
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest">
+                  COMMUNITY GEAR
+                </span>
+                <h3 className="text-2xl font-heading font-black text-zinc-900 dark:text-white uppercase">
+                  METAENDURE LABS OFFICIAL T-SHIRT
+                </h3>
+                <p className="text-xs text-zinc-600 dark:text-[#bdcebe] leading-relaxed">
+                  Engineered for intense training sessions, race days, and everyday representation of the endurance mindset.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="p-4 rounded-xl bg-white dark:bg-[#0a160d] border border-zinc-200 dark:border-white/10 space-y-1">
+                  <div className="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300">Front Design</div>
+                  <p className="text-xs text-zinc-500 dark:text-[#788e7a]">
+                    Minimalist METAENDURE LABS brand mark on the chest with performance badge.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-white dark:bg-[#0a160d] border border-zinc-200 dark:border-white/10 space-y-1">
+                  <div className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043]">Back Motto</div>
+                  <p className="text-xs text-zinc-800 dark:text-white font-mono font-bold">
+                    &quot;OUTLAST YOUR YESTERDAY&quot;
+                  </p>
+                  <p className="text-[11px] text-zinc-500 dark:text-[#788e7a]">
+                    Bold vertical placement along the spine to inspire the athlete behind you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

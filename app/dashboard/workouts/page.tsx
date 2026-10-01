@@ -6,7 +6,7 @@ import {
   Dumbbell, Footprints, Timer, Flame, Plus, Trophy, 
   Calendar, CheckCircle2, TrendingUp, Sparkles, Filter, Activity, Clock
 } from 'lucide-react';
-import { HYROX_STATIONS } from '@/lib/constants';
+import { HYROX_STATIONS, INITIAL_WORKOUT_LOGS } from '@/lib/constants';
 import { HyroxStationBadge } from '@/components/shared/HyroxStationBadge';
 import { MetricCard } from '@/components/shared/MetricCard';
 
@@ -26,41 +26,7 @@ export default function WorkoutsPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'running' | 'hyrox' | 'brick'>('all');
   const [selectedStation, setSelectedStation] = useState<number>(0);
 
-  const [logs, setLogs] = useState<WorkoutLog[]>([
-    {
-      id: 'w-1',
-      title: 'Compromised 10K Simulation Intervals',
-      sport: 'hyrox',
-      date: 'Yesterday',
-      duration: '52:14 min',
-      metric: '5x (1km Run @ 4:20/km + 25m Sled Push)',
-      rpe: 8,
-      notes: 'Sled pushed at 152kg. Heart rate cleared to 164 bpm within 200m into each run interval.',
-      zone: 'Zone 4 / Threshold'
-    },
-    {
-      id: 'w-2',
-      title: 'Aerobic Base Long Run (FatMax Calibration)',
-      sport: 'running',
-      date: '3 days ago',
-      duration: '1:42:10 hr',
-      metric: '21.1 km @ 4:51/km avg',
-      rpe: 6,
-      notes: 'Maintained strictly under 146 bpm. Took 60g carb gel every 35 mins without gastro distress.',
-      zone: 'Zone 2 / Aerobic'
-    },
-    {
-      id: 'w-3',
-      title: 'Triathlon Brick: 55km Aero Bike + 6km Stride',
-      sport: 'brick',
-      date: 'Last Saturday',
-      duration: '2:08:45 hr',
-      metric: '55km Cycle (218W NP) + 6km Run (4:35/km)',
-      rpe: 7,
-      notes: 'Heavy legs in the first 800m off the bike. Cadence settled into 88 spm by km 2.',
-      zone: 'Zone 3 / Tempo'
-    }
-  ]);
+  const [logs, setLogs] = useState<WorkoutLog[]>(INITIAL_WORKOUT_LOGS);
 
   const [showLogModal, setShowLogModal] = useState(false);
   const [newTitle, setNewTitle] = useState('');
