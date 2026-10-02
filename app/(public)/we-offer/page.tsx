@@ -134,10 +134,10 @@ export default function WeOfferPage() {
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-amber-500" />
-              Core Performance Pillars
+              Core Performance Disciplines
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white uppercase tracking-wider">
-              WE OFFER – PERFORMANCE PILLARS
+              WE OFFER &ndash; COACHING DISCIPLINES
             </h2>
             <p className="text-sm font-mono text-zinc-500 dark:text-[#788e7a]">www.metaendurelabs.com</p>
           </div>
@@ -179,10 +179,10 @@ export default function WeOfferPage() {
             </p>
             <div className="pt-2">
               <Link
-                href="/schedule"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-heading font-bold text-sm text-white dark:text-black bg-[#2e7d32] dark:bg-[#76C043] hover:bg-[#256628] dark:hover:bg-[#8ff346] shadow-md dark:shadow-[0_0_25px_rgba(118,192,67,0.35)] transition-all hover:-translate-y-0.5"
               >
-                <span>View Full Schedule &amp; Wave Slots</span>
+                <span>Inquire &amp; Join Waitlist</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

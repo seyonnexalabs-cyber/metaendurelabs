@@ -159,80 +159,78 @@ export const PARTNERS: Partner[] = [
 ];
 
 /* ==========================================================================
-   3. FRAMEWORK PILLARS (Slide 9: E.M.S.P.)
+   3. UNIFIED THREE PILLARS: ENDURE, EVOLVE, EXCEL (Powered by E.M.S.P.)
    ========================================================================== */
 
-export const FRAMEWORK_PILLARS = [
+export const UNIFIED_PILLARS = [
   {
-    letter: 'E',
-    title: 'Endurance',
-    subtitle: 'The ability to keep going when others stop.',
+    id: '01',
+    code: 'E',
+    title: 'ENDURE',
+    subtitle: 'The Foundational Phase',
+    engine: 'Endurance (E)',
+    desc: 'The foundational phase of resilience, grit, and physical stamina. Built through disciplined consistency, aerobic base building, and long-term recovery to keep going when others stop.',
     icon: Activity,
+    quote: '"Endurance is not about speed. It\'s about staying in the game."',
     badgeColor: 'text-[#2e7d32] dark:text-[#76C043] bg-emerald-500/15 border-emerald-500/30',
     borderColor: 'border-emerald-500/30 dark:border-[#76C043]/30 hover:border-[#2e7d32] dark:hover:border-[#76C043]',
     accentColor: 'text-[#2e7d32] dark:text-[#76C043]',
+    headerGradient: 'from-emerald-500/20 via-emerald-500/10 to-transparent dark:from-[#76C043]/25 dark:via-[#76C043]/10 border-emerald-500/20',
     quoteBg: 'bg-emerald-50/70 dark:bg-black/40 border-emerald-500/20 dark:border-[#76C043]/20',
-    quote: '"Endurance is not about speed. It\'s about staying in the game."',
-    items: [
-      { icon: HeartPulse, text: 'Physical stamina' },
-      { icon: Repeat, text: 'Recovery' },
-      { icon: Clock, text: 'Consistency' },
-      { icon: ShieldCheck, text: 'Long-term discipline' },
+    coreItems: [
+      { icon: HeartPulse, text: 'Physical Stamina & Base Building' },
+      { icon: Repeat, text: 'Active Recovery & Tissue Adaptation' },
+      { icon: Clock, text: 'Relentless Weekly Consistency' },
+      { icon: ShieldCheck, text: 'Mental Toughness to Withstand Hardship' },
     ],
   },
   {
-    letter: 'M',
-    title: 'Mindset',
-    subtitle: 'The engine behind endurance.',
+    id: '02',
+    code: 'M+S',
+    title: 'EVOLVE',
+    subtitle: 'The Adaptation Phase',
+    engine: 'Mindset (M) + Science (S)',
+    desc: 'The intermediate phase of growth and intelligence. Surviving pressure is only the start: you must reprogram your mental conditioning (Mindset) and leverage biometric diagnostics (Science) rather than guessing.',
     icon: Brain,
+    quote: '"The body follows where the mind leads, guided by measured data."',
     badgeColor: 'text-indigo-600 dark:text-indigo-400 bg-indigo-500/15 border-indigo-500/30',
-    borderColor: 'border-zinc-200 dark:border-white/10 hover:border-indigo-500',
+    borderColor: 'border-indigo-500/30 dark:border-indigo-500/30 hover:border-indigo-500',
     accentColor: 'text-indigo-600 dark:text-indigo-400',
-    quoteBg: 'bg-zinc-50 dark:bg-black/40 border-zinc-200 dark:border-white/10',
-    quote: '"The body follows where the mind leads."',
-    items: [
-      { icon: Target, text: 'Mental resilience' },
-      { icon: Compass, text: 'Focus' },
-      { icon: Sparkles, text: 'Self-belief' },
-      { icon: Award, text: 'Grit' },
+    headerGradient: 'from-indigo-500/20 via-indigo-500/10 to-transparent dark:from-indigo-500/25 dark:via-indigo-500/10 border-indigo-500/20',
+    quoteBg: 'bg-indigo-50/70 dark:bg-black/40 border-indigo-500/20 dark:border-indigo-500/30',
+    coreItems: [
+      { icon: Target, text: 'Mental Resilience & Cognitive Framing' },
+      { icon: Microscope, text: 'Finger-Stick Blood Lactate & VO2 Testing' },
+      { icon: TrendingUp, text: 'Data-Driven TrainingPeaks Programming' },
+      { icon: Sparkles, text: 'Adaptive Mindset & Habit Transformation' },
     ],
   },
   {
-    letter: 'S',
-    title: 'Science',
-    subtitle: 'The differentiator.',
-    icon: Microscope,
-    badgeColor: 'text-cyan-600 dark:text-cyan-400 bg-cyan-500/15 border-cyan-500/30',
-    borderColor: 'border-cyan-500/30 dark:border-cyan-500/30 hover:border-cyan-500',
-    accentColor: 'text-cyan-600 dark:text-cyan-400',
-    quoteBg: 'bg-cyan-50/70 dark:bg-black/40 border-cyan-500/20 dark:border-cyan-500/30',
-    quote: '"We don\'t guess. We measure."',
-    items: [
-      { icon: TrendingUp, text: 'Data-driven training' },
-      { icon: Zap, text: 'Sports science' },
-      { icon: Activity, text: 'Biometrics' },
-      { icon: Layers, text: 'Performance testing' },
-      { icon: FileCheck, text: 'Evidence-based coaching' },
-    ],
-  },
-  {
-    letter: 'P',
-    title: 'Performance',
-    subtitle: 'The outcome.',
+    id: '03',
+    code: 'P',
+    title: 'EXCEL',
+    subtitle: 'The Ultimate Mastery Phase',
+    engine: 'Peak Performance (P)',
+    desc: 'The ultimate phase of high achievement. By combining relentless endurance with scientific evolution, you surpass previous limitations, outperform peers, and achieve podium-grade mastery in sport and life.',
     icon: Flame,
+    quote: '"Performance is the result of endurance, mindset, and science working together."',
     badgeColor: 'text-amber-600 dark:text-amber-400 bg-amber-500/15 border-amber-500/30',
     borderColor: 'border-amber-500/30 dark:border-amber-500/30 hover:border-amber-500',
     accentColor: 'text-amber-600 dark:text-amber-400',
+    headerGradient: 'from-amber-500/20 via-amber-500/10 to-transparent dark:from-amber-500/25 dark:via-amber-500/10 border-amber-500/20',
     quoteBg: 'bg-amber-50/70 dark:bg-black/40 border-amber-500/20 dark:border-amber-500/30',
-    quote: '"Performance is the result of endurance, mindset, and science working together."',
-    items: [
-      { icon: Zap, text: 'Faster' },
-      { icon: Award, text: 'Stronger' },
-      { icon: HeartPulse, text: 'Healthier' },
-      { icon: ShieldCheck, text: 'More resilient' },
+    coreItems: [
+      { icon: Zap, text: 'Sub-3h Marathon & HYROX Pro Pacing' },
+      { icon: Award, text: 'Outperform Personal & Competitive Limits' },
+      { icon: HeartPulse, text: 'Sustainable Peak Physiological Capacity' },
+      { icon: ShieldCheck, text: 'Enduring Excellence in Career, Sport & Life' },
     ],
   },
 ];
+
+// Aliases for backwards compatibility
+export const THREE_PILLARS = UNIFIED_PILLARS;
+export const FRAMEWORK_PILLARS = UNIFIED_PILLARS;
 
 /* ==========================================================================
    4. KEY DIFFERENTIATORS (Slide 13)
@@ -244,46 +242,6 @@ export const KEY_DIFFERENTIATORS = [
   { num: '03', title: 'Holistic Athlete Development', desc: 'Endurance, strength, mobility, and recovery combined.', icon: HeartPulse, color: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20' },
   { num: '04', title: 'Beyond Fitness to Life', desc: 'Endurance as a philosophy for career, life, and personal growth.', icon: Sparkles, color: 'text-amber-500 bg-amber-500/10 border-amber-500/20' },
   { num: '05', title: 'Community of Relentless Pursuers', desc: 'A tribe of individuals committed to excellence.', icon: Users, color: 'text-rose-500 bg-rose-500/10 border-rose-500/20' }
-];
-
-/* ==========================================================================
-   6. 3 PILLARS: ENDURE, EVOLVE, EXCEL (Slide 7)
-   ========================================================================== */
-
-export const THREE_PILLARS = [
-  {
-    id: '01',
-    title: 'ENDURE',
-    phase: 'The Foundational Phase',
-    desc: 'The foundational phase of resilience, grit, and survival. It represents the capacity to withstand hardships, absorb pressure, maintain discipline, and persist through setbacks or unfavourable conditions without quitting.',
-    icon: Activity,
-    badgeColor: 'text-[#2e7d32] dark:text-[#76C043] bg-emerald-500/15 border-emerald-500/30',
-    borderHover: 'hover:border-[#2e7d32] dark:hover:border-[#76C043]',
-    borderColor: 'border-emerald-500/30 dark:border-[#76C043]/30',
-    accentColor: 'text-[#2e7d32] dark:text-[#76C043]',
-  },
-  {
-    id: '02',
-    title: 'EVOLVE',
-    phase: 'The Intermediate Phase',
-    desc: 'The intermediate phase of adaptation and growth. Once you survive the initial pressure, you must learn, shift your mindset, update your strategies, and transform your capabilities to align with a changing environment rather than remaining stagnant.',
-    icon: Brain,
-    badgeColor: 'text-indigo-600 dark:text-indigo-400 bg-indigo-500/15 border-indigo-500/30',
-    borderHover: 'hover:border-indigo-500',
-    borderColor: 'border-zinc-200 dark:border-white/10',
-    accentColor: 'text-indigo-600 dark:text-indigo-400',
-  },
-  {
-    id: '03',
-    title: 'EXCEL',
-    phase: 'The Ultimate Phase',
-    desc: 'The ultimate phase of high performance and achievement. By successfully withstanding adversity (enduring) and adapting to new demands (evolving), you ultimately surpass previous limitations, outperform peers, and achieve mastery or market leadership.',
-    icon: Flame,
-    badgeColor: 'text-amber-600 dark:text-amber-400 bg-amber-500/15 border-amber-500/30',
-    borderHover: 'hover:border-amber-500',
-    borderColor: 'border-amber-500/30 dark:border-amber-500/30',
-    accentColor: 'text-amber-600 dark:text-amber-400',
-  },
 ];
 
 /* ==========================================================================

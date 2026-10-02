@@ -245,54 +245,24 @@ export default function AboutPage() {
         </section>
       </ScrollReveal>
 
-      {/* 5. MISSION & VISION (Slide 6) */}
+      {/* 6. ATHLETE EVOLUTION JOURNEY (Endure, Evolve, Excel) */}
       <ScrollReveal animation="fade-up">
         <section className="glass-card p-5 sm:p-8 md:p-12 space-y-6 sm:space-y-8 bg-white dark:bg-[#080c09] border border-zinc-200 dark:border-white/10 shadow-sm dark:shadow-2xl rounded-3xl">
-          <div className="flex items-center justify-between border-b border-zinc-100 dark:border-white/10 pb-4">
-            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5">
-              <Target className="w-3.5 h-3.5 text-rose-500" />
-              Vision &amp; Mission
-            </span>
-            <span className="text-xs font-mono text-zinc-500 dark:text-[#788e7a]">www.metaendurelabs.com</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 rounded-2xl bg-white dark:bg-[#0a160d] border border-emerald-500/30 dark:border-[#76C043]/30 space-y-3 shadow-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-[#76C043] flex items-center justify-center">
-                  <Compass className="w-4 h-4" />
-                </div>
-                <h3 className="text-xl font-heading font-extrabold text-[#2e7d32] dark:text-[#76C043]">VISION</h3>
-              </div>
-              <p className="text-sm text-zinc-600 dark:text-[#bdcebe] leading-relaxed">
-                To build a globally respected human endurance and performance ecosystem that inspires and equips individuals to transcend perceived limits, master physical and mental resilience, and achieve enduring excellence in every dimension of life.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white dark:bg-[#0a160d] border border-indigo-500/30 dark:border-indigo-500/30 space-y-3 shadow-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
-                  <Target className="w-4 h-4" />
-                </div>
-                <h3 className="text-xl font-heading font-extrabold text-indigo-600 dark:text-indigo-400">MISSION</h3>
-              </div>
-              <p className="text-sm text-zinc-600 dark:text-[#bdcebe] leading-relaxed">
-                Empower individuals to build enduring physical, mental, and professional resilience through structured endurance training, mindset development, and science-backed performance strategies. We inspire people to push beyond perceived limits, embrace challenges with confidence, and achieve sustainable excellence in sport, career, and life.
-              </p>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* 6. PILLARS (Slide 7) */}
-      <ScrollReveal animation="fade-up">
-        <section className="glass-card p-5 sm:p-8 md:p-12 space-y-6 sm:space-y-8 bg-white dark:bg-[#080c09] border border-zinc-200 dark:border-white/10 shadow-sm dark:shadow-2xl rounded-3xl">
-          <div className="flex items-center justify-between border-b border-zinc-100 dark:border-white/10 pb-4">
-            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-100 dark:border-white/10 pb-4">
+            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5 w-fit">
               <Layers className="w-3.5 h-3.5 text-indigo-500" />
-              The Three Pillars
+              The Athlete Evolution &bull; 3 Progression Phases
             </span>
-            <span className="text-xs font-mono text-zinc-500 dark:text-[#788e7a]">www.metaendurelabs.com</span>
+            <span className="text-xs font-mono text-zinc-500 dark:text-[#788e7a]">Endure &bull; Evolve &bull; Excel</span>
+          </div>
+
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-black text-zinc-900 dark:text-white uppercase tracking-wider">
+              HOW ATHLETES EVOLVE
+            </h2>
+            <p className="text-xs sm:text-sm text-zinc-600 dark:text-[#bdcebe]">
+              The three psychological and physical stages every human journeys through inside our ecosystem.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -301,26 +271,52 @@ export default function AboutPage() {
               return (
                 <div 
                   key={pillar.id} 
-                  className={`group p-6 rounded-2xl bg-white dark:bg-[#0a160d] border ${pillar.borderColor} ${pillar.borderHover} space-y-3 shadow-sm hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
+                  className={`group overflow-hidden rounded-3xl bg-white dark:bg-[#0a160d] border ${pillar.borderColor} shadow-sm hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
+                  {/* Colored Header Band */}
+                  <div className={`px-6 py-4 bg-gradient-to-r ${pillar.headerGradient} border-b flex items-center justify-between`}>
+                    <div className="flex items-center gap-2.5">
+                      <span className={`text-xl font-mono font-black ${pillar.accentColor}`}>{pillar.code}</span>
                       <span className={`text-xs font-mono font-bold uppercase tracking-widest ${pillar.accentColor}`}>
-                        PILLAR {pillar.id}
+                        PILLAR {pillar.id} &bull; {pillar.title}
                       </span>
-                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${pillar.badgeColor}`}>
-                        <PillarIcon className="w-4 h-4" />
+                    </div>
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${pillar.badgeColor}`}>
+                      <PillarIcon className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-zinc-100 dark:bg-white/5 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/10">
+                        <span>Engine:</span>
+                        <span className={pillar.accentColor}>{pillar.engine}</span>
                       </div>
+
+                      <div className="text-xs font-mono text-zinc-500 dark:text-[#788e7a] font-medium">
+                        {pillar.subtitle}
+                      </div>
+
+                      <p className="text-xs text-zinc-600 dark:text-[#bdcebe] leading-relaxed">
+                        {pillar.desc}
+                      </p>
+
+                      <ul className="text-xs text-zinc-600 dark:text-[#788e7a] space-y-2 pt-3 border-t border-zinc-100 dark:border-white/10 font-mono">
+                        {pillar.coreItems.map((it, itemIdx) => {
+                          const ItemIcon = it.icon;
+                          return (
+                            <li key={itemIdx} className="flex items-center gap-2">
+                              <ItemIcon className={`w-3.5 h-3.5 shrink-0 ${pillar.accentColor}`} />
+                              <span>{it.text}</span>
+                            </li>
+                          );
+                        })}
+                      </ul>
                     </div>
-                    <h3 className="text-2xl font-heading font-extrabold text-zinc-900 dark:text-white">
-                      {pillar.title}
-                    </h3>
-                    <div className="text-xs font-mono text-zinc-500 dark:text-[#788e7a] font-medium">
-                      {pillar.phase}
+
+                    <div className={`rounded-xl p-3 border ${pillar.quoteBg} transition-all mt-3`}>
+                      <p className="text-xs text-zinc-800 dark:text-white italic leading-relaxed">{pillar.quote}</p>
                     </div>
-                    <p className="text-xs text-zinc-600 dark:text-[#bdcebe] leading-relaxed pt-2 border-t border-zinc-100 dark:border-white/10">
-                      {pillar.desc}
-                    </p>
                   </div>
                 </div>
               );

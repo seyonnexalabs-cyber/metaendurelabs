@@ -12,12 +12,14 @@ import {
   Activity,
   HeartPulse,
   Award,
-  ChevronRight
+  ChevronRight,
+  Target,
+  Compass
 } from 'lucide-react';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { AnimatedCounter } from '@/components/shared/AnimatedCounter';
 import { 
-  FRAMEWORK_PILLARS, 
+  UNIFIED_PILLARS,
   KEY_DIFFERENTIATORS,
   HOMEPAGE_SYSTEM_STEPS
 } from '@/lib/constants';
@@ -38,16 +40,18 @@ export default function HomePage() {
   return (
     <div className="space-y-14 sm:space-y-20 md:space-y-24 pb-14 overflow-hidden">
       {/* 1. HERO SECTION (Slide 1 & Slide 8) */}
-      <section className="relative px-4 sm:px-6 md:px-12 max-w-[1440px] mx-auto pt-4 sm:pt-8 md:pt-12">
-        {/* Dynamic Background Glow Orbs */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-gradient-to-b from-emerald-500/15 via-[#76C043]/5 to-transparent rounded-[100%] blur-3xl pointer-events-none -z-10" />
-        <div className="absolute top-12 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-emerald-500/10 dark:bg-[#76C043]/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" />
-        <div className="absolute top-20 right-10 w-80 sm:w-[28rem] h-80 sm:h-[28rem] bg-cyan-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      <section className="relative px-4 sm:px-6 md:px-12 max-w-[1440px] mx-auto pt-6 sm:pt-10 md:pt-14">
+        {/* Dynamic Background Glow & Gradient Mesh */}
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/10 via-[#76C043]/5 to-transparent rounded-3xl -z-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10 pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[420px] bg-gradient-to-b from-emerald-500/20 via-[#76C043]/10 to-transparent rounded-[100%] blur-3xl pointer-events-none -z-10" />
+        <div className="absolute top-10 left-6 sm:left-14 w-72 sm:w-[26rem] h-72 sm:h-[26rem] bg-emerald-500/15 dark:bg-[#76C043]/20 rounded-full blur-[80px] pointer-events-none -z-10 animate-pulse" />
+        <div className="absolute top-16 right-6 sm:right-14 w-80 sm:w-[28rem] h-80 sm:h-[28rem] bg-indigo-500/10 dark:bg-emerald-600/20 rounded-full blur-[90px] pointer-events-none -z-10" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           <div className="lg:col-span-7 space-y-6 sm:space-y-7">
             <ScrollReveal animation="fade-down" delay={80}>
-              <div className="inline-flex items-center gap-2.5 bg-emerald-500/10 dark:bg-[#76C043]/15 border border-emerald-500/30 dark:border-[#76C043]/40 px-4 py-1.5 rounded-full text-xs font-mono font-bold text-emerald-800 dark:text-[#76C043] tracking-widest uppercase shadow-sm">
+              <div className="inline-flex items-center gap-2.5 bg-emerald-500/15 dark:bg-[#76C043]/15 border border-emerald-500/30 dark:border-[#76C043]/40 px-4 py-1.5 rounded-full text-xs font-mono font-bold text-emerald-800 dark:text-[#76C043] tracking-widest uppercase shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 dark:bg-[#76C043] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600 dark:bg-[#76C043]"></span>
@@ -69,15 +73,32 @@ export default function HomePage() {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={260}>
-              <p className="text-base sm:text-lg text-zinc-700 dark:text-[#bdcebe] max-w-2xl leading-relaxed">
-                Building enduring physical stamina, unwavering mental grit, and science-backed performance systems across Marathon, Trail, Triathlon, and HYROX.
-              </p>
+              <div className="space-y-4 max-w-2xl">
+                <p className="text-base sm:text-lg text-zinc-800 dark:text-[#d1e0d2] leading-relaxed font-medium">
+                  Most people do not fail because they lack potential. They fail because they lack a proven system.
+                </p>
+
+                <p className="text-sm sm:text-base text-zinc-600 dark:text-[#a8bda9] leading-relaxed">
+                  Having personally experienced the difference that science-backed training, performance nutrition, mindset development, and accountability can make, Sujai founded <strong className="text-zinc-900 dark:text-white font-semibold">METAENDURE LABS</strong> to help recreational athletes, professionals, and everyday individuals build resilience and achieve lasting excellence in sport, work, and life.
+                </p>
+
+                {/* Founder Philosophy Quote Card */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/20 border border-emerald-500/20 dark:border-[#76C043]/25 backdrop-blur-sm space-y-2">
+                  <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#2e7d32] dark:text-[#76C043] flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    Founder Philosophy &bull; Sujai Sivan
+                  </div>
+                  <blockquote className="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200 italic leading-relaxed">
+                    &ldquo;My journey proves that extraordinary results are not reserved for elite athletes. With the right mindset, structure, and consistency, anyone can transform their performance and redefine their limits.&rdquo;
+                  </blockquote>
+                </div>
+              </div>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={340}>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
-                  href="/schedule"
+                  href="/we-offer"
                   className="px-6 sm:px-8 py-3.5 rounded-full font-heading font-bold text-sm text-white dark:text-black bg-[#2e7d32] dark:bg-[#76C043] hover:bg-[#256628] dark:hover:bg-[#8ff346] shadow-md dark:shadow-[0_0_25px_rgba(118,192,67,0.35)] transition-all flex items-center gap-2 group hover:-translate-y-0.5"
                 >
                   <span>Explore Programs</span>
@@ -96,21 +117,24 @@ export default function HomePage() {
               <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-zinc-200 dark:border-white/10">
                 <div className="p-3 rounded-2xl bg-white/70 dark:bg-black/40 border border-zinc-200/80 dark:border-white/10">
                   <div className="text-xl sm:text-2xl font-mono font-black text-[#2e7d32] dark:text-[#76C043]">
-                    <AnimatedCounter end={4} duration={1.5} />
+                    <AnimatedCounter end={3} duration={1.2} />
                   </div>
-                  <div className="text-[11px] font-mono text-zinc-600 dark:text-[#788e7a] uppercase tracking-wider">Core Disciplines</div>
+                  <div className="text-[11px] font-mono text-zinc-600 dark:text-[#788e7a] uppercase tracking-wider font-semibold">Evolution Phases</div>
+                  <div className="text-[10px] font-mono text-zinc-400">Endure &bull; Evolve &bull; Excel</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-white/70 dark:bg-black/40 border border-zinc-200/80 dark:border-white/10">
                   <div className="text-xl sm:text-2xl font-mono font-black text-indigo-600 dark:text-indigo-400">
-                    <AnimatedCounter end={6} duration={1.8} />
+                    <AnimatedCounter end={4} duration={1.5} />
                   </div>
-                  <div className="text-[11px] font-mono text-zinc-600 dark:text-[#788e7a] uppercase tracking-wider">System Steps</div>
+                  <div className="text-[11px] font-mono text-zinc-600 dark:text-[#788e7a] uppercase tracking-wider font-semibold">Framework Pillars</div>
+                  <div className="text-[10px] font-mono text-zinc-400">E &bull; M &bull; S &bull; P</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-white/70 dark:bg-black/40 border border-zinc-200/80 dark:border-white/10">
-                  <div className="text-xl sm:text-2xl font-mono font-black text-cyan-600 dark:text-cyan-400">
-                    <AnimatedCounter end={100} duration={2} suffix="%" />
+                  <div className="text-xl sm:text-2xl font-mono font-black text-amber-600 dark:text-amber-400">
+                    <AnimatedCounter end={5} duration={1.8} />
                   </div>
-                  <div className="text-[11px] font-mono text-zinc-600 dark:text-[#788e7a] uppercase tracking-wider">Evidence Based</div>
+                  <div className="text-[11px] font-mono text-zinc-600 dark:text-[#788e7a] uppercase tracking-wider font-semibold">Differentiators</div>
+                  <div className="text-[10px] font-mono text-zinc-400">Science + Mindset</div>
                 </div>
               </div>
             </ScrollReveal>
@@ -133,9 +157,11 @@ export default function HomePage() {
                   <div className="relative">
                     <div className="absolute inset-0 bg-emerald-500/20 dark:bg-[#76C043]/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700" />
                     <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-gradient-to-br from-emerald-50 to-white dark:from-[#0d1e12] dark:to-black border-2 border-[#2e7d32] dark:border-[#76C043] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-                      <div className="font-display text-4xl sm:text-5xl font-normal text-zinc-900 dark:text-white tracking-widest">
-                        M<span className="text-[#2e7d32] dark:text-[#76C043]">/</span>E
-                      </div>
+                      <img
+                        src="/assets/images/metaendure-crest.png"
+                        alt="Sujai Sivan &bull; Founder of MetaEndure Labs"
+                        className="w-48 h-48 object-contain drop-shadow-[0_0_25px_rgba(46,125,50,0.3)] dark:drop-shadow-[0_0_35px_rgba(118,192,67,0.4)]"
+                      />
                     </div>
                   </div>
 
@@ -148,76 +174,133 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-
-                <div className="p-3.5 rounded-2xl bg-zinc-50 dark:bg-black/60 border border-zinc-200/80 dark:border-white/10 text-xs font-mono space-y-2">
-                  <div className="flex justify-between items-center text-zinc-500 dark:text-[#788e7a]">
-                    <span>PHILOSOPHY</span>
-                    <span className="font-bold text-zinc-800 dark:text-zinc-200">ENDURE &bull; EVOLVE &bull; EXCEL</span>
-                  </div>
-                  <div className="flex justify-between items-center text-zinc-500 dark:text-[#788e7a]">
-                    <span>HEADQUARTERS</span>
-                    <span className="font-bold text-zinc-800 dark:text-zinc-200">CHENNAI &bull; GLOBAL</span>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
+      {/* VISION & MISSION */}
+      <section className="px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto">
+        <ScrollReveal animation="fade-up">
+          <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#080c09] border border-zinc-200 dark:border-white/10 shadow-sm dark:shadow-2xl space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-100 dark:border-white/10 pb-4">
+              <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5 w-fit">
+                <Target className="w-3.5 h-3.5 text-rose-500" />
+                Strategic Direction &bull; Vision &amp; Mission
+              </span>
+              <span className="text-xs font-mono text-zinc-500 dark:text-[#788e7a]">Outlast Your Yesterday</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="overflow-hidden rounded-2xl bg-zinc-50/80 dark:bg-[#0a160d] border border-emerald-500/30 dark:border-[#76C043]/30 shadow-sm hover:border-[#2e7d32] dark:hover:border-[#76C043] transition-all group flex flex-col justify-between">
+                {/* Header Band */}
+                <div className="px-6 py-4 bg-gradient-to-r from-emerald-500/15 via-emerald-500/10 to-transparent dark:from-[#76C043]/20 dark:via-[#76C043]/10 border-b border-emerald-500/20 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-[#2e7d32] dark:bg-[#76C043] text-white dark:text-black flex items-center justify-center shadow-md">
+                      <Compass className="w-4 h-4" />
+                    </div>
+                    <h3 className="text-xl font-heading font-extrabold text-[#2e7d32] dark:text-[#76C043] tracking-wide">OUR VISION</h3>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-700 dark:text-[#76C043] bg-emerald-500/10 px-2 py-0.5 rounded-md">Horizon</span>
+                </div>
+                <div className="p-6">
+                  <p className="text-sm text-zinc-700 dark:text-[#bdcebe] leading-relaxed">
+                    To build a globally respected human endurance and performance ecosystem that inspires and equips individuals to transcend perceived limits, master physical and mental resilience, and achieve enduring excellence in every dimension of life.
+                  </p>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl bg-zinc-50/80 dark:bg-[#0a160d] border border-indigo-500/30 dark:border-indigo-500/30 shadow-sm hover:border-indigo-500 transition-all group flex flex-col justify-between">
+                {/* Header Band */}
+                <div className="px-6 py-4 bg-gradient-to-r from-indigo-500/15 via-indigo-500/10 to-transparent dark:from-indigo-500/25 dark:via-indigo-500/10 border-b border-indigo-500/20 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-indigo-600 dark:bg-indigo-500 text-white flex items-center justify-center shadow-md">
+                      <Target className="w-4 h-4" />
+                    </div>
+                    <h3 className="text-xl font-heading font-extrabold text-indigo-600 dark:text-indigo-400 tracking-wide">OUR MISSION</h3>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-300 bg-indigo-500/10 px-2 py-0.5 rounded-md">Action</span>
+                </div>
+                <div className="p-6">
+                  <p className="text-sm text-zinc-700 dark:text-[#bdcebe] leading-relaxed">
+                    Empower individuals to build enduring physical, mental, and professional resilience through structured endurance training, mindset development, and science-backed performance strategies. We inspire people to push beyond perceived limits, embrace challenges with confidence, and achieve sustainable excellence in sport, career, and life.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
       {/* 2. METAENDURE LABS FRAMEWORK (Slide 9) */}
       <section className="px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto space-y-6 sm:space-y-8">
         <ScrollReveal animation="fade-up">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5">
-              <Radio className="w-3.5 h-3.5 text-emerald-600 dark:text-[#76C043]" />
-              Core Framework
-            </span>
+            <div className="inline-flex items-center gap-2 bg-emerald-500/10 dark:bg-[#76C043]/15 border border-emerald-500/25 dark:border-[#76C043]/30 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043]">
+              <Radio className="w-3.5 h-3.5" />
+              <span>THE PERFORMANCE EQUATION: E(M+S)P &equiv; ENDURE &bull; EVOLVE &bull; EXCEL</span>
+            </div>
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white">
               METAENDURE LABS FRAMEWORK
             </h2>
             <p className="text-zinc-600 dark:text-[#bdcebe] text-xs sm:text-sm">
-              The core architecture driving human transformation.
+              <strong className="text-zinc-900 dark:text-white font-semibold">Endurance (E)</strong> builds grit &bull; <strong className="text-zinc-900 dark:text-white font-semibold">Mindset &amp; Science (M+S)</strong> drive evolution &bull; <strong className="text-zinc-900 dark:text-white font-semibold">Performance (P)</strong> unlocks excellence.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {FRAMEWORK_PILLARS.map((pillar, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {UNIFIED_PILLARS.map((pillar, idx) => {
             const PillarIcon = pillar.icon;
             return (
-              <ScrollReveal key={pillar.letter} animation="fade-up" delay={(idx + 1) * 100}>
-                <div className={`group rounded-2xl p-6 bg-white dark:bg-[#0a160d] border ${pillar.borderColor} transition-all duration-300 space-y-4 flex flex-col justify-between shadow-sm dark:shadow-none hover:-translate-y-1.5 h-full`}>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className={`text-3xl font-mono font-black ${pillar.accentColor}`}>{pillar.letter}</span>
-                      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center border transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${pillar.badgeColor}`}>
-                        <PillarIcon className="w-5 h-5" />
+              <ScrollReveal key={pillar.id} animation="fade-up" delay={(idx + 1) * 120}>
+                <div className={`group overflow-hidden rounded-3xl bg-white dark:bg-[#0a160d] border ${pillar.borderColor} transition-all duration-300 flex flex-col justify-between shadow-sm dark:shadow-none hover:-translate-y-1.5 h-full`}>
+                  {/* Colored Card Header */}
+                  <div className={`px-6 py-4 bg-gradient-to-r ${pillar.headerGradient} border-b flex items-center justify-between`}>
+                    <div className="flex items-center gap-3">
+                      <span className={`text-2xl font-mono font-black ${pillar.accentColor}`}>{pillar.code}</span>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-bold">{pillar.subtitle}</span>
+                        <span className="text-base font-heading font-black text-zinc-900 dark:text-white tracking-wide">{pillar.title}</span>
                       </div>
                     </div>
-                    <div>
-                      <div className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 font-bold">FRAMEWORK 0{idx + 1}</div>
-                      <h3 className="font-heading font-bold text-xl text-zinc-900 dark:text-white mt-0.5">{pillar.title}</h3>
+                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ${pillar.badgeColor}`}>
+                      <PillarIcon className="w-5 h-5" />
                     </div>
-                    <p className="text-xs text-zinc-600 dark:text-[#bdcebe] font-medium">{pillar.subtitle}</p>
-                    <ul className="text-xs text-zinc-600 dark:text-[#788e7a] space-y-2 pt-2 border-t border-zinc-100 dark:border-white/10 font-mono">
-                      {pillar.items.map((it, itemIdx) => {
-                        const ItemIcon = it.icon;
-                        return (
-                          <li key={itemIdx} className="flex items-center gap-2">
-                            <ItemIcon className={`w-3.5 h-3.5 shrink-0 ${pillar.accentColor}`} />
-                            <span>{it.text}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
                   </div>
-                  <div className={`rounded-xl p-3.5 border ${pillar.quoteBg} transition-all`}>
-                    <div className={`text-[10px] font-mono uppercase tracking-wider font-bold flex items-center gap-1.5 ${pillar.accentColor}`}>
-                      <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-                      Brand Message
+
+                  <div className="p-6 space-y-4 flex flex-col justify-between flex-1">
+                    <div className="space-y-3">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-zinc-100 dark:bg-white/5 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/10">
+                        <span>Engine:</span>
+                        <span className={pillar.accentColor}>{pillar.engine}</span>
+                      </div>
+
+                      <p className="text-xs text-zinc-600 dark:text-[#bdcebe] leading-relaxed">
+                        {pillar.desc}
+                      </p>
+
+                      <ul className="text-xs text-zinc-600 dark:text-[#788e7a] space-y-2 pt-3 border-t border-zinc-100 dark:border-white/10 font-mono">
+                        {pillar.coreItems.map((it, itemIdx) => {
+                          const ItemIcon = it.icon;
+                          return (
+                            <li key={itemIdx} className="flex items-center gap-2">
+                              <ItemIcon className={`w-3.5 h-3.5 shrink-0 ${pillar.accentColor}`} />
+                              <span>{it.text}</span>
+                            </li>
+                          );
+                        })}
+                      </ul>
                     </div>
-                    <p className="text-xs text-zinc-800 dark:text-white italic mt-1.5 leading-relaxed">{pillar.quote}</p>
+
+                    <div className={`rounded-xl p-3.5 border ${pillar.quoteBg} transition-all mt-4`}>
+                      <div className={`text-[10px] font-mono uppercase tracking-wider font-bold flex items-center gap-1.5 ${pillar.accentColor}`}>
+                        <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+                        Brand Axiom
+                      </div>
+                      <p className="text-xs text-zinc-800 dark:text-white italic mt-1 leading-relaxed">{pillar.quote}</p>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
