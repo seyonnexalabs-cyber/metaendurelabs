@@ -74,7 +74,7 @@ export const COACHES: Coach[] = [
     id: 'marimuthu-sathasivam',
     name: 'Marimuthu Sathasivam',
     role: 'Strength & Conditioning Coach',
-    experience: 'Race Craft Labs Coach',
+    experience: '',
     specialties: ['Strength & Conditioning', 'Biomechanics', 'Endurance Performance'],
     bio: 'Strength & Conditioning Coach associated with Race Craft Labs.',
     availableDays: ['Mon', 'Tue', 'Thu', 'Fri']
@@ -82,19 +82,19 @@ export const COACHES: Coach[] = [
   {
     id: 'sujai-s',
     name: 'Sujai S',
-    role: 'Founder, METAENDURE LABS | Pro Athlete Endurance Cyclist & Triathlon',
-    experience: 'IRONMAN 70.3 Finisher',
-    specialties: ['Endurance Cycling', 'Triathlon Coaching', 'Performance Systems'],
-    bio: 'Founder, METAENDURE LABS. Endurance Athlete, IRONMAN 70.3 Finisher, Pro Athlete Endurance Cyclist & Triathlon.',
+    role: 'Founder, METAENDURE LABS | Triathlete & Coach (Triathlon)',
+    experience: 'Training',
+    specialties: ['Triathlon (Swim / Bike / Run)', 'Race Strategy', 'Multi-sport Pacing'],
+    bio: 'Founder, METAENDURE LABS. Endurance Athlete, IRONMAN 70.3 Finisher.',
     availableDays: ['Mon', 'Wed', 'Sat']
   },
   {
     id: 'mudit-kohli',
     name: 'Mudit Kohli',
-    role: 'Triathlete & Coach (Triathlon)',
-    experience: 'Triathlon Coach',
-    specialties: ['Triathlon (Swim / Bike / Run)', 'Race Strategy', 'Multi-sport Pacing'],
-    bio: 'Triathlete & Coach (Triathlon).',
+    role: 'Pro Athlete Endurance Cyclist & Triathlon',
+    experience: 'Cycling',
+    specialties: ['Endurance Cycling', 'Triathlon Coaching', 'Performance Systems'],
+    bio: 'Pro Endurance Cyclist & Triathlon',
     availableDays: ['Wed', 'Fri', 'Sat', 'Sun']
   }
 ];

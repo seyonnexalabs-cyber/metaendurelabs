@@ -93,15 +93,15 @@ export default function NotFound() {
             </Link>
 
             <Link
-              href="/auth"
+              href="/schedule"
               className="p-3 rounded-2xl bg-white dark:bg-white/[0.03] border border-zinc-200 dark:border-white/10 hover:border-[#76C043]/50 flex items-center gap-3 group transition-all"
             >
               <div className="p-2 rounded-xl bg-[#76C043]/10 text-[#76C043] group-hover:scale-110 transition-transform">
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-xs font-bold text-zinc-900 dark:text-white">Join / Sign In</div>
-                <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">Athlete & Coach Access</div>
+                <div className="text-xs font-bold text-zinc-900 dark:text-white">Training Schedule</div>
+                <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">Upcoming Track Waves</div>
               </div>
             </Link>
           </div>

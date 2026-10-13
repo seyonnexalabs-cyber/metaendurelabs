@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '../providers/ThemeProvider';
-import { Sun, Moon, ArrowRight, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 
 export const PublicTopNav: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -96,15 +96,6 @@ export const PublicTopNav: React.FC = () => {
               {theme === 'light' ? <Moon className="w-4 h-4 text-zinc-800" /> : <Sun className="w-4 h-4 text-[#76C043]" />}
             </button>
 
-            {/* Single Unified Sign In / Join Action Button */}
-            <Link
-              href="/auth"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-heading font-bold text-[#070e08] bg-gradient-to-r from-[#76C043] to-[#8ff346] shadow-[0_4px_20px_rgba(118,192,67,0.35)] hover:shadow-[0_6px_25px_rgba(118,192,67,0.55)] transition-all hover:-translate-y-0.5"
-            >
-              <span>Join / Sign In</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -149,13 +140,6 @@ export const PublicTopNav: React.FC = () => {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="/auth"
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-heading font-semibold text-[#76C043] py-2 border-b border-white/[0.06]"
-              >
-                Join / Sign In &rarr;
-              </Link>
             </nav>
           </div>
 
