@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   Calendar as CalendarIcon, Clock, Plus, Check, 
@@ -14,6 +14,12 @@ import {
   COACHES, 
   INITIAL_ATHLETE_SESSIONS 
 } from '@/lib/constants';
+import { 
+  fetchSessions, 
+  createSession, 
+  deleteSession, 
+  DEFAULT_SESSIONS 
+} from '@/lib/scheduleService';
 
 export default function AthleteSchedulePage() {
   const [viewMode, setViewMode] = useState<'list' | 'week'>('list');
@@ -28,16 +34,56 @@ export default function AthleteSchedulePage() {
   const [newDate, setNewDate] = useState<string>('2026-10-06');
   const [newSlotTime, setNewSlotTime] = useState<string>(SCHEDULE_WAVE_SLOTS[0].time);
 
-  const [sessions, setSessions] = useState<TrainingSessionItem[]>(INITIAL_ATHLETE_SESSIONS);
+  const [sessions, setSessions] = useState<TrainingSessionItem[]>(() => {
+    return DEFAULT_SESSIONS.map(s => ({
+      id: s.id,
+      title: s.title,
+      date: s.date,
+      time: s.time,
+      coach: s.coach,
+      type: (s.type === 'virtual' ? 'hyrox' : s.type) as 'hyrox' | 'lab' | 'physio' | 'run',
+      location: s.location,
+      status: (s.status === 'in-progress' ? 'confirmed' : s.status) as 'confirmed' | 'rescheduled' | 'completed'
+    }));
+  });
+
+  const loadSessions = async () => {
+    try {
+      const stored = await fetchSessions();
+      setSessions(stored.map(s => ({
+        id: s.id,
+        title: s.title,
+        date: s.date,
+        time: s.time,
+        coach: s.coach,
+        type: (s.type === 'virtual' ? 'hyrox' : s.type) as 'hyrox' | 'lab' | 'physio' | 'run',
+        location: s.location,
+        status: (s.status === 'in-progress' ? 'confirmed' : s.status) as 'confirmed' | 'rescheduled' | 'completed'
+      })));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    loadSessions();
+    window.addEventListener('metaendure_schedule_updated', loadSessions);
+    window.addEventListener('storage', loadSessions);
+
+    return () => {
+      window.removeEventListener('metaendure_schedule_updated', loadSessions);
+      window.removeEventListener('storage', loadSessions);
+    };
+  }, []);
 
   const filteredSessions = sessions.filter(s => {
     if (filterType === 'all') return true;
     return s.type === filterType;
   });
 
-  const handleBookSession = (e: React.FormEvent) => {
+  const handleBookSession = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newSession: TrainingSessionItem = {
+    const newSessionItem: any = {
       id: `sess-${Date.now()}`,
       title: newTitle,
       date: newDate,
@@ -45,19 +91,28 @@ export default function AthleteSchedulePage() {
       coach: newCoach,
       type: newType,
       location: newType === 'lab' ? 'Metabolic Testing Suite' : newType === 'hyrox' ? 'Arena Track & Sled Bay' : 'Sports Rehab Wing',
-      status: 'confirmed'
+      status: 'confirmed',
+      capacity: { current: 1, max: 10 }
     };
-    setSessions([newSession, ...sessions]);
-    setIsBookingOpen(false);
+    try {
+      await createSession(newSessionItem);
+      setIsBookingOpen(false);
+    } catch (err: any) {
+      alert(err.message || 'Error booking session');
+    }
   };
 
-  const handleAction = (id: string, action: 'cancel' | 'checkin' | 'reschedule') => {
+  const handleAction = async (id: string, action: 'cancel' | 'checkin' | 'reschedule') => {
     const targetSession = sessions.find(s => s.id === id);
     if (!targetSession) return;
 
     if (action === 'cancel') {
       if (confirm(`Are you sure you want to cancel ${targetSession.title}?`)) {
-        setSessions(sessions.filter(s => s.id !== id));
+        try {
+          await deleteSession(id);
+        } catch (err) {
+          console.error(err);
+        }
       }
     } else if (action === 'reschedule') {
       setIsBookingOpen(true);
@@ -77,26 +132,26 @@ export default function AthleteSchedulePage() {
   ];
 
   return (
-    <div className="space-y-8 max-w-6xl mx-auto">
+    <div className="space-y-4 max-w-6xl mx-auto">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#070d09] border border-zinc-200 dark:border-[#76C043]/30 shadow-md">
-        <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#1b5e20] dark:text-[#8ff346] bg-[#76C043]/15 px-3 py-1 rounded-full border border-[#76C043]/40 w-fit">
-            <CalendarCheck className="w-3.5 h-3.5 text-[#76C043]" />
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:p-5 rounded-2xl glass-card-elevated shadow-md">
+        <div className="space-y-0.5">
+          <div className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-[#1b5e20] dark:text-[#8ff346] bg-[#76C043]/15 px-2.5 py-0.5 rounded-full border border-[#76C043]/40 w-fit">
+            <CalendarCheck className="w-3 h-3 text-[#76C043]" />
             TRAINING WAVE RESERVATIONS
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-zinc-900 dark:text-white">
+          <h1 className="text-xl sm:text-2xl font-black text-zinc-900 dark:text-white">
             Upcoming Training Waves &amp; Lab Tests
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-600 dark:text-[#d1ded2] font-medium">
+          <p className="text-xs text-zinc-600 dark:text-[#d1ded2] font-medium">
             Manage your booked HYROX simulation heats, physiological lactate assessments, and recovery sessions.
           </p>
         </div>
 
-        <div className="flex items-center gap-3 self-start sm:self-auto shrink-0">
+        <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
           <button
             onClick={() => setIsBookingOpen(true)}
-            className="px-5 py-2.5 rounded-xl bg-[#76C043] hover:bg-[#8ff346] text-black font-extrabold text-xs shadow-lg shadow-[#76C043]/20 hover:shadow-[#76C043]/40 transition-all flex items-center justify-center gap-2"
+            className="px-4 py-2 rounded-xl bg-[#76C043] hover:bg-[#8ff346] text-black font-extrabold text-xs shadow-md shadow-[#76C043]/20 hover:shadow-[#76C043]/40 transition-all flex items-center justify-center gap-1.5"
           >
             <Plus className="w-4 h-4" />
             Quick Book Wave

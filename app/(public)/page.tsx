@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="space-y-14 sm:space-y-20 md:space-y-24 pb-14 overflow-hidden">
+    <div className="space-y-8 sm:space-y-10 md:space-y-12 pb-10 overflow-hidden">
       {/* 1. HERO SECTION (Slide 1 & Slide 8) */}
-      <section className="relative px-4 sm:px-6 md:px-12 max-w-[1440px] mx-auto pt-6 sm:pt-10 md:pt-14">
+      <section className="relative px-4 sm:px-6 md:px-12 max-w-[1440px] mx-auto pt-2 sm:pt-4 md:pt-6">
         {/* Dynamic Background Glow & Gradient Mesh */}
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/10 via-[#76C043]/5 to-transparent rounded-3xl -z-20 pointer-events-none" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10 pointer-events-none" />
@@ -234,9 +234,9 @@ export default function HomePage() {
       </section>
 
       {/* 2. METAENDURE LABS FRAMEWORK (Slide 9) */}
-      <section className="px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto space-y-6 sm:space-y-8">
+      <section className="px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto space-y-4 sm:space-y-6">
         <ScrollReveal animation="fade-up">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 dark:bg-[#76C043]/15 border border-emerald-500/25 dark:border-[#76C043]/30 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043]">
               <Radio className="w-3.5 h-3.5" />
               <span>THE PERFORMANCE EQUATION: E(M+S)P &equiv; ENDURE &bull; EVOLVE &bull; EXCEL</span>
@@ -392,8 +392,8 @@ export default function HomePage() {
       {/* 5. OUTLAST YOUR YESTERDAY / CTA (Slide 15) */}
       <section className="px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto">
         <ScrollReveal animation="zoom-in" duration={700}>
-          <div className="relative rounded-3xl overflow-hidden border border-emerald-500/20 dark:border-[#76C043]/30 bg-emerald-50/60 dark:bg-gradient-to-br dark:from-[#0c1c11] dark:via-[#08130a] dark:to-black p-6 sm:p-10 md:p-14 text-center space-y-5 shadow-md dark:shadow-2xl transition-colors">
-            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/15 dark:bg-[#76C043]/15 px-3.5 py-1.5 rounded-full border border-emerald-500/30 dark:border-[#76C043]/30 inline-flex items-center gap-1.5">
+          <div className="relative rounded-3xl overflow-hidden border border-emerald-500/20 dark:border-[#76C043]/30 bg-emerald-50/60 dark:bg-gradient-to-br dark:from-[#0c1c11] dark:via-[#08130a] dark:to-black p-5 sm:p-8 md:p-10 text-center space-y-4 shadow-md dark:shadow-2xl transition-colors">
+            <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/15 dark:bg-[#76C043]/15 px-3 py-1 rounded-full border border-emerald-500/30 dark:border-[#76C043]/30 inline-flex items-center gap-1.5">
               <Flame className="w-4 h-4 text-amber-500" />
               Outlast Your Yesterday
             </span>

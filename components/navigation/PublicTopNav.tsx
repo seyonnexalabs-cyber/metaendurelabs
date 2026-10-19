@@ -86,7 +86,7 @@ export const PublicTopNav: React.FC = () => {
           </nav>
 
           {/* Action CTAs */}
-          <div className="flex items-center gap-2.5 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -95,6 +95,22 @@ export const PublicTopNav: React.FC = () => {
             >
               {theme === 'light' ? <Moon className="w-4 h-4 text-zinc-800" /> : <Sun className="w-4 h-4 text-[#76C043]" />}
             </button>
+
+            {/* Sign In Link */}
+            <Link
+              href="/auth"
+              className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-heading font-semibold text-zinc-700 dark:text-zinc-200 hover:text-black dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/10 border border-zinc-300/80 dark:border-white/15 transition-all"
+            >
+              Sign In
+            </Link>
+
+            {/* Sign Up CTA Button */}
+            <Link
+              href="/auth?mode=signup"
+              className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-heading font-bold bg-[#76C043] hover:bg-[#8ff346] text-black shadow-sm hover:shadow-[0_2px_14px_rgba(118,192,67,0.4)] transition-all"
+            >
+              Sign Up
+            </Link>
 
             {/* Mobile Menu Toggle */}
             <button
@@ -135,12 +151,30 @@ export const PublicTopNav: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg font-heading font-semibold text-[#bdcebe] hover:text-[#76C043] py-2 border-b border-white/[0.06]"
+                  className="text-lg font-heading font-semibold text-zinc-800 dark:text-[#bdcebe] hover:text-[#76C043] py-2 border-b border-zinc-200 dark:border-white/[0.06]"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
+
+            {/* Mobile Auth Buttons */}
+            <div className="flex flex-col gap-2.5 mt-6">
+              <Link
+                href="/auth"
+                onClick={() => setMobileOpen(false)}
+                className="w-full text-center py-2.5 rounded-xl border border-zinc-300 dark:border-white/15 text-sm font-heading font-semibold text-zinc-900 dark:text-white"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/auth?mode=signup"
+                onClick={() => setMobileOpen(false)}
+                className="w-full text-center py-2.5 rounded-xl bg-[#76C043] text-black text-sm font-heading font-bold shadow-md shadow-[#76C043]/20"
+              >
+                Sign Up
+              </Link>
+            </div>
           </div>
 
           <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs text-[#788e7a] font-mono">

@@ -12,9 +12,9 @@ import { MetricCard } from '@/components/shared/MetricCard';
 
 export default function AthleteDashboardPage() {
   return (
-    <div className="space-y-8 max-w-7xl mx-auto">
+    <div className="space-y-4 max-w-7xl mx-auto">
       {/* Welcome Banner */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#070d09] border border-zinc-200 dark:border-[#76C043]/30 shadow-md dark:shadow-[0_4px_30px_rgba(0,0,0,0.8)] flex flex-col md:flex-row md:items-center justify-between gap-6 transition-colors">
+      <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#070d09] border border-zinc-200 dark:border-[#76C043]/30 shadow-md dark:shadow-[0_4px_30px_rgba(0,0,0,0.8)] flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-[#76C043]/50 shadow-md shrink-0 bg-zinc-100 dark:bg-zinc-900">
             <img
@@ -93,7 +93,7 @@ export default function AthleteDashboardPage() {
       </div>
 
       {/* Main Grid: Upcoming Scheduled Workouts & HYROX Personal Bests */}
-      <div className="grid lg:grid-cols-12 gap-8 items-start">
+      <div className="grid lg:grid-cols-12 gap-5 items-start">
         {/* Left 7 cols: Upcoming Workouts Schedule */}
         <div className="lg:col-span-7 space-y-4">
           <div className="flex items-center justify-between">

@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 
 export default function WeOfferPage() {
   return (
-    <div className="space-y-12 sm:space-y-16 md:space-y-20 py-4 sm:py-8 px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto">
+    <div className="space-y-6 sm:space-y-8 md:space-y-10 py-2 sm:py-4 px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto">
       {/* 1. WHO WE SERVE (Slide 10) */}
-      <section className="space-y-6 sm:space-y-8">
+      <section className="space-y-4 sm:space-y-5">
         <ScrollReveal animation="fade-down">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-mono font-bold text-[#2e7d32] dark:text-[#76C043] uppercase tracking-widest bg-emerald-500/10 dark:bg-[#76C043]/10 px-3 py-1 rounded-full border border-emerald-500/20 dark:border-[#76C043]/20 inline-flex items-center gap-1.5">

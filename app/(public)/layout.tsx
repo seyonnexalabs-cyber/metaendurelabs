@@ -30,7 +30,7 @@ export default function PublicLayout({
       <PublicTopNav />
 
       {/* Main Page Content with calibrated top spacing for fixed navbar */}
-      <main className="flex-grow pt-[100px] sm:pt-[108px]">{children}</main>
+      <main className="flex-grow pt-[64px] sm:pt-[72px]">{children}</main>
 
       {/* Global Public Footer */}
       <PublicFooter />

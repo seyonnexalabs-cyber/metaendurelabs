@@ -1,0 +1,35 @@
+[
+  {
+    "id": "sess-kanteerava-oct31",
+    "title": "Outdoor Running & Form Workshop",
+    "date": "31st October 2026",
+    "time": "06:00 AM - 07:30 AM",
+    "coach": "Sujai S",
+    "type": "run",
+    "location": "Kanteerava Stadium (400m Track)",
+    "status": "confirmed",
+    "capacity": { "current": 8, "max": 20 }
+  },
+  {
+    "id": "sess-hyrox-sim-01",
+    "title": "HYROX Race Simulation Heat 01",
+    "date": "2026-11-04",
+    "time": "06:30 AM - 08:00 AM",
+    "coach": "Coach Sunil Menon",
+    "type": "hyrox",
+    "location": "Arena Sled & SkiErg Bay",
+    "status": "confirmed",
+    "capacity": { "current": 10, "max": 16 }
+  },
+  {
+    "id": "sess-vo2-lab-02",
+    "title": "VO2 Max & Lactate Threshold Assessment",
+    "date": "2026-11-06",
+    "time": "09:00 AM - 10:30 AM",
+    "coach": "Dr. Sarah Jenkins",
+    "type": "lab",
+    "location": "Metabolic Testing Suite",
+    "status": "confirmed",
+    "capacity": { "current": 1, "max": 2 }
+  }
+]

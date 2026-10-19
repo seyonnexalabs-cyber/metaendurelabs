@@ -25,7 +25,7 @@ export const SessionCard: React.FC<SessionCardProps> = ({
   };
 
   return (
-    <div className="p-5 rounded-2xl bg-white dark:bg-[#070d09] border border-zinc-200 dark:border-white/10 shadow-sm hover:border-[#76C043]/40 transition-all space-y-4">
+    <div className="p-5 rounded-2xl glass-card-elevated hover:border-[#76C043]/50 transition-all space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border ${typeBadgeStyles[session.type] || typeBadgeStyles.lab}`}>

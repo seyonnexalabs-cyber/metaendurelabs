@@ -15,7 +15,7 @@ export default function AthleteDashboardLayout({
       {/* Main Content Area offset by 64 (16rem) on desktop */}
       <main className="flex-1 md:pl-64 min-h-screen flex flex-col">
         {/* Top Mini Header */}
-        <header className="h-16 border-b border-zinc-200 dark:border-zinc-800/80 bg-white/95 dark:bg-black/95 backdrop-blur-xl px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30">
+        <header className="h-16 glass-header px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30">
           <div className="flex items-center gap-3">
             <img
               src="/assets/images/metaendure-logo-horizontal.png"
@@ -40,7 +40,7 @@ export default function AthleteDashboardLayout({
         </header>
 
         {/* Dashboard Dynamic Content with bottom padding for mobile bottom nav */}
-        <div className="p-4 sm:p-6 md:p-8 pb-24 md:pb-8 flex-1">
+        <div className="p-3 sm:p-4 md:p-5 pb-20 md:pb-6 flex-1">
           {children}
         </div>
 

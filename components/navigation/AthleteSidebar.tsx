@@ -14,6 +14,7 @@ import {
   Flame,
   ArrowUpRight
 } from 'lucide-react';
+import { getSession, clearSession } from '@/lib/authSession';
 
 export const AthleteSidebar: React.FC = () => {
   const pathname = usePathname();
@@ -28,10 +29,10 @@ export const AthleteSidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="hidden md:flex w-64 bg-zinc-50 dark:bg-[#000000] border-r border-zinc-200 dark:border-white/10 h-screen fixed top-0 left-0 flex-col justify-between p-5 z-40">
+    <aside className="hidden md:flex w-64 glass-sidebar h-screen fixed top-0 left-0 flex-col justify-between p-5 z-40">
       <div>
         {/* Brand: Logo Left and Text Right */}
-        <Link href="/" className="flex items-center pb-6 border-b border-zinc-200 dark:border-white/10 mb-6">
+        <Link href="/" className="flex items-center pb-6 border-b border-zinc-200/60 dark:border-white/10 mb-6">
           <img
             src="/assets/images/metaendure-logo-horizontal.png"
             alt="METAENDURE LABS"
@@ -40,10 +41,10 @@ export const AthleteSidebar: React.FC = () => {
         </Link>
 
         {/* Athlete Micro Card */}
-        <div className="bg-white dark:bg-[#0d1510] border border-zinc-200 dark:border-[#76C043]/20 rounded-xl p-3 mb-6 shadow-sm">
+        <div className="glass-item rounded-2xl p-3.5 mb-6 border border-[#76C043]/20 dark:border-[#76C043]/30 shadow-sm">
           <div className="flex items-center justify-between text-xs mb-2">
             <span className="text-zinc-600 dark:text-[#bdcebe] font-heading font-semibold">Active Athlete</span>
-            <span className="flex items-center gap-1 text-[#76C043] font-mono text-[10px]">
+            <span className="flex items-center gap-1 text-[#2e7d32] dark:text-[#76C043] font-mono text-[10px]">
               <Flame className="w-3 h-3 text-[#76C043]" /> Zone 2 Block
             </span>
           </div>
@@ -56,8 +57,12 @@ export const AthleteSidebar: React.FC = () => {
               />
             </div>
             <div>
-              <div className="font-heading font-bold text-zinc-900 dark:text-white text-sm">Alex Mercer</div>
-              <div className="text-[11px] text-zinc-500 dark:text-[#788e7a] font-mono">IRONMAN 70.3 &bull; Wk 6</div>
+              <div className="font-heading font-bold text-zinc-900 dark:text-white text-sm">
+                {getSession()?.name || 'Alex Mercer'}
+              </div>
+              <div className="text-[11px] text-zinc-500 dark:text-[#788e7a] font-mono truncate max-w-[140px]">
+                {getSession()?.email || 'IRONMAN 70.3 • Wk 6'}
+              </div>
             </div>
           </div>
         </div>
@@ -87,15 +92,19 @@ export const AthleteSidebar: React.FC = () => {
 
       {/* Footer controls */}
       <div className="pt-4 border-t border-zinc-200 dark:border-white/10 flex flex-col gap-2">
-        <Link
-          href="/auth"
-          className="flex items-center justify-between text-xs text-zinc-600 dark:text-[#bdcebe] hover:text-red-600 dark:hover:text-red-400 transition-all py-2 px-2.5 rounded-lg hover:bg-red-500/10"
+        <button
+          type="button"
+          onClick={() => {
+            clearSession();
+            window.location.href = '/auth';
+          }}
+          className="flex items-center justify-between text-xs text-zinc-600 dark:text-[#bdcebe] hover:text-red-600 dark:hover:text-red-400 transition-all py-2 px-2.5 rounded-lg hover:bg-red-500/10 cursor-pointer w-full text-left"
         >
           <div className="flex items-center gap-2 font-medium">
             <LogOut className="w-3.5 h-3.5" />
             <span>Sign Out</span>
           </div>
-        </Link>
+        </button>
       </div>
     </aside>
   );

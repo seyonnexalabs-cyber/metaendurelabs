@@ -19,7 +19,7 @@ export default function AdminDashboardPage() {
   ]);
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto">
+    <div className="space-y-4 max-w-7xl mx-auto">
       {/* Top Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -40,9 +40,10 @@ export default function AdminDashboardPage() {
           </Link>
           <Link
             href="/admin/schedule"
-            className="px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-800 font-bold text-xs transition-all"
+            className="px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-800 font-bold text-xs transition-all flex items-center gap-1.5"
           >
-            Open Arena Wave
+            <Calendar className="w-3.5 h-3.5 text-blue-500" />
+            <span>Manage Training Schedule</span>
           </Link>
         </div>
       </div>
